@@ -11,7 +11,7 @@ const Home = () => {
 
   return (
     <main>
-      <p>HEY LET'S PUT SOME CONTENT HERE!!!</p>
+      <p>HEY LET'S PUT SOME CONTENT HERE!!! tweak</p>
       <div className="flex-row justify-center">
         <div
           className="col-12 col-md-10 mb-3 p-3"
