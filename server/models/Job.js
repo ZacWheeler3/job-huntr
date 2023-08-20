@@ -1,5 +1,4 @@
 const { Schema, model } = require('mongoose');
-const bcrypt = require('bcrypt');
 
 const jobSchema = new Schema({
   company: {
@@ -16,15 +15,11 @@ const jobSchema = new Schema({
     type: Number
   },
 
-// contactPerson: [
-//   // this is a separate entry that should populate with contactSchema
-// // name:
-// // phone:
-// // email:
+contactPeople: [
+'contactSchema'],
 
-// ],
-
-//   communicationLog: [
+//   communicationLogs: [
+// communicationLogsSchema
 // // incoming vs. outgoing
 // // time and date stamp
 // // form of communication: eg email vs. phone vs. in person
@@ -32,7 +27,7 @@ const jobSchema = new Schema({
 // // next step
 //   ]
 
-offer: {
+offerMade: {
   type: Boolean,
 },
 

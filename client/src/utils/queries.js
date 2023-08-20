@@ -1,4 +1,4 @@
-import { gql } from '@apollo/client';
+import { gql } from "@apollo/client";
 
 export const QUERY_USER = gql`
   query user($username: String!) {
@@ -10,9 +10,10 @@ export const QUERY_USER = gql`
       lastName
       savedJobs {
         _id
-        // INSERT STUFF FOR SAVED JOBS
-        
-        thoughtText
+        company
+        role
+        advertisedSalary
+        offerMade
         createdAt
       }
     }
@@ -53,10 +54,13 @@ export const QUERY_ME = gql`
       _id
       username
       email
-      thoughts {
+      savedJobs {
         _id
-        thoughtText
-        thoughtAuthor
+        company
+        role
+        advertisedSalary
+        offerMade
+        contactPeople
         createdAt
       }
     }
