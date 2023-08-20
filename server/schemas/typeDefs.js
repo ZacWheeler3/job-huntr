@@ -15,7 +15,6 @@ type Job {
   role: String!
   advertisedSalary: Int
   offerMade: Boolean
-  contactPeople: [Contact]!
   createdAt: String
   updatedAt: String
 }

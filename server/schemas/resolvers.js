@@ -67,14 +67,13 @@ const resolvers = {
     addJob: async (parent, { company,
       role,
       advertisedSalary,
-      offerMade, contactPeople }, context) => {
+      offerMade }, context) => {
       if (context.user) {
         const job = await Job.create({
           company,
           role,
           advertisedSalary,
           offerMade,
-          contactPeople
         });
 
         await User.findOneAndUpdate(

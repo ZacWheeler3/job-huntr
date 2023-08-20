@@ -13,8 +13,20 @@ export const LOGIN_USER = gql`
 `;
 
 export const ADD_USER = gql`
-  mutation addUser($username: String!, $email: String!, $password: String!) {
-    addUser(username: $username, email: $email, password: $password) {
+  mutation addUser(
+    $username: String!
+    $email: String!
+    $password: String!
+    $firstName: String
+    $lastName: String
+  ) {
+    addUser(
+      username: $username
+      email: $email
+      password: $password
+      firstName: $firstName
+      lastName: $lastName
+    ) {
       token
       user {
         _id
@@ -30,21 +42,18 @@ export const ADD_JOB = gql`
     $role: String!
     $advertisedSalary: Number
     $offerMade: Boolean
-    $contactPeople: [Contact]!
   ) {
     addJob(
       company: $company
       role: $role
       advertisedSalary: $advertisedSalary
       offerMade: $offerMade
-      contactPeople: $contactPeople
     ) {
       _id
       company
       role
       advertisedSalary
       offerMade
-      contactPeople
       createdAt
     }
   }
