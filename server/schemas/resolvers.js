@@ -1,4 +1,4 @@
-const { User, Job } = require("../models");
+const { User, Job, Contact } = require("../models");
 const { signToken, AuthenticationError } = require("../utils/auth");
 
 const resolvers = {
@@ -19,7 +19,7 @@ const resolvers = {
     me: async (parent, args, context) => {
       if (context.user) {
         return User.findOne(
-          { _id: context.user._id }.populate(savedJobs) //
+          { _id: context.user._id }//populate(savedJobs) //
         );
       }
       throw AuthenticationError;
@@ -67,7 +67,7 @@ const resolvers = {
     addJob: async (parent, { company,
       role,
       advertisedSalary,
-      offerMade }, context) => {
+      offerMade, contactPeople }, context) => {
       if (context.user) {
         const job = await Job.create({
           company,

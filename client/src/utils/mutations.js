@@ -30,18 +30,21 @@ export const ADD_JOB = gql`
     $role: String!
     $advertisedSalary: Number
     $offerMade: Boolean
+    $contactPeople: [Contact]!
   ) {
     addJob(
       company: $company
       role: $role
       advertisedSalary: $advertisedSalary
       offerMade: $offerMade
+      contactPeople: $contactPeople
     ) {
       _id
       company
       role
       advertisedSalary
       offerMade
+      contactPeople
       createdAt
     }
   }

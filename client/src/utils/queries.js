@@ -8,14 +8,7 @@ export const QUERY_USER = gql`
       email
       firstName
       lastName
-      savedJobs {
-        _id
-        company
-        role
-        advertisedSalary
-        offerMade
-        createdAt
-      }
+  
     }
   }
 `;
@@ -54,15 +47,7 @@ export const QUERY_ME = gql`
       _id
       username
       email
-      savedJobs {
-        _id
-        company
-        role
-        advertisedSalary
-        offerMade
-        contactPeople
-        createdAt
-      }
+      
     }
   }
 `;

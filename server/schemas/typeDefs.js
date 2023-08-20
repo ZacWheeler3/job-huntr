@@ -13,10 +13,20 @@ type Job {
   _id: ID
   company: String!
   role: String!
-  advertisedSalary: Number
+  advertisedSalary: Int
   offerMade: Boolean
   contactPeople: [Contact]!
-  createdAt: Date
+  createdAt: String
+  updatedAt: String
+}
+
+type Contact {
+  _id: ID
+  name: String!
+  role: String
+  phone: String
+  email: String
+
 }
 
   type Auth {
@@ -38,9 +48,9 @@ type Job {
     login(email: String!, password: String!): Auth
     addJob( company: String!
       role: String!
-      advertisedSalary: Number
+      advertisedSalary: Int
       offerMade: Boolean
-      contactPeople: [Contact]!): Job
+      ): Job
   }
 `;
 
