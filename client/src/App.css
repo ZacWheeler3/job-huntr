@@ -58,6 +58,7 @@ html {
   border-radius: 2rem;
   font-weight: 700;
   font-size: large;
+  transition: 0.4s ease-in;
 }
 
 .login-button:hover,
@@ -83,16 +84,17 @@ html {
   border-radius: 2rem;
   font-weight: 700;
   font-size: large;
+  transition: 0.4s ease-in;
 }
 
 .profile-button:hover {
-  background-color: #a180c8; 
-  color: #7340ad; 
+  background-color: #a180c8;
+  color: #7340ad;
 }
 
 .profile-button:active {
-  background-color: #7340ad; 
-  color: #7340ad; 
+  background-color: #7340ad;
+  color: #7340ad;
 }
 
 .logout-button {
@@ -107,15 +109,18 @@ html {
   border-radius: 2rem;
   font-weight: 700;
   font-size: large;
+  transition: 0.4s ease-in;
+  
 }
 .logout-button:hover {
-  background-color: #a180c8; 
-  color: #7340ad;  
+  background-color: #a180c8;
+  color: #7340ad;
+  transition: ease-in;
 }
 
 .login-button:active {
-  background-color: #7340ad; 
-  color: #7340ad; 
+  background-color: #7340ad;
+  color: #7340ad;
 }
 
 .login-box {
@@ -123,6 +128,25 @@ html {
   padding: 5rem;
   width: 75%;
   height: 150px;
+  animation: loginBox 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+  animation-duration: 0.5s;
+}
+
+@keyframes loginBox {
+  0% {
+    -webkit-transform: translateY(-600px) rotateX(-30deg) scale(0);
+    transform: translateY(-600px) rotateX(-30deg) scale(0);
+    -webkit-transform-origin: 50% 100%;
+    transform-origin: 50% 100%;
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateY(0) rotateX(0) scale(1);
+    transform: translateY(0) rotateX(0) scale(1);
+    -webkit-transform-origin: 50% 1400px;
+    transform-origin: 50% 1400px;
+    opacity: 1;
+  }
 }
 
 .signup-box {
@@ -130,10 +154,9 @@ html {
   padding: 5rem;
   width: 75%;
   height: 150px;
-  
+  animation: loginBox 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+  animation-duration: 0.5s;
 }
-
-
 
 body {
   margin: 0;
