@@ -9,14 +9,14 @@ const Header = () => {
   };
   return (
     <header className="header-container">
-      <div className="container flex-row justify-space-between-lg justify-center align-center">
-        <div>
+      <div className="header-box">
+        <div className="header-title">
           <Link className="text-light" to="/">
-            <h1 className="m-0">Job Huntr</h1>
+            <h1 className="site-title">Job Huntr</h1>
           </Link>
           <p>Job search made easy!</p>
         </div>
-        <div>
+        <div className="navbar-button">
           {Auth.loggedIn() ? (
             <>
               <Link className="btn btn-lg btn-info m-2" to="/me">
@@ -28,10 +28,10 @@ const Header = () => {
             </>
           ) : (
             <>
-              <Link className="btn btn-lg btn-info m-2" to="/login">
+              <Link className="login-button" to="/login">
                 Login
               </Link>
-              <Link className="btn btn-lg btn-light m-2" to="/signup">
+              <Link className="signup-button" to="/signup">
                 Signup
               </Link>
             </>

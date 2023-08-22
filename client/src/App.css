@@ -6,21 +6,71 @@ html {
 }
 
 .header-container {
-  background-color: #632ba4;
+  background: rgb(2, 0, 36);
+  background: radial-gradient(
+    circle,
+    rgba(2, 0, 36, 1) 0%,
+    rgba(99, 43, 164, 0.2721463585434174) 0%
+  );
 }
 
-.m-0 {
-  font-size: 3.5rem;
+.header-box {
   display: flex;
+  justify-content: space-between;
+  margin: 2rem;
+}
+
+.header-title {
+  padding-left: 10rem;
+}
+
+.header-title p {
+  color: #a180c8;
+  font-size: 1.5rem;
+}
+
+.site-title {
+  font-size: 3.5rem;
   text-decoration: none;
+}
+
+.navbar-button {
+  padding-right: 10rem;
+  /* display: flex;
+  align-items: center; */
+}
+
+.login-button,
+.signup-button {
+  display: inline-block;
+  padding: 15px 25px;
+  background-color: #7340ad;
+  color: white;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  margin: 1rem;
+  border-radius: 2rem;
+  font-weight: 700;
+  font-size: large;
+}
+
+.login-button:hover,
+.signup-button:hover {
+  background-color: #a180c8;
+}
+
+.login-button:active,
+.signup-button:active {
+  background-color: #7340ad;
 }
 
 body {
   margin: 0;
-  background: rgb(69, 30, 115);
+  background: rgb(99, 43, 164);
   background: linear-gradient(
     0deg,
-    rgba(69, 30, 115, 1) 0%,
+    rgba(99, 43, 164, 1) 0%,
     rgba(0, 0, 0, 1) 100%
   );
 }
@@ -69,6 +119,7 @@ pre {
 
 a {
   background-color: transparent;
+  text-decoration: none;
 }
 
 /**
@@ -428,7 +479,7 @@ a {
 
 a:hover {
   color: #065b83;
-  text-decoration: underline;
+  text-decoration: none;
 }
 
 /* HEIGHT / WIDTH UTILS */
