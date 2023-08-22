@@ -63,12 +63,77 @@ html {
 .login-button:hover,
 .signup-button:hover {
   background-color: #a180c8;
+  color: #7340ad;
 }
 
 .login-button:active,
 .signup-button:active {
   background-color: #7340ad;
 }
+
+.profile-button {
+  display: inline-block;
+  padding: 15px 25px;
+  background-color: #7340ad;
+  color: white;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  margin: 1rem;
+  border-radius: 2rem;
+  font-weight: 700;
+  font-size: large;
+}
+
+.profile-button:hover {
+  background-color: #a180c8; 
+  color: #7340ad; 
+}
+
+.profile-button:active {
+  background-color: #7340ad; 
+  color: #7340ad; 
+}
+
+.logout-button {
+  display: inline-block;
+  padding: 15px 25px;
+  background-color: #7340ad;
+  color: white;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  margin: 1rem;
+  border-radius: 2rem;
+  font-weight: 700;
+  font-size: large;
+}
+.logout-button:hover {
+  background-color: #a180c8; 
+  color: #7340ad;  
+}
+
+.login-button:active {
+  background-color: #7340ad; 
+  color: #7340ad; 
+}
+
+.login-box {
+  margin: 5rem;
+  padding: 5rem;
+  width: 75%;
+  height: 150px;
+}
+
+.signup-box {
+  margin: 5rem;
+  padding: 5rem;
+  width: 75%;
+  height: 150px;
+  
+}
+
+
 
 body {
   margin: 0;
@@ -478,7 +543,7 @@ button {
 }
 
 a {
-  color: #1b89bc;
+  color: #065b83;
   text-decoration: none;
 }
 
@@ -1067,7 +1132,7 @@ a:hover {
 }
 
 .btn.btn-primary {
-  background-color: #2d3e50;
+  background-color: #a180c8;
   color: #d9e9e8;
 }
 
@@ -1076,7 +1141,7 @@ a:hover {
 }
 
 .btn.btn-danger {
-  background-color: #e64c66;
+  background-color: #ff002b;
   color: #ffffff;
 }
 
