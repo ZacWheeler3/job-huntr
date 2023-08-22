@@ -1,10 +1,7 @@
 import { useQuery } from "@apollo/client";
 import { useMutation } from "@apollo/client";
 
-import ThoughtList from "../components/ThoughtList";
-import ThoughtForm from "../components/ThoughtForm";
 
-import ThoughtList from '../components/ThoughtList';
 import JobForm from '../components/JobForm';
 
 import { QUERY_THOUGHTS } from '../utils/queries';
