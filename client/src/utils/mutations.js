@@ -40,7 +40,7 @@ export const ADD_JOB = gql`
   mutation addJob(
     $company: String!
     $role: String!
-    $advertisedSalary: Number
+    $advertisedSalary: Int
     $offerMade: Boolean
   ) {
     addJob(

@@ -47,7 +47,7 @@ export const QUERY_ME = gql`
       _id
       username
       email
-      
+     savedJobs{company, role, advertisedSalary, offerMade} 
     }
   }
 `;

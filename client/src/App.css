@@ -58,16 +58,104 @@ html {
   border-radius: 2rem;
   font-weight: 700;
   font-size: large;
+  transition: 0.4s ease-in;
 }
 
 .login-button:hover,
 .signup-button:hover {
   background-color: #a180c8;
+  color: #7340ad;
 }
 
 .login-button:active,
 .signup-button:active {
   background-color: #7340ad;
+}
+
+.profile-button {
+  display: inline-block;
+  padding: 15px 25px;
+  background-color: #7340ad;
+  color: white;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  margin: 1rem;
+  border-radius: 2rem;
+  font-weight: 700;
+  font-size: large;
+  transition: 0.4s ease-in;
+}
+
+.profile-button:hover {
+  background-color: #a180c8;
+  color: #7340ad;
+}
+
+.profile-button:active {
+  background-color: #7340ad;
+  color: #7340ad;
+}
+
+.logout-button {
+  display: inline-block;
+  padding: 15px 25px;
+  background-color: #7340ad;
+  color: white;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  margin: 1rem;
+  border-radius: 2rem;
+  font-weight: 700;
+  font-size: large;
+  transition: 0.4s ease-in;
+  
+}
+.logout-button:hover {
+  background-color: #a180c8;
+  color: #7340ad;
+  transition: ease-in;
+}
+
+.login-button:active {
+  background-color: #7340ad;
+  color: #7340ad;
+}
+
+.login-box {
+  margin: 5rem;
+  padding: 5rem;
+  width: 75%;
+  height: 150px;
+  animation: loginBox 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+  animation-duration: 0.5s;
+}
+
+@keyframes loginBox {
+  0% {
+    -webkit-transform: translateY(-600px) rotateX(-30deg) scale(0);
+    transform: translateY(-600px) rotateX(-30deg) scale(0);
+    -webkit-transform-origin: 50% 100%;
+    transform-origin: 50% 100%;
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateY(0) rotateX(0) scale(1);
+    transform: translateY(0) rotateX(0) scale(1);
+    -webkit-transform-origin: 50% 1400px;
+    transform-origin: 50% 1400px;
+    opacity: 1;
+  }
+}
+
+.signup-box {
+  margin: 5rem;
+  padding: 5rem;
+  width: 75%;
+  height: 150px;
+  animation: loginBox 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+  animation-duration: 0.5s;
 }
 
 body {
@@ -478,7 +566,7 @@ button {
 }
 
 a {
-  color: #1b89bc;
+  color: #065b83;
   text-decoration: none;
 }
 
@@ -1067,7 +1155,7 @@ a:hover {
 }
 
 .btn.btn-primary {
-  background-color: #2d3e50;
+  background-color: #a180c8;
   color: #d9e9e8;
 }
 
@@ -1076,7 +1164,7 @@ a:hover {
 }
 
 .btn.btn-danger {
-  background-color: #e64c66;
+  background-color: #ff002b;
   color: #ffffff;
 }
 
