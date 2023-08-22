@@ -5,6 +5,11 @@ html {
   /* 2 */
 }
 
+.links {
+  display: flex;
+  flex-direction: column;
+}
+
 .header-container {
   background-color: #632ba4;
 }
