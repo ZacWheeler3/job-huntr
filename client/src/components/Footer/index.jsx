@@ -1,5 +1,5 @@
 import { useLocation, useNavigate } from 'react-router-dom';
-
+import { GiOpenChest, Gi3DStairs } from 'react-icons/gi'
 const Footer = () => {
   const location = useLocation();
   const navigate = useNavigate();
@@ -15,16 +15,11 @@ const Footer = () => {
           </button>
         )}
         <h4>
-          Made with{' '}
-          <span
-            className="emoji"
-            role="img"
-            aria-label="heart"
-            aria-hidden="false"
-          >
-            ❤️
-          </span>{' '}
-          by the Tech Thoughts team.
+          Job Huntr{' '}
+          <GiOpenChest/>
+          <Gi3DStairs/>
+          {' '}
+          2023.
         </h4>
       </div>
     </footer>

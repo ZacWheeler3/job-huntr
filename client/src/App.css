@@ -175,6 +175,23 @@ body {
   );
 }
 
+#email-input, #password-input {
+padding-left: 3rem;
+}
+
+
+.lock-icon {
+  position: absolute;
+  margin-top: .5rem;
+  margin-left: .5rem;
+}
+
+.form-input {
+  padding-left: 3rem;
+}
+/**
+ * Render the `main` element consistently in IE.
+ */
 main {
   display: flex;
   flex-wrap: wrap;
