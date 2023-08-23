@@ -7,6 +7,7 @@ const typeDefs = `
     firstName: String
     lastName: String
    savedJobs: [Job]!
+   savedQuestions: [CommonQuestions!]
   }
 
 type Job {
@@ -28,10 +29,18 @@ type Contact {
 
 }
 
+type CommonQuestions {
+  _id: ID
+  question: String!
+  response: String!
+}
+
   type Auth {
     token: ID!
     user: User
   }
+
+
 
   type Query {
     users: [User]
@@ -50,6 +59,7 @@ type Contact {
       advertisedSalary: Int
       offerMade: Boolean
       ): Job
+      addQuestion(question: String!, response: String!): CommonQuestions
   }
 `;
 

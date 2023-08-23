@@ -1,4 +1,4 @@
-const { User, Job, Contact } = require("../models");
+const { User, Job, Contact, CommonQuestions } = require("../models");
 const { signToken, AuthenticationError } = require("../utils/auth");
 
 const resolvers = {
@@ -63,11 +63,11 @@ const resolvers = {
       return { token, user };
     },
     addJob: async (
-      parent,
+      _parent,
       { company, role, advertisedSalary, offerMade },
       context
     ) => {
-      console.log('context.user:', context.user)
+      console.log("context.user:", context.user);
       if (!context.user) {
         throw AuthenticationError;
       }
@@ -86,58 +86,75 @@ const resolvers = {
       console.log(context.user._id);
       return job;
     },
+    addQuestion: async (_parent, { question, response }, context) => {
+      if (!context.user) {
+        throw AuthenticationError;
+      }
+      const newQuestion = await CommonQuestions.create({
+        question,
+        response,
+      });
 
-    // addComment: async (parent, { thoughtId, commentText }, context) => {
-    //   if (context.user) {
-    //     return Thought.findOneAndUpdate(
-    //       { _id: thoughtId },
-    //       {
-    //         $addToSet: {
-    //           comments: { commentText, commentAuthor: context.user.username },
-    //         },
-    //       },
-    //       {
-    //         new: true,
-    //         runValidators: true,
-    //       }
-    //     );
-    //   }
-    //   throw AuthenticationError;
-    // },
-    // removeThought: async (parent, { thoughtId }, context) => {
-    //   if (context.user) {
-    //     const thought = await Thought.findOneAndDelete({
-    //       _id: thoughtId,
-    //       thoughtAuthor: context.user.username,
-    //     });
-
-    //     await User.findOneAndUpdate(
-    //       { _id: context.user._id },
-    //       { $pull: { thoughts: thought._id } }
-    //     );
-
-    //     return thought;
-    //   }
-    //   throw AuthenticationError;
-    // },
-    // removeComment: async (parent, { thoughtId, commentId }, context) => {
-    //   if (context.user) {
-    //     return Thought.findOneAndUpdate(
-    //       { _id: thoughtId },
-    //       {
-    //         $pull: {
-    //           comments: {
-    //             _id: commentId,
-    //             commentAuthor: context.user.username,
-    //           },
-    //         },
-    //       },
-    //       { new: true }
-    //     );
-    //   }
-    //   throw AuthenticationError;
-    // },
+      await User.findOneAndUpdate(
+        { _id: context.user._id },
+        { $addToSet: { savedQuestions: newQuestion._id } },
+        { new: true, runValidators: true }
+      );
+      console.log(context.user._id);
+      console.log("new question added:", newQuestion);
+      return newQuestion;
+    },
   },
 };
 
 module.exports = resolvers;
+// addComment: async (parent, { thoughtId, commentText }, context) => {
+//   if (context.user) {
+//     return Thought.findOneAndUpdate(
+//       { _id: thoughtId },
+//       {
+//         $addToSet: {
+//           comments: { commentText, commentAuthor: context.user.username },
+//         },
+//       },
+//       {
+//         new: true,
+//         runValidators: true,
+//       }
+//     );
+//   }
+//   throw AuthenticationError;
+// },
+// removeThought: async (parent, { thoughtId }, context) => {
+//   if (context.user) {
+//     const thought = await Thought.findOneAndDelete({
+//       _id: thoughtId,
+//       thoughtAuthor: context.user.username,
+//     });
+
+//     await User.findOneAndUpdate(
+//       { _id: context.user._id },
+//       { $pull: { thoughts: thought._id } }
+//     );
+
+//     return thought;
+//   }
+//   throw AuthenticationError;
+// },
+// removeComment: async (parent, { thoughtId, commentId }, context) => {
+//   if (context.user) {
+//     return Thought.findOneAndUpdate(
+//       { _id: thoughtId },
+//       {
+//         $pull: {
+//           comments: {
+//             _id: commentId,
+//             commentAuthor: context.user.username,
+//           },
+//         },
+//       },
+//       { new: true }
+//     );
+//   }
+//   throw AuthenticationError;
+// },
