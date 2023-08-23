@@ -13,13 +13,12 @@ const Home = () => {
       <p className="links">
         <a href="">User Settings</a>
         <a href="">My Terms</a>
-        <a href=""><LINK:atom></LINK:atom></a>
-
+        <a href="">link</a>
         <a href="">My Applications</a>
         <a href="">Follow-Ups</a>
         <a href="">Common Questions</a>
       </p>
-      <div className="flex-row justify-center">
+      <div className="main-body">
         <div
           className="col-12 col-md-10 mb-3 p-3"
           style={{ border: '1px dotted #1a1a1a' }}
