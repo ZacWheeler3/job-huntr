@@ -55,7 +55,13 @@ export const ADD_JOB = gql`
       company
       role
       advertisedSalary
-      contactPerson
+      contactPerson {
+        name
+        role
+        phone
+        email
+        notes
+      }
       offerMade
       createdAt
     }

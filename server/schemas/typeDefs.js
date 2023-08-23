@@ -20,7 +20,6 @@ type Job {
 }
 
 type ContactPerson {
-  _id: ID
   name: String!
   role: String
   phone: String

@@ -68,10 +68,6 @@ const resolvers = {
       { company, role, advertisedSalary, offerMade, contactPerson },
       context
     ) => {
-      const contact = await Contact.create({
-
-      })
-
       if (!context.user) {
         throw AuthenticationError;
       }

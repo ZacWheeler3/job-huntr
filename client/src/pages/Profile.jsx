@@ -61,6 +61,7 @@ const Profile = () => {
                   </>
                 );
               }
+              console.log(contactInfo);
               return (
                 <li key={index}>
                   Company: {job.company}, Role: {job.role}, Salary:{" "}
