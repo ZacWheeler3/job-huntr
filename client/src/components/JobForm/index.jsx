@@ -119,8 +119,8 @@ const JobForm = () => {
                 name="contactPersonName"
                 placeholder="Contact Person Name"
                 value={contactPersonName}
-                onChange={(e) => setRole(e.target.value)}
-                required
+                onChange={(e) => setContactPersonName(e.target.value)}
+                
               />
             </div>
             <div className="form-group">
@@ -129,7 +129,7 @@ const JobForm = () => {
                 name="contactPersonRole"
                 placeholder="Contact Person Role"
                 value={contactPersonRole}
-                onChange={(e) => setRole(e.target.value)}
+                onChange={(e) => setContactPersonRole(e.target.value)}
                 
               />
             </div>
@@ -139,7 +139,7 @@ const JobForm = () => {
                 name="contactPersonPhone"
                 placeholder="Contact Person Phone"
                 value={contactPersonPhone}
-                onChange={(e) => setRole(e.target.value)}
+                onChange={(e) => setContactPersonPhone(e.target.value)}
                 
               />
             </div>
@@ -149,7 +149,7 @@ const JobForm = () => {
                 name="contactPersonEmail"
                 placeholder="Contact Person Email"
                 value={contactPersonEmail}
-                onChange={(e) => setRole(e.target.value)}
+                onChange={(e) => setContactPersonEmail(e.target.value)}
                 
               />
             </div>
@@ -159,7 +159,7 @@ const JobForm = () => {
                 name="contactPersonNotes"
                 placeholder="Contact Person Notes"
                 value={contactPersonNotes}
-                onChange={(e) => setRole(e.target.value)}
+                onChange={(e) => setContactPersonNotes(e.target.value)}
                 
               />
             </div>
