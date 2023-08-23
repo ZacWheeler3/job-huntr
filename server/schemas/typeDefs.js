@@ -15,6 +15,7 @@ type Job {
   advertisedSalary: Int
   offerMade: Boolean
   contactPerson: ContactPerson
+  comLogArray: [ComLog]!
   createdAt: String
   updatedAt: String
 }
@@ -35,6 +36,13 @@ input ContactPersonInput {
   notes: String
 }
 
+type ComLog {
+  method: String!
+  content: String!
+  direction: String!
+}
+
+
   type Auth {
     token: ID!
     user: User
@@ -46,7 +54,8 @@ input ContactPersonInput {
     me: User
     jobs: [Job]
     job(_id: ID): Job
-
+    comLogs: [ComLog]
+    comLog(_id: ID): ComLog
   }
 
   type Mutation {
@@ -58,6 +67,10 @@ input ContactPersonInput {
       offerMade: Boolean
       contactPerson: ContactPersonInput
       ): Job
+    addComLog(method: String!
+      content: String!
+      direction: String!
+      ): ComLog
   }
 `;
 

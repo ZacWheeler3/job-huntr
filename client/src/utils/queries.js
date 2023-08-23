@@ -12,6 +12,7 @@ export const QUERY_USER = gql`
   }
 `;
 
+// DELETE THOUGHTS AND SINGLE THOUGHT THEY'RE LEFTOVERS
 export const QUERY_THOUGHTS = gql`
   query getThoughts {
     thoughts {

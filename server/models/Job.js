@@ -54,6 +54,12 @@ const jobSchema = new Schema(
         required: false,
       },
     },
+    comLogArray: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: "ComLog",
+      },
+    ],
   },
 
   { timeStamp: true }
