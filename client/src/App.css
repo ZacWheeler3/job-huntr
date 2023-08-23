@@ -168,7 +168,7 @@ body {
   );
 }
 
-#email-input, #password-input {
+#email-input, #password-input, #username-input {
 padding-left: 3rem;
 }
 

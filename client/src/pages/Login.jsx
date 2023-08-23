@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { useMutation } from "@apollo/client";
 import { LOGIN_USER } from "../utils/mutations";
 import { AiOutlineLock as PasswordIcon } from "react-icons/ai";
-import { HiOutlineMail as EmailIcon } from "react-icons/hi"
+import { HiOutlineMail as EmailIcon } from "react-icons/hi";
 import Auth from "../utils/auth";
 import { Iceburger } from "react-iceburger";
 
@@ -56,21 +56,30 @@ const Login = (props) => {
             ) : (
               <form onSubmit={handleFormSubmit}>
                 <div className="input-container">
-                  <EmailIcon size={"2rem"}color="black" className="lock-icon"/>
+                  <EmailIcon
+                    size={"2rem"}
+                    color="black"
+                    className="lock-icon"
+                  />
                   <input
-                    className="form-input" id="email-input"
+                    className="form-input"
+                    id="email-input"
                     placeholder="Email"
                     name="email"
                     type="email"
                     value={formState.email}
                     onChange={handleChange}
-                    
                   ></input>
                 </div>
                 <div className="input-container">
-                <PasswordIcon size={"2rem"}color="black" className="lock-icon"/>
+                  <PasswordIcon
+                    size={"2rem"}
+                    color="black"
+                    className="lock-icon"
+                  />
                   <input
-                    className="form-input" id="password-input"
+                    className="form-input"
+                    id="password-input"
                     placeholder="Password"
                     name="password"
                     type="password"
@@ -87,7 +96,6 @@ const Login = (props) => {
                 </button>
               </form>
             )}
-            
 
             {error && (
               <div className="my-3 p-3 bg-danger text-white">
@@ -97,7 +105,7 @@ const Login = (props) => {
           </div>
         </div>
       </div>
-      <Iceburger/>
+      <Iceburger />
     </main>
   );
 };
