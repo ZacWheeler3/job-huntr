@@ -13,6 +13,12 @@ const JobForm = () => {
   const [role, setRole] = useState("");
   const [advertisedSalary, setAdvertisedSalary] = useState("");
   const [offerMade, setOfferMade] = useState(false);
+  const [contactPersonName, setContactPersonName] = useState("");
+  const [contactPersonRole, setContactPersonRole] = useState("");
+  const [contactPersonPhone, setContactPersonPhone] = useState("");
+  const [contactPersonEmail, setContactPersonEmail] = useState("");
+  const [contactPersonNotes, setContactPersonNotes] = useState("");
+
 
   // const [thoughtText, setThoughtText] = useState('');
 
@@ -23,6 +29,14 @@ const JobForm = () => {
   const handleFormSubmit = async (event) => {
     event.preventDefault();
 
+    const contactPerson = {
+      name: contactPersonName,
+      role: contactPersonRole,
+      phone: contactPersonPhone,
+      email: contactPersonEmail,
+      notes: contactPersonNotes
+    }
+
     try {
       const { data } = await addJob({
         variables: {
@@ -30,12 +44,18 @@ const JobForm = () => {
           role,
           advertisedSalary: parseInt(advertisedSalary, 10),
           offerMade,
+          contactPerson
         },
       });
       setCompany("");
       setRole("");
       setAdvertisedSalary("");
       setOfferMade(false);
+      setContactPersonName("");
+      setContactPersonRole("");
+      setContactPersonPhone("");
+      setContactPersonEmail("");
+      setContactPersonNotes("");
       // setThoughtText('');
     } catch (err) {
       console.error(err);
@@ -94,6 +114,58 @@ const JobForm = () => {
             </div>
 
             <div className="form-group">
+              <input
+                type="text"
+                name="contactPersonName"
+                placeholder="Contact Person Name"
+                value={contactPersonName}
+                onChange={(e) => setRole(e.target.value)}
+                required
+              />
+            </div>
+            <div className="form-group">
+              <input
+                type="text"
+                name="contactPersonRole"
+                placeholder="Contact Person Role"
+                value={contactPersonRole}
+                onChange={(e) => setRole(e.target.value)}
+                
+              />
+            </div>
+            <div className="form-group">
+              <input
+                type="text"
+                name="contactPersonPhone"
+                placeholder="Contact Person Phone"
+                value={contactPersonPhone}
+                onChange={(e) => setRole(e.target.value)}
+                
+              />
+            </div>
+            <div className="form-group">
+              <input
+                type="text"
+                name="contactPersonEmail"
+                placeholder="Contact Person Email"
+                value={contactPersonEmail}
+                onChange={(e) => setRole(e.target.value)}
+                
+              />
+            </div>
+            <div className="form-group">
+              <input
+                type="text"
+                name="contactPersonNotes"
+                placeholder="Contact Person Notes"
+                value={contactPersonNotes}
+                onChange={(e) => setRole(e.target.value)}
+                
+              />
+            </div>
+
+
+            <div className="form-group">
               <button className="btn btn-primary" type="submit">
                 Add Job
               </button>
@@ -106,7 +178,7 @@ const JobForm = () => {
         </>
       ) : (
         <p>
-          You need to be logged in to share your thoughts. Please{" "}
+          You need to be logged in to add a job. Please{" "}
           <Link to="/login">login</Link> or <Link to="/signup">signup.</Link>
         </p>
       )}
