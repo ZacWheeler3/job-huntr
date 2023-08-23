@@ -110,7 +110,6 @@ html {
   font-weight: 700;
   font-size: large;
   transition: 0.4s ease-in;
-  
 }
 .logout-button:hover {
   background-color: #a180c8;
@@ -167,6 +166,68 @@ body {
     rgba(0, 0, 0, 1) 100%
   );
 }
+
+#email-input,
+#password-input,
+#username-input {
+  padding-left: 3rem;
+}
+
+.lock-icon {
+  position: absolute;
+  margin-top: 0.5rem;
+  margin-left: 0.5rem;
+}
+
+.form-input {
+  padding-left: 3rem;
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 2rem;
+  margin-top: 10rem;
+  margin-left: -2rem;
+  
+}
+
+.footer-section li {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  list-style: none;
+  margin-right: 3rem;
+  padding: 0.4rem;
+  font-size: 1.4rem;
+  }
+
+.footer-section li a {
+  color:#a180c8;
+  font-weight: 500;
+}
+
+.footer-section li a:hover {
+  color: #000;
+}
+
+.footer-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 3rem;
+  display: flex;
+  padding: 1rem;
+  color: #ffff;
+}
+
+.trademark-icon {
+  margin-top: 4rem;
+  color: #ffffff;
+  font-size: 1.8rem;
+}
+
 
 /**
  * Render the `main` element consistently in IE.
