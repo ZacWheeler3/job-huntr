@@ -18,7 +18,8 @@ const resolvers = {
     // },
     me: async (parent, args, context) => {
       if (context.user) {
-        return User.findOne({ _id: context.user._id }).populate("savedJobs");
+        return User.findOne({ _id: context.user._id }).populate("savedJobs").populate('savedJobs.contactPerson')
+        ;
       }
       throw AuthenticationError;
     },
@@ -64,10 +65,9 @@ const resolvers = {
     },
     addJob: async (
       parent,
-      { company, role, advertisedSalary, offerMade },
+      { company, role, advertisedSalary, offerMade, contactPerson },
       context
     ) => {
-      console.log('context.user:', context.user)
       if (!context.user) {
         throw AuthenticationError;
       }
@@ -76,6 +76,7 @@ const resolvers = {
         role,
         advertisedSalary,
         offerMade,
+        contactPerson
       });
 
       await User.findOneAndUpdate(
