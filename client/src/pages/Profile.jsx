@@ -3,7 +3,7 @@ import { useQuery } from '@apollo/client';
 
 // TO DO: move ADD_JOB and associated stuff into its own file?
 
-import ThoughtForm from '../components/ThoughtForm';
+import JobForm from '../components/JobForm';
 import ThoughtList from '../components/ThoughtList';
 
 import { QUERY_USER, QUERY_ME } from '../utils/queries';
@@ -45,6 +45,17 @@ const Profile = () => {
         </h2>
 
         <div className="col-12 col-md-10 mb-5">
+          <p>{user.username}</p>
+          <p>{user.firstName}</p>
+          <p>{user.lastName}</p>
+          <ul>
+  {user.savedJobs.map((job, index) => (
+    <li key={index}>
+      Company: {job.company}, Role: {job.role}, Salary: {job.advertisedSalary}
+      Offer made? {job.offerMade}
+    </li>
+  ))}
+</ul>
           {/* <ThoughtList
             thoughts={user.thoughts}
             title={`${user.username}'s thoughts...`}
