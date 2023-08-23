@@ -2,9 +2,14 @@ import { useQuery } from "@apollo/client";
 import { useMutation } from "@apollo/client";
 
 
+
+import { QUERY_THOUGHTS } from "../utils/queries";
+import { Iceburger } from "react-iceburger";
+
 import JobForm from '../components/JobForm';
 
-import { QUERY_THOUGHTS } from '../utils/queries';
+
+
 
 
 const Home = () => {
@@ -13,12 +18,13 @@ const Home = () => {
       <p className="links">
         <a href="">User Settings</a>
         <a href="">My Terms</a>
-        <a href=""><LINK:atom></LINK:atom></a>
+        <a href=""></a>
 
         <a href="">My Applications</a>
         <a href="">Follow-Ups</a>
         <a href="">Common Questions</a>
       </p>
+      <Iceburger color="white" />
       <div className="flex-row justify-center">
         <div
           className="col-12 col-md-10 mb-3 p-3"
