@@ -96,6 +96,21 @@ const resolvers = {
       return job;
     },
 
+
+    updateJob: async (parent, { _id, company, role, offerMade }) => {
+      const job = { _id, company, role, offerMade}
+     await Job.findOneAndUpdate(
+        { _id: _id },
+        { company, role, offerMade },
+        { new: true }
+      );
+
+      return job;
+    
+    throw AuthenticationError;
+    ('You need to be logged in!');
+  },
+
     addComLog: async (parent, { method, content, direction }, context) => {
       if (!context.job) {
         throw AuthenticationError;
