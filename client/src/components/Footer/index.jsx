@@ -52,7 +52,7 @@ const Footer = () => {
             <h2 className="footer-box">About</h2>
             <ul>
               <li>
-                <a href="https://www.kickresume.com/en/resume-checker/">
+                <a href="/about">
                   Meet the Developers
                 </a>
               </li>
