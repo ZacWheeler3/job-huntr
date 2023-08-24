@@ -48,6 +48,7 @@ type CommonQuestions {
     me: User
     jobs: [Job]
     job(_id: ID): Job
+    questions: [CommonQuestions]
 
   }
 
@@ -60,6 +61,7 @@ type CommonQuestions {
       offerMade: Boolean
       ): Job
       addQuestion(question: String!, response: String!): CommonQuestions
+      updateQuestion(_id:ID!, question: String, response: String): CommonQuestions
   }
 `;
 

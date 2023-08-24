@@ -9,13 +9,7 @@ const resolvers = {
     user: async (parent, { username }) => {
       return User.findOne({ username });
     },
-    // thoughts: async (parent, { username }) => {
-    //   const params = username ? { username } : {};
-    //   return Thought.find(params).sort({ createdAt: -1 });
-    // },
-    // thought: async (parent, { thoughtId }) => {
-    //   return Thought.findOne({ _id: thoughtId });
-    // },
+
     me: async (parent, args, context) => {
       if (context.user) {
         return User.findOne({ _id: context.user._id }).populate("savedJobs");
@@ -27,6 +21,9 @@ const resolvers = {
     },
     job: async (parent, { _id }) => {
       return Job.findOne({ _id });
+    },
+    questions: async () => {
+      return CommonQuestions.find();
     },
   },
 
@@ -104,57 +101,18 @@ const resolvers = {
       console.log("new question added:", newQuestion);
       return newQuestion;
     },
+    updateQuestion: async (_parent, { _id, question, response }) => {
+      const updatedQuestion = { _id, question, response };
+      await CommonQuestions.findOneAndUpdate(
+        { _id: _id },
+        { question, response },
+        { new: true }
+      );
+
+      return updatedQuestion;
+    },
   },
 };
 
 module.exports = resolvers;
-// addComment: async (parent, { thoughtId, commentText }, context) => {
-//   if (context.user) {
-//     return Thought.findOneAndUpdate(
-//       { _id: thoughtId },
-//       {
-//         $addToSet: {
-//           comments: { commentText, commentAuthor: context.user.username },
-//         },
-//       },
-//       {
-//         new: true,
-//         runValidators: true,
-//       }
-//     );
-//   }
-//   throw AuthenticationError;
-// },
-// removeThought: async (parent, { thoughtId }, context) => {
-//   if (context.user) {
-//     const thought = await Thought.findOneAndDelete({
-//       _id: thoughtId,
-//       thoughtAuthor: context.user.username,
-//     });
-
-//     await User.findOneAndUpdate(
-//       { _id: context.user._id },
-//       { $pull: { thoughts: thought._id } }
-//     );
-
-//     return thought;
-//   }
-//   throw AuthenticationError;
-// },
-// removeComment: async (parent, { thoughtId, commentId }, context) => {
-//   if (context.user) {
-//     return Thought.findOneAndUpdate(
-//       { _id: thoughtId },
-//       {
-//         $pull: {
-//           comments: {
-//             _id: commentId,
-//             commentAuthor: context.user.username,
-//           },
-//         },
-//       },
-//       { new: true }
-//     );
-//   }
-//   throw AuthenticationError;
-// },
+//
