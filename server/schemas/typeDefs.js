@@ -56,8 +56,8 @@ input ContactPersonInput {
       role: String!
       advertisedSalary: Int
       offerMade: Boolean
-      contactPerson: ContactPersonInput
       ): Job
+    updateJob(_id: ID!, company: String, role: String, offerMade: Boolean): Job
   }
 `;
 
