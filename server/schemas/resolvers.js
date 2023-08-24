@@ -1,4 +1,4 @@
-const { User, Job, Contact } = require("../models");
+const { User, Job, ComLog } = require("../models");
 const { signToken, AuthenticationError } = require("../utils/auth");
 
 const resolvers = {
@@ -18,8 +18,9 @@ const resolvers = {
     // },
     me: async (parent, args, context) => {
       if (context.user) {
-        return User.findOne({ _id: context.user._id }).populate("savedJobs").populate('savedJobs.contactPerson')
-        ;
+        return User.findOne({ _id: context.user._id })
+          .populate("savedJobs")
+          .populate("savedJobs.contactPerson");
       }
       throw AuthenticationError;
     },
@@ -27,7 +28,15 @@ const resolvers = {
       return Job.find();
     },
     job: async (parent, { _id }) => {
-      return Job.findOne({ _id });
+      return Job.findOne({ _id })
+        .populate("contactPerson")
+        .populate("comLogArray");
+    },
+    comLogs: async () => {
+      return ComLog.find();
+    },
+    comLog: async () => {
+      return ComLog.findOne({ _id });
     },
   },
 
@@ -76,7 +85,7 @@ const resolvers = {
         role,
         advertisedSalary,
         offerMade,
-        contactPerson
+        contactPerson,
       });
 
       await User.findOneAndUpdate(
@@ -84,8 +93,25 @@ const resolvers = {
         { $addToSet: { savedJobs: job._id } },
         { new: true, runValidators: true }
       );
-      console.log(context.user._id);
       return job;
+    },
+
+    addComLog: async (parent, { method, content, direction }, context) => {
+      if (!context.job) {
+        throw AuthenticationError;
+      }
+      const comLog = await ComLog.create({
+        method,
+        content,
+        direction,
+      });
+
+      await Job.findOneAndUpdate(
+        { _id: context.job._id },
+        { $addToSet: { comLogArray: comLog._id } },
+        { new: true, runValidators: true }
+      );
+      return comLog;
     },
 
     // addComment: async (parent, { thoughtId, commentText }, context) => {
