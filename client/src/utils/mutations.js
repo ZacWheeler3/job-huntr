@@ -73,7 +73,7 @@ export const ADD_COMLOG = gql`
     $method: String!
     $content: String!
     $direction: String!
-  )
+  ){
   addComLog(
     method: $method
     content: $content
@@ -83,7 +83,7 @@ export const ADD_COMLOG = gql`
     method
     content
     direction
-  }
+  }}
 `;
 
 

@@ -12,7 +12,6 @@ export const QUERY_USER = gql`
   }
 `;
 
-// DELETE THOUGHTS AND SINGLE THOUGHT THEY'RE LEFTOVERS
 export const QUERY_JOB = gql`
   query job($_id: ID) {
     job(_id: $_id) {
