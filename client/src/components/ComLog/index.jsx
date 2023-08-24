@@ -1,4 +1,4 @@
-const ComLog = ({ comLogs = [], jobId }) => {
+const ComLog = ({ comLogs = [] }) => {
   if (!comLogs.length) {
     return <h3>No Communication Yet</h3>;
   }

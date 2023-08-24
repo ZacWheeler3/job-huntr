@@ -1,7 +1,6 @@
 import { useQuery } from "@apollo/client";
 import { useMutation } from "@apollo/client";
 
-import { QUERY_THOUGHTS } from "../utils/queries";
 import { Iceburger } from "react-iceburger";
 
 import JobForm from "../components/JobForm";
