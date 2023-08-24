@@ -18,8 +18,9 @@ const resolvers = {
     // },
     me: async (parent, args, context) => {
       if (context.user) {
-        return User.findOne({ _id: context.user._id }).populate("savedJobs").populate('savedJobs.contactPerson')
-        ;
+        return User.findOne({ _id: context.user._id })
+          .populate("savedJobs")
+          .populate("savedJobs.contactPerson");
       }
       throw AuthenticationError;
     },
@@ -27,14 +28,16 @@ const resolvers = {
       return Job.find();
     },
     job: async (parent, { _id }) => {
-      return Job.findOne({ _id }).populate('comLogArray');
+      return Job.findOne({ _id })
+        .populate("contactPerson")
+        .populate("comLogArray");
     },
     comLogs: async () => {
       return ComLog.find();
     },
     comLog: async () => {
-      return ComLog.findOne({_id});
-    }
+      return ComLog.findOne({ _id });
+    },
   },
 
   Mutation: {
@@ -82,7 +85,7 @@ const resolvers = {
         role,
         advertisedSalary,
         offerMade,
-        contactPerson
+        contactPerson,
       });
 
       await User.findOneAndUpdate(
@@ -93,18 +96,14 @@ const resolvers = {
       return job;
     },
 
-    addComLog: async (
-      parent,
-      { method, content, direction },
-      context
-    ) => {
+    addComLog: async (parent, { method, content, direction }, context) => {
       if (!context.job) {
         throw AuthenticationError;
       }
       const comLog = await ComLog.create({
-      method,
-      content,
-      direction
+        method,
+        content,
+        direction,
       });
 
       await Job.findOneAndUpdate(

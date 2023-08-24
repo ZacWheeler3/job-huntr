@@ -60,6 +60,7 @@ const jobSchema = new Schema(
         ref: "ComLog",
       },
     ],
+    default: []
   },
 
   { timeStamp: true }

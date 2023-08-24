@@ -13,13 +13,26 @@ export const QUERY_USER = gql`
 `;
 
 // DELETE THOUGHTS AND SINGLE THOUGHT THEY'RE LEFTOVERS
-export const QUERY_THOUGHTS = gql`
-  query getThoughts {
-    thoughts {
+export const QUERY_JOB = gql`
+  query job($_id: ID) {
+    job(_id: $_id) {
       _id
-      thoughtText
-      thoughtAuthor
-      createdAt
+      company
+      role
+      advertisedSalary
+      offerMade
+      contactPerson {
+        name
+        role
+        phone
+        email
+        notes
+      }
+      comLogArray {
+        method
+        content
+        direction
+      }
     }
   }
 `;
