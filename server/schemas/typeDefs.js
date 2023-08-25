@@ -6,7 +6,7 @@ const typeDefs = `
     firstName: String
     lastName: String
    savedJobs: [Job]!
-   savedQuestions: [CommonQuestions!]
+   savedQuestions: [CommonQuestions]!
   }
 
 type Job {

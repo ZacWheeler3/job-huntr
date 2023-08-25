@@ -1,7 +1,8 @@
 import { Navigate, useParams } from "react-router-dom";
 import { useQuery } from "@apollo/client";
-import { useState } from "react";
-import Job from "../components/Job";
+
+// TO DO: move ADD_JOB and associated stuff into its own file?
+
 
 import { QUERY_USER, QUERY_ME } from "../utils/queries";
 
@@ -15,12 +16,6 @@ const Profile = () => {
   });
 
   const user = data?.me || data?.user || {};
-
-  const [selectedJobId, setSelectedJobId] = useState(null);
-
-  const handleJobClick = (jobId) => {
-    setSelectedJobId(jobId);
-  };
   // navigate to personal profile page if username is yours
   if (Auth.loggedIn() && Auth.getProfile().data.username === userParam) {
     return <Navigate to="/me" />;
@@ -70,15 +65,25 @@ const Profile = () => {
                   Company: {job.company}, Role: {job.role}, Salary:{" "}
                   {job.advertisedSalary}
                   Offer made? {job.offerMade} {contactInfo}
-                  <button onClick={() => handleJobClick(job._id)}>
-                    Expand
-                  </button>
                 </li>
               );
             })}
           </ul>
-          {selectedJobId && <Job jobId={selectedJobId} />}
+          {/* <ThoughtList
+            thoughts={user.thoughts}
+            title={`${user.username}'s thoughts...`}
+            showTitle={false}
+            showUsername={false}
+          /> */}
         </div>
+        {!userParam && (
+          <div
+            className="col-12 col-md-10 mb-3 p-3"
+            style={{ border: "1px dotted #1a1a1a" }}
+          >
+            {/* <ThoughtForm /> */}
+          </div>
+        )}
       </div>
     </div>
   );
