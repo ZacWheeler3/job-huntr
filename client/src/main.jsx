@@ -8,6 +8,8 @@ import Login from './pages/Login';
 import Profile from './pages/Profile';
 import ErrorPage from './pages/ErrorPage';
 import AboutPage from './pages/AboutPage.jsx';
+import CompanyPage from './pages/CompanyPage.jsx';
+import ContactPage from './pages/ContactPage.jsx'
 
 const router = createBrowserRouter([
   {
@@ -25,7 +27,16 @@ const router = createBrowserRouter([
       {
         path: '/AboutPage',
         element: <AboutPage />
-      }, {
+      }, 
+      {
+        path: '/CompanyPage',
+        element: <CompanyPage />
+      }, 
+      {
+        path: '/ContactPage',
+        element: <ContactPage />
+      },
+      {
         path: '/signup',
         element: <Signup />
       }, {

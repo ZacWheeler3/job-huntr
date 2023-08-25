@@ -6,7 +6,7 @@ const typeDefs = `
     firstName: String
     lastName: String
    savedJobs: [Job]!
-   savedQuestions: [CommonQuestions!]
+   savedQuestions: [CommonQuestions]!
   }
 
 type Job {
@@ -74,6 +74,7 @@ type ComLog {
     addJob( company: String!
       role: String!
       advertisedSalary: Int
+      contactPerson: ContactPersonInput
       offerMade: Boolean
       ): Job
       addQuestion(question: String!, response: String!): CommonQuestions
