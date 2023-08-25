@@ -207,6 +207,10 @@ main {
   animation-duration: 0.5s;
 }
 
+.user-info {
+  color: white;
+}
+
 @keyframes loginBox {
   0% {
     -webkit-transform: translateY(-600px) rotateX(-30deg) scale(0);
@@ -320,12 +324,6 @@ body {
 }
 
 
-/**
- * Render the `main` element consistently in IE.
- */
-main {
-  display: block;
-}
 
 /**
  * Correct the font size and margin on `h1` elements within `section` and
