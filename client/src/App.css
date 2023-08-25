@@ -50,6 +50,11 @@ html {
   padding: 15px 25px;
 }
 
+ul li {
+  list-style-type: none;
+
+}
+
 .burger {
   display: flex;
   flex-direction: column;
@@ -180,6 +185,7 @@ main {
   font-size: large;
   transition: 0.4s ease-in;
 }
+
 .logout-button:hover {
   background-color: #a180c8;
   color: #7340ad;
@@ -253,57 +259,52 @@ body {
 }
 
 .footer-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  font-size: 2rem;
-  margin-top: 10rem;
-  margin-left: -2rem;
+display: flex;
 
 }
 
-.footer-section {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.link-title {
+font-size: 3rem;
+margin: 2rem;
+color: #ffffff;
+}
 
+.footer-container>div {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: flex-start;
+  align-items: center;
+  font-size: 2rem;
 }
 
 .footer-section ul {
-  display: flex;
   justify-content: space-evenly;
-  
-
+  display: flex;
   list-style: none;
-  margin-right: 3rem;
-  padding: 0.4rem;
   font-size: 1.4rem;
+  width: 1rem;
+  list-style-type:  none;
 }
 
 .footer-section li a {
   color: #a180c8;
   font-weight: 500;
-
 }
 
-.footer-section li a:hover {
-  /* color: #000; */
+.footer-container li a:hover {
+  color: #000;
 }
 
 .footer-titles {
-display: flex;
-  
-  
-  
-  
-}
-
-.resources-links ul, .company-links ul, .about-links ul, .contact-links ul   {
   display: flex;
   justify-content: space-evenly;
+  align-items: center;
   flex-direction: column;
-  list-style: none;
+}
+
+.resources-links {
+  display: flex;
+  justify-content: center;
 }
 
 .trademark-icon {
@@ -312,13 +313,10 @@ display: flex;
   font-size: 1.8rem;
 }
 
-
 /**
  * Render the `main` element consistently in IE.
  */
-main {
-  display: block;
-}
+
 
 /**
  * Correct the font size and margin on `h1` elements within `section` and
