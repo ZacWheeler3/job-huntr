@@ -50,6 +50,10 @@ html {
   padding: 15px 25px;
 }
 
+ul li {
+  list-style-type: none;
+}
+
 .burger {
   display: flex;
   flex-direction: column;
@@ -187,6 +191,7 @@ main {
   font-size: large;
   transition: 0.4s ease-in;
 }
+
 .logout-button:hover {
   background-color: #a180c8;
   color: #7340ad;
@@ -265,56 +270,59 @@ body {
 
 .footer-container {
   display: flex;
-  justify-content: center;
-  align-items: center;
+}
 
+.resources-links li,
+.company-links li,
+.about-links li,
+.contact-links li {
+  margin: 1rem;
+  padding-right: 2rem;
+}
+
+.link-title {
   font-size: 2rem;
-  margin-top: 10rem;
-  margin-left: -2rem;
-
+  color: #ffffff;
 }
 
-.footer-section {
+.footer-container > div {
   display: flex;
-  justify-content: center;
+  flex-flow: column nowrap;
+  justify-content: flex-start;
   align-items: center;
-
+  font-size: 1.3rem;
 }
 
-.footer-section ul{
+.footer-section ul {
+  justify-content: space-evenly;
   display: flex;
-  justify-content: center;
-  
-
   list-style: none;
-  margin-right: 3rem;
-  padding: 0.4rem;
   font-size: 1.4rem;
+  width: 1rem;
+  list-style-type: none;
 }
 
-.footer-section li a {
+.footer-container li a {
   color: #a180c8;
   font-weight: 500;
-
+  padding: 2rem;
 }
 
-.footer-section li a:hover {
-  /* color: #000; */
+.footer-container li a:hover {
+  color: #000;
+  transition: 0.2s ease-in;
 }
 
 .footer-titles {
   display: flex;
-  
-  
-  
-  
+  justify-content: space-evenly;
+  align-items: center;
+  flex-direction: column;
 }
 
-.resources-links ul, .company-links ul, .about-links ul, .contact-links ul   {
+.resources-links {
   display: flex;
-  justify-content: space-evenly;
-  flex-direction: column;
-  list-style: none;
+  justify-content: center;
 }
 
 .trademark-icon {
