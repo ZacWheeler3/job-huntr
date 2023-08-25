@@ -44,6 +44,8 @@ type CommonQuestions {
 }
 
 type ComLog {
+  _id: ID
+
   method: String!
   content: String!
   direction: String!
