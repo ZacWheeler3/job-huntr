@@ -1,4 +1,4 @@
-import { useLocation, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { TbTrademark as TradeMarkIcon } from "react-icons/tb";
 const Footer = () => {
   const location = useLocation();
@@ -52,9 +52,9 @@ const Footer = () => {
             <h2 className="footer-box">About</h2>
             <ul>
               <li>
-                <a href="/about">
+                <Link to="/AboutPage">
                   Meet the Developers
-                </a>
+                </Link>
               </li>
               <li>
                 <a href="https://www.youtube.com/watch?v=SG5Sb5WTV_g&list=PL54X5yR8qizsMpvTCqUIEFMeEp-chvcxk">
