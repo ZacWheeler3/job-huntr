@@ -93,21 +93,20 @@ const resolvers = {
       );
       return job;
     },
-    
 
     updateJob: async (parent, { _id, company, role, offerMade }) => {
-      const job = { _id, company, role, offerMade}
-     await Job.findOneAndUpdate(
+      const job = { _id, company, role, offerMade };
+      await Job.findOneAndUpdate(
         { _id: _id },
         { company, role, offerMade },
         { new: true }
       );
 
       return job;
-    
-    throw AuthenticationError;
-    ('You need to be logged in!');
-  },
+
+      throw AuthenticationError;
+      ("You need to be logged in!");
+    },
 
     addComLog: async (parent, { method, content, direction }, context) => {
       if (!context.job) {
@@ -126,7 +125,7 @@ const resolvers = {
       );
       return comLog;
     },
-addQuestion: async (_parent, { question, response }, context) => {
+    addQuestion: async (_parent, { question, response }, context) => {
       if (!context.user) {
         throw AuthenticationError;
       }
@@ -152,11 +151,9 @@ addQuestion: async (_parent, { question, response }, context) => {
         { new: true }
       );
 
-
       return updatedQuestion;
     },
   },
 };
 
 module.exports = resolvers;
-
