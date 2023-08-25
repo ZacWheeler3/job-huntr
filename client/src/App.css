@@ -52,7 +52,6 @@ html {
 
 ul li {
   list-style-type: none;
-
 }
 
 .burger {
@@ -259,22 +258,28 @@ body {
 }
 
 .footer-container {
-display: flex;
+  display: flex;
+}
 
+.resources-links li,
+.company-links li,
+.about-links li,
+.contact-links li {
+  margin: 1rem;
+  padding-right: 2rem;
 }
 
 .link-title {
-font-size: 3rem;
-margin: 2rem;
-color: #ffffff;
+  font-size: 2rem;
+  color: #ffffff;
 }
 
-.footer-container>div {
+.footer-container > div {
   display: flex;
   flex-flow: column nowrap;
   justify-content: flex-start;
   align-items: center;
-  font-size: 2rem;
+  font-size: 1.3rem;
 }
 
 .footer-section ul {
@@ -283,16 +288,18 @@ color: #ffffff;
   list-style: none;
   font-size: 1.4rem;
   width: 1rem;
-  list-style-type:  none;
+  list-style-type: none;
 }
 
-.footer-section li a {
+.footer-container li a {
   color: #a180c8;
   font-weight: 500;
+  padding: 2rem;
 }
 
 .footer-container li a:hover {
   color: #000;
+  transition: 0.2s ease-in;
 }
 
 .footer-titles {
@@ -316,7 +323,6 @@ color: #ffffff;
 /**
  * Render the `main` element consistently in IE.
  */
-
 
 /**
  * Correct the font size and margin on `h1` elements within `section` and
