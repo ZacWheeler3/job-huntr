@@ -108,6 +108,20 @@ export const ADD_COMLOG = gql`
   }}
 `;
 
+export const ADD_QUESTION = gql`
+  mutation addQuestion(
+    $question: String!
+    $response: String!
+  ){
+  addQuestion(
+    $question: String!
+    $response: String!
+  ){
+    _id
+    question
+    response
+  }}
+`;
 
 // NOTE: delete this one it's from the source code
 export const ADD_COMMENT = gql`
