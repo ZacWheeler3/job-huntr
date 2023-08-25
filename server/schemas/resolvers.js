@@ -123,8 +123,12 @@ const resolvers = {
 
     
 
-    addComLog: async (parent, { method, content, direction }, context) => {
-      if (!context.job) {
+     addComLog: async (
+      parent,
+      { jobId, method, content, direction },
+      context
+    ) => {
+      if (!context.user) {
         throw AuthenticationError;
       }
       const comLog = await ComLog.create({
@@ -134,12 +138,13 @@ const resolvers = {
       });
 
       await Job.findOneAndUpdate(
-        { _id: context.job._id },
+        { _id: jobId },
         { $addToSet: { comLogArray: comLog._id } },
         { new: true, runValidators: true }
       );
       return comLog;
     },
+
     addQuestion: async (_parent, { question, response }, context) => {
       if (!context.user) {
         throw AuthenticationError;
