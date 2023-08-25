@@ -185,41 +185,39 @@ body {
 
 .footer-container {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
-  font-size: 2rem;
-  margin-top: 10rem;
-  margin-left: -2rem;
-  
 }
 
-.footer-section li {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  list-style: none;
-  margin-right: 3rem;
-  padding: 0.4rem;
-  font-size: 1.4rem;
-  }
-
-.footer-section li a {
-  color:#a180c8;
-  font-weight: 500;
-}
-
-.footer-section li a:hover {
-  color: #000;
-}
-
-.footer-box {
+.footer-section {
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 3rem;
+}
+
+.footer-section ul{
   display: flex;
-  padding: 1rem;
-  color: #ffff;
+  justify-content: center;
+  
+}
+
+.footer-section li a:hover {
+  /* color: #000; */
+}
+
+.footer-titles {
+  display: flex;
+  
+  
+  
+  
+}
+
+.resources-links ul, .company-links ul, .about-links ul, .contact-links ul   {
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: column;
+  list-style: none;
 }
 
 .trademark-icon {
@@ -227,7 +225,6 @@ body {
   color: #ffffff;
   font-size: 1.8rem;
 }
-
 
 /**
  * Render the `main` element consistently in IE.
