@@ -46,7 +46,7 @@ const Profile = () => {
           Viewing {userParam ? `${user.username}'s` : "your"} profile.
         </h2>
 
-        <div className="col-12 col-md-10 mb-5">
+        <div className="user-info col-12 col-md-10 mb-5">
           <p>{user.username}</p>
           <p>{user.firstName}</p>
           <p>{user.lastName}</p>
