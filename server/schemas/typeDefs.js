@@ -84,7 +84,9 @@ type ComLog {
     deleteJob(_id: ID!): Job
 
 
-    addComLog(method: String!
+   addComLog(
+      jobId: String!
+      method: String!
       content: String!
       direction: String!
       ): ComLog
