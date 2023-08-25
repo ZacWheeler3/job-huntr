@@ -1,4 +1,5 @@
-const { User, Job, ComLog } = require("../models");
+const { User, Job, ComLog, CommonQuestions } = require("../models");
+
 const { signToken, AuthenticationError } = require("../utils/auth");
 
 const resolvers = {
@@ -9,13 +10,7 @@ const resolvers = {
     user: async (parent, { username }) => {
       return User.findOne({ username });
     },
-    // thoughts: async (parent, { username }) => {
-    //   const params = username ? { username } : {};
-    //   return Thought.find(params).sort({ createdAt: -1 });
-    // },
-    // thought: async (parent, { thoughtId }) => {
-    //   return Thought.findOne({ _id: thoughtId });
-    // },
+
     me: async (parent, args, context) => {
       if (context.user) {
         return User.findOne({ _id: context.user._id })
@@ -37,6 +32,9 @@ const resolvers = {
     },
     comLog: async () => {
       return ComLog.findOne({ _id });
+    },
+    questions: async () => {
+      return CommonQuestions.find();
     },
   },
 
@@ -95,7 +93,7 @@ const resolvers = {
       );
       return job;
     },
-
+    
 
     updateJob: async (parent, { _id, company, role, offerMade }) => {
       const job = { _id, company, role, offerMade}
@@ -128,58 +126,37 @@ const resolvers = {
       );
       return comLog;
     },
+addQuestion: async (_parent, { question, response }, context) => {
+      if (!context.user) {
+        throw AuthenticationError;
+      }
+      const newQuestion = await CommonQuestions.create({
+        question,
+        response,
+      });
 
-    // addComment: async (parent, { thoughtId, commentText }, context) => {
-    //   if (context.user) {
-    //     return Thought.findOneAndUpdate(
-    //       { _id: thoughtId },
-    //       {
-    //         $addToSet: {
-    //           comments: { commentText, commentAuthor: context.user.username },
-    //         },
-    //       },
-    //       {
-    //         new: true,
-    //         runValidators: true,
-    //       }
-    //     );
-    //   }
-    //   throw AuthenticationError;
-    // },
-    // removeThought: async (parent, { thoughtId }, context) => {
-    //   if (context.user) {
-    //     const thought = await Thought.findOneAndDelete({
-    //       _id: thoughtId,
-    //       thoughtAuthor: context.user.username,
-    //     });
+      await User.findOneAndUpdate(
+        { _id: context.user._id },
+        { $addToSet: { savedQuestions: newQuestion._id } },
+        { new: true, runValidators: true }
+      );
+      console.log(context.user._id);
+      console.log("new question added:", newQuestion);
+      return newQuestion;
+    },
+    updateQuestion: async (_parent, { _id, question, response }) => {
+      const updatedQuestion = { _id, question, response };
+      await CommonQuestions.findOneAndUpdate(
+        { _id: _id },
+        { question, response },
+        { new: true }
+      );
 
-    //     await User.findOneAndUpdate(
-    //       { _id: context.user._id },
-    //       { $pull: { thoughts: thought._id } }
-    //     );
 
-    //     return thought;
-    //   }
-    //   throw AuthenticationError;
-    // },
-    // removeComment: async (parent, { thoughtId, commentId }, context) => {
-    //   if (context.user) {
-    //     return Thought.findOneAndUpdate(
-    //       { _id: thoughtId },
-    //       {
-    //         $pull: {
-    //           comments: {
-    //             _id: commentId,
-    //             commentAuthor: context.user.username,
-    //           },
-    //         },
-    //       },
-    //       { new: true }
-    //     );
-    //   }
-    //   throw AuthenticationError;
-    // },
+      return updatedQuestion;
+    },
   },
 };
 
 module.exports = resolvers;
+

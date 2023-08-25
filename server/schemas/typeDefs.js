@@ -6,6 +6,7 @@ const typeDefs = `
     firstName: String
     lastName: String
    savedJobs: [Job]!
+   savedQuestions: [CommonQuestions!]
   }
 
 type Job {
@@ -36,6 +37,12 @@ input ContactPersonInput {
   notes: String
 }
 
+type CommonQuestions {
+  _id: ID
+  question: String!
+  response: String!
+}
+
 type ComLog {
   method: String!
   content: String!
@@ -48,12 +55,15 @@ type ComLog {
     user: User
   }
 
+
+
   type Query {
     users: [User]
     user(username: String!): User
     me: User
     jobs: [Job]
     job(_id: ID): Job
+    questions: [CommonQuestions]
     comLogs: [ComLog]
     comLog(_id: ID): ComLog
   }
@@ -66,6 +76,8 @@ type ComLog {
       advertisedSalary: Int
       offerMade: Boolean
       ): Job
+      addQuestion(question: String!, response: String!): CommonQuestions
+      updateQuestion(_id:ID!, question: String, response: String): CommonQuestions
     updateJob(_id: ID!, company: String, role: String, offerMade: Boolean): Job
 
     addComLog(method: String!
