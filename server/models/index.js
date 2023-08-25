@@ -1,7 +1,9 @@
 const User = require('./User');
 const Job = require('./Job');
-const Contact = require('./Contact');
 const CommonQuestions = require('./CommonQuestions')
+const ComLog = require('./ComLog');
 
 
-module.exports = { User, Job, Contact, CommonQuestions };
+module.exports = { User, Job, ComLog, CommonQuestions };
+
+

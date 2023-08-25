@@ -1,15 +1,18 @@
 const db = require('../config/connection');
 // TO DO: add all models to line 3
-const { User, Job } = require('../models');
+const { User, Job, ComLog } = require('../models');
 const userSeeds = require('./userSeeds.json');
 // const thoughtSeeds = require('./thoughtSeeds.json');
 const cleanDB = require('./cleanDB');
 
 db.once('open', async () => {
   try {
-    // await cleanDB('Thought', 'thoughts');
+    await cleanDB('Job', 'jobs');
 
     await cleanDB('User', 'users');
+
+    await cleanDB('ComLog', 'comlogs');
+
 
     await User.create(userSeeds);
 

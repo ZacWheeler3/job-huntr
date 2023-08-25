@@ -8,18 +8,30 @@ export const QUERY_USER = gql`
       email
       firstName
       lastName
-  
     }
   }
 `;
 
-export const QUERY_THOUGHTS = gql`
-  query getThoughts {
-    thoughts {
+export const QUERY_JOB = gql`
+  query job($_id: ID) {
+    job(_id: $_id) {
       _id
-      thoughtText
-      thoughtAuthor
-      createdAt
+      company
+      role
+      advertisedSalary
+      offerMade
+      contactPerson {
+        name
+        role
+        phone
+        email
+        notes
+      }
+      comLogArray {
+        method
+        content
+        direction
+      }
     }
   }
 `;
@@ -47,7 +59,19 @@ export const QUERY_ME = gql`
       _id
       username
       email
-     savedJobs{company, role, advertisedSalary, offerMade} 
+      savedJobs {
+        company
+        role
+        advertisedSalary
+        offerMade
+        contactPerson {
+          name
+          role
+          phone
+          email
+          notes
+        }
+      }
     }
   }
 `;

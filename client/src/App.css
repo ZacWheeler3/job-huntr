@@ -5,9 +5,78 @@ html {
   /* 2 */
 }
 
-.links {
+.navlinks-container {
   display: flex;
   flex-direction: column;
+  margin-top: 30px;
+}
+
+.navlinks-user {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  background-color: white;
+  margin: 10px;
+  padding: 25px;
+  border-radius: 5px;
+  background-color: #00000055;
+  font-family: "JetBrains Mono", monospace;
+}
+
+.navlinks-job {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  background-color: white;
+  color: white;
+  margin: 10px;
+  padding: 25px;
+  border-radius: 5px;
+  background-color: #00000055;
+  font-family: "JetBrains Mono", monospace;
+}
+
+.navlink {
+  color: white;
+  font-weight: 700;
+  padding: 15px 25px;
+  margin: 4px;
+}
+
+.navlink:hover {
+  color: white;
+  background-color: #a180c8;
+  border-radius: 2rem;
+  padding: 15px 25px;
+}
+
+.burger {
+  display: flex;
+  flex-direction: column;
+  align-content: start;
+  margin: 10px;
+}
+
+.content-container {
+  color: white;
+  top: 10px;
+  margin: 10px;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: #00000055;
+  font-weight: 700;
+  font-size: large;
+}
+
+a.links-user {
+  color: white;
+}
+
+main {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
 }
 
 .header-container {
@@ -110,7 +179,6 @@ html {
   font-weight: 700;
   font-size: large;
   transition: 0.4s ease-in;
-  
 }
 .logout-button:hover {
   background-color: #a180c8;
@@ -168,28 +236,71 @@ body {
   );
 }
 
-/**
- * Render the `main` element consistently in IE.
- */
-main {
-  display: block;
+#email-input,
+#password-input,
+#username-input {
+  padding-left: 3rem;
 }
 
-/**
- * Correct the font size and margin on `h1` elements within `section` and
- * `article` contexts in Chrome, Firefox, and Safari.
- */
+.lock-icon {
+  position: absolute;
+  margin-top: 0.5rem;
+  margin-left: 0.5rem;
+}
+
+.form-input {
+  padding-left: 3rem;
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 2rem;
+  margin-top: 10rem;
+  margin-left: -2rem;
+}
+
+.footer-section li {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  list-style: none;
+  margin-right: 3rem;
+  padding: 0.4rem;
+  font-size: 1.4rem;
+}
+
+.footer-section li a {
+  color: #a180c8;
+  font-weight: 500;
+}
+
+.footer-section li a:hover {
+  color: #000;
+}
+
+.footer-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 3rem;
+  display: flex;
+  padding: 1rem;
+  color: #ffff;
+}
+
+.trademark-icon {
+  margin-top: 4rem;
+  color: #ffffff;
+  font-size: 1.8rem;
+}
+
 h1 {
   font-size: 2em;
   margin: 0.67em 0;
 }
 
-/* Grouping content
-   ========================================================================== */
-/**
- * 1. Add the correct box sizing in Firefox.
- * 2. Show the overflow in Edge and IE.
- */
 hr {
   box-sizing: content-box;
   /* 1 */
@@ -199,10 +310,6 @@ hr {
   /* 2 */
 }
 
-/**
- * 1. Correct the inheritance and scaling of font size in all browsers.
- * 2. Correct the odd `em` font sizing in all browsers.
- */
 pre {
   font-family: monospace, monospace;
   /* 1 */
@@ -1115,6 +1222,10 @@ a:hover {
   display: flex !important;
 }
 
+.go-back {
+  display: flex;
+}
+
 .btn {
   text-align: center;
   display: inline-block;
@@ -1125,8 +1236,6 @@ a:hover {
   border-radius: 0.3rem;
   border: 1px solid transparent;
   outline: none;
-  color: #1a1a1a;
-  background-color: #aeaeae;
   transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out;
 }
 
