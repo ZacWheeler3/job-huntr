@@ -8,10 +8,10 @@ import JobForm from "../components/JobForm";
 const Home = () => {
   return (
     <main>
-      <div className="navlinks-container">
-        {/* <div className="burger">
+          <div className="burger">
           <Iceburger color="white" />
-        </div> */}
+        </div>
+      <div className="navlinks-container">
         <div className="navlinks-user">
           <a className="navlink" href="">
             User Settings
