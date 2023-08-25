@@ -15,7 +15,8 @@ const resolvers = {
       if (context.user) {
         return User.findOne({ _id: context.user._id })
           .populate("savedJobs")
-          .populate("savedJobs.contactPerson");
+          .populate("savedJobs.contactPerson")
+          .populate("savedQuestions");
       }
       throw AuthenticationError;
     },
@@ -139,7 +140,6 @@ const resolvers = {
         { $addToSet: { savedQuestions: newQuestion._id } },
         { new: true, runValidators: true }
       );
-      console.log(context.user._id);
       console.log("new question added:", newQuestion);
       return newQuestion;
     },
