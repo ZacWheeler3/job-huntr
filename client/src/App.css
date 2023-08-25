@@ -8,7 +8,7 @@ html {
 .navlinks-container {
   display: flex;
   flex-direction: column;
-  margin-top: 30px;
+  margin-bottom: 0px;
 }
 
 .navlinks-user {
@@ -58,14 +58,21 @@ html {
 }
 
 .content-container {
+  display: flex;
+  flex-direction: column;
   color: white;
-  top: 10px;
   margin: 10px;
   padding: 10px;
   border-radius: 5px;
   background-color: #00000055;
   font-weight: 700;
   font-size: large;
+  width: 50%;
+}
+
+.form {
+  display: flex;
+  flex-direction: row;
 }
 
 a.links-user {
@@ -76,7 +83,7 @@ main {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  align-items: center;
+  align-items: flex-end;
 }
 
 .header-container {
