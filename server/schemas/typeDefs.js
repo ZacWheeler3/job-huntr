@@ -74,6 +74,7 @@ type ComLog {
     addJob( company: String!
       role: String!
       advertisedSalary: Int
+      contactPerson: ContactPersonInput
       offerMade: Boolean
       ): Job
       addQuestion(question: String!, response: String!): CommonQuestions
