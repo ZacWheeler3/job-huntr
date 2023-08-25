@@ -81,6 +81,9 @@ type ComLog {
       updateQuestion(_id:ID!, question: String, response: String): CommonQuestions
     updateJob(_id: ID!, company: String, role: String, offerMade: Boolean): Job
 
+    deleteJob(_id: ID!): Job
+
+
     addComLog(method: String!
       content: String!
       direction: String!

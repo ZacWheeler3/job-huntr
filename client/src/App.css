@@ -8,7 +8,7 @@ html {
 .navlinks-container {
   display: flex;
   flex-direction: column;
-  margin-top: 30px;
+  margin-bottom: 0px;
 }
 
 .navlinks-user {
@@ -62,14 +62,21 @@ ul li {
 }
 
 .content-container {
+  display: flex;
+  flex-direction: column;
   color: white;
-  top: 10px;
   margin: 10px;
   padding: 10px;
   border-radius: 5px;
   background-color: #00000055;
   font-weight: 700;
   font-size: large;
+  width: 50%;
+}
+
+.form {
+  display: flex;
+  flex-direction: row;
 }
 
 a.links-user {
@@ -80,7 +87,7 @@ main {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  align-items: center;
+  align-items: flex-end;
 }
 
 .header-container {
@@ -205,6 +212,10 @@ main {
   animation-duration: 0.5s;
 }
 
+.user-info {
+  color: white;
+}
+
 @keyframes loginBox {
   0% {
     -webkit-transform: translateY(-600px) rotateX(-30deg) scale(0);
@@ -320,9 +331,7 @@ body {
   font-size: 1.8rem;
 }
 
-/**
- * Render the `main` element consistently in IE.
- */
+
 
 /**
  * Correct the font size and margin on `h1` elements within `section` and
@@ -682,6 +691,7 @@ h6 {
 }
 
 p {
+  color: white;
   font-size: 1.1rem;
   margin: 0 0 1rem;
   line-height: 1.5;

@@ -105,9 +105,23 @@ const resolvers = {
 
       return job;
 
-      throw AuthenticationError;
-      ("You need to be logged in!");
     },
+    deleteJob: async (parent, { _id }, context) => {
+      if (!context.user) {
+        throw AuthenticationError;
+      }
+    
+      const job = await Job.findOneAndDelete({ _id: _id });
+    
+      await User.findOneAndUpdate(
+        { _id: context.user._id },
+        { $pull: { savedJobs: job._id } }
+      );
+    
+      return job;
+    },
+
+    
 
     addComLog: async (parent, { method, content, direction }, context) => {
       if (!context.job) {
