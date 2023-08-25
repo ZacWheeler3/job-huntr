@@ -9,6 +9,7 @@ html {
   display: flex;
   flex-direction: column;
   margin-bottom: 0px;
+  height: 100%;
 }
 
 .navlinks-user {
@@ -27,13 +28,13 @@ html {
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;
-  background-color: white;
   color: white;
   margin: 10px;
   padding: 25px;
   border-radius: 5px;
   background-color: #00000055;
   font-family: "JetBrains Mono", monospace;
+  height: 100%;
 }
 
 .navlink {
@@ -87,7 +88,7 @@ main {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  align-items: flex-end;
+  height: 600px;
 }
 
 .header-container {
