@@ -326,6 +326,37 @@ body {
   display: flex;
   justify-content: center;
 }
+.company-container {
+  display: flex;
+  justify-content: center;
+}
+.company-title h2 {
+  margin-top: 5rem;
+  margin-bottom: 5rem;
+  display: flex;
+  justify-content: center;
+  font-size: 3rem;
+  color: #A180C8;
+}
+.company-title h3 {
+  display: flex;
+  justify-content: center;
+  font-size: 2rem;
+  color: #FFFFFF;
+}
+.company-title p {
+  font-size: large;
+  margin-top: 4rem;
+  margin: 20px 0;
+}
+span {
+  color: #A180C8;
+}
+.trademark-icon {
+  margin-top: 4rem;
+  color: #FFFFFF;
+  font-size: 1.8rem;
+}
 
 .trademark-icon {
   margin-top: 4rem;
