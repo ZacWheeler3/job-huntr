@@ -405,6 +405,10 @@ body {
   color: #a180c8;
 }
 
+.dev-creds ul a:hover {
+  color: #ffffff;
+}
+
 span {
   color: #a180c8;
 }
