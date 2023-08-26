@@ -32,9 +32,9 @@ const Profile = () => {
 
   if (!user?.username) {
     return (
-      <h4>
-        You need to be logged in to see this. Use the navigation links above to
-        sign up or log in!
+      <h4 className="profile-h4">
+        You need to be <span>logged in</span> to see this. Use the navigation links above to
+        <span>&nbsp;sign up&nbsp;</span>or <span>log in</span>!
       </h4>
     );
   }
@@ -42,7 +42,7 @@ const Profile = () => {
   return (
     <div>
       <div className="flex-row justify-center mb-3">
-        <h2 className="col-12 col-md-10 bg-dark text-light p-3 mb-5">
+        <h2 className="flex-row justify-center col-12 col-md-10 bg-dark text-light p-3 mb-5">
           Viewing {userParam ? `${user.username}'s` : "your"} profile.
         </h2>
 
