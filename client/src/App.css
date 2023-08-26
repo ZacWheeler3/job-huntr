@@ -336,25 +336,81 @@ body {
   display: flex;
   justify-content: center;
   font-size: 3rem;
-  color: #A180C8;
+  color: #a180c8;
 }
 .company-title h3 {
   display: flex;
   justify-content: center;
   font-size: 2rem;
-  color: #FFFFFF;
+  color: #ffffff;
 }
 .company-title p {
   font-size: large;
   margin-top: 4rem;
   margin: 20px 0;
 }
+.about-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 5rem;
+  color: #ffff;
+}
+
+.about-title h2 {
+  color: #ffffff;
+  font-size: 3rem;
+  animation: 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+}
+
+.creator-section {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  
+}
+
+.dev-name {
+  display: flex;
+  font-size: 2rem;
+  color: #a180c8;
+  margin-bottom: 20px;
+}
+
+.dev-pic img {
+  flex-wrap: wrap;
+  width: 200px;
+  height: auto;
+  border-radius: 2px;
+  box-shadow: 16px 14px 20px #a180c8;
+  /* position: relative; */
+}
+
+.dev-creds p {
+  margin-top: 2rem;
+  font-size: 1.2rem;
+  flex-wrap: wrap;
+}
+
+.dev-creds ul {
+  text-decoration: none;
+  display: flex;
+  justify-content: space-evenly;
+  font-size: 2rem;
+  margin-right: 10rem;
+  margin-left: 10rem;
+}
+
+.dev-creds ul a {
+  color: #a180c8;
+}
+
 span {
-  color: #A180C8;
+  color: #a180c8;
 }
 .trademark-icon {
   margin-top: 4rem;
-  color: #FFFFFF;
+  color: #ffffff;
   font-size: 1.8rem;
 }
 
@@ -363,8 +419,6 @@ span {
   color: #ffffff;
   font-size: 1.8rem;
 }
-
-
 
 /**
  * Correct the font size and margin on `h1` elements within `section` and
