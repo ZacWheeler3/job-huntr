@@ -33,7 +33,8 @@ const Profile = () => {
   if (!user?.username) {
     return (
       <h4 className="profile-h4">
-        You need to be <span>logged in</span> to see this. Use the navigation links above to
+        You need to be <span>logged in</span> to see this. Use the navigation
+        links above to
         <span>&nbsp;sign up&nbsp;</span>or <span>log in</span>!
       </h4>
     );
@@ -46,7 +47,7 @@ const Profile = () => {
           Viewing {userParam ? `${user.username}'s` : "your"} profile.
         </h2>
 
-        <div className="user-info col-12 col-md-10 mb-5">
+        <div className="profile-section">
           <p>{user.username}</p>
           <p>{user.firstName}</p>
           <p>{user.lastName}</p>
@@ -56,11 +57,20 @@ const Profile = () => {
               if (job.contactPerson) {
                 contactInfo = (
                   <>
-                    Contact Person Name: {job.contactPerson.name} Contact Person
-                    Role: {job.contactPerson.role} Contact Person Phone:{" "}
-                    {job.contactPerson.phone} Contact Person Email:{" "}
-                    {job.contactPerson.email} Contact Person Notes:{" "}
-                    {job.contactPerson.notes}
+                    <div className="job-details">
+                      <ul>
+                        <li> Contact Person Name: {job.contactPerson.name}</li>
+                        <li>Contact Person Role: {job.contactPerson.role}</li>
+                        <li>
+                          {" "}
+                          Contact Person Phone: {job.contactPerson.phone}
+                        </li>{" "}
+                        <li>
+                          Contact Person Email: {job.contactPerson.email}{" "}
+                        </li>
+                        <li>Contact Person Notes: {job.contactPerson.notes}</li>
+                      </ul>
+                    </div>
                   </>
                 );
               }
@@ -70,7 +80,11 @@ const Profile = () => {
                   Company: {job.company}, Role: {job.role}, Salary:{" "}
                   {job.advertisedSalary}
                   Offer made? {job.offerMade} {contactInfo}
-                  <button onClick={() => handleJobClick(job._id)}>
+                  <button
+                    className="job-expand-button"
+                    onClick={() => handleJobClick(job._id)}
+                    style={{}}
+                  >
                     Expand
                   </button>
                 </li>

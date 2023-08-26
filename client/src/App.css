@@ -447,6 +447,21 @@ span {
   
 }
 
+.profile-section {
+  color: #ffffff;
+  font-size: 2rem;
+}
+
+.job-expand-button {
+  background-color: #7340ad;
+  color: #ffffff;
+  width:
+}
+
+.job-details {
+  font-size: 2rem;
+}
+
 /**
  * Correct the font size and margin on `h1` elements within `section` and
  * `article` contexts in Chrome, Firefox, and Safari.
