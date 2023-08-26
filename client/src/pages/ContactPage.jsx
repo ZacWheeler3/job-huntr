@@ -53,13 +53,14 @@ const ContactPage = () => {
 
   return (
     <div className="contact">
-      <h2>Contact Me</h2>
+      <h2>Contact Us</h2>
       {message && <div className={`${message.class}`}>{message.text}</div>}
       <div>
         <label className="name" htmlFor="name">
           Name
         </label>
         <input
+        placeholder="Name"
           onChange={updateFormControl}
           type="text"
           id="name"
@@ -71,6 +72,7 @@ const ContactPage = () => {
           E-Mail
         </label>
         <input
+        placeholder="E-mail"
           onChange={updateFormControl}
           type="text"
           id="email"
@@ -82,12 +84,13 @@ const ContactPage = () => {
           Message
         </label>
         <textarea
+        placeholder="Have a question for us? Let us know!"
           id="message"
           onChange={updateFormControl}
           value={formState.message}
         ></textarea>
       </div>
-      <form onSubmit={submitForm}>
+      <form className="submit-form" onSubmit={submitForm}>
         <button disabled={submitting} className="submit">
           {submitting ? "...Submitting" : "Submit"}
         </button>
