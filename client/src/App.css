@@ -396,13 +396,19 @@ body {
   text-decoration: none;
   display: flex;
   justify-content: space-evenly;
-  font-size: 2rem;
+  font-size: 3rem;
   margin-right: 10rem;
   margin-left: 10rem;
 }
 
 .dev-creds ul a {
   color: #a180c8;
+  
+}
+
+.dev-creds ul a:hover {
+  color: #ffffff;
+  transition: ease-in .5s;
 }
 
 span {
