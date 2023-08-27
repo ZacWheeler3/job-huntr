@@ -5,7 +5,7 @@ import {
 } from "react-icons/fa";
 import zac from "../../public/zac.jpg?url";
 import dave from "../../public/dave.png?url";
-
+import ivy from "../../public/ivy.jpg?url";
 const AboutPage = () => {
   return (
     <div className="about-container">
@@ -78,7 +78,7 @@ const AboutPage = () => {
         </div>
         <div className="dev-name">Ivy McCurdy</div>
         <div className="dev-pic">
-          <img src={zac} alt="My Image" />
+          <img src={ivy} alt="My Image" />
         </div>
         <div className="dev-creds">
           <p>
