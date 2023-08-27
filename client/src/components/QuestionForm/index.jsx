@@ -3,9 +3,9 @@ import { Link } from "react-router-dom";
 import { useMutation } from "@apollo/client";
 
 // import { ADD_THOUGHT } from '../../utils/mutations';
-import { ADD_QUESTION } from "../utils/mutations";
+import { ADD_QUESTION } from "../../utils/mutations";
 
-import Auth from "../utils/auth";
+import Auth from "../../utils/auth";
 
 const CommonQuestions = () => {
   const [question, setQuestion] = useState("");
