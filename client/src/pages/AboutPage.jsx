@@ -4,6 +4,7 @@ import {
   FaLinkedin as LinkedInIcon,
 } from "react-icons/fa";
 import zac from "../../public/zac.jpg?url";
+import dave from "../../public/dave.png?url";
 
 const AboutPage = () => {
   return (
@@ -46,7 +47,7 @@ const AboutPage = () => {
         </div>
         <div className="dev-name">Dave Miranda</div>
         <div className="dev-pic">
-          <img src={zac} alt="My Image" />
+          <img src={dave} alt="My Image" />
         </div>
         <div className="dev-creds">
           <p>
