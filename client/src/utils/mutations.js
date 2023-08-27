@@ -114,8 +114,8 @@ export const ADD_QUESTION = gql`
     $response: String!
   ){
   addQuestion(
-    $question: String!
-    $response: String!
+    question: $question
+    response: $response
   ){
     _id
     question
