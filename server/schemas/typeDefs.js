@@ -118,7 +118,9 @@ const typeDefs = `
       direction: String!
       ): ComLog
     updateContactPerson(_id: ID!, contactPerson: ContactPersonInput): Job
+    deleteContactPerson(_id: ID!): Job
     addEmploymentTerms(employmentTerms: EmploymentTermsInput): EmploymentTerms
+
   }
 `;
 
