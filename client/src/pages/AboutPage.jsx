@@ -217,7 +217,7 @@ export default AboutPage;
         </div>
         <div className="dev-creds">
           <p>
-            Dave Miranda is a devoted father to his two sons, 5 and 3 years old.
+            <span>Dave Miranda</span> is a devoted father to his two sons, 5 and 3 years old.
             Their favorite things to do together include Legos, building forts,
             indoor playgrounds, and children's museums. When he's not playing
             with his kids, Dave enjoys learning new things, self-improvement,
@@ -278,7 +278,7 @@ export default AboutPage;
         </div>
         <div className="dev-creds">
           <p>
-            Hello, I'm Christopher Tsang! I am a Full-Stack Developer and Audio
+            Hello, I'm <span>Christopher Tsang</span>! I am a Full-Stack Developer and Audio
             Engineer with a passion for solving problems. I enjoy working on
             challenging projects that require me to think outside the box and
             come up with innovative solutions. I have experience in IT support
@@ -322,7 +322,7 @@ export default AboutPage;
         </div>
         <div className="dev-creds">
           <p>
-            Hello! I'm Zac Wheeler, a devoted husband and a proud father of two
+            Hello! I'm <span>Zac Wheeler</span>, a devoted husband and a proud father of two
             amazing kids—a lively 6-year-old and an adorable 2-year-old. As a
             family man, I find immense joy in spending quality time with my
             loved ones. Whether we're embarking on outdoor adventures, engaging

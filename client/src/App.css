@@ -644,6 +644,7 @@ span {
   
 
 
+
 .developers {
   display: flex;
   flex-direction: row;
@@ -713,8 +714,6 @@ span {
   width: auto;
   height: auto;
 }
-
-
 
 /**
  * Correct the font size and margin on `h1` elements within `section` and
