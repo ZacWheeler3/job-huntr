@@ -48,7 +48,7 @@ const Profile = () => {
         </h2>
 
         <div className="profile-section">
-          <p style={{textTransform: 'capitalize' }}>{user.username.charAt(0).toUpperCase() + user.username.slice(1)}</p>
+          <p className= "username-display"style={{textTransform: 'capitalize' }}>{user.username.charAt(0).toUpperCase() + user.username.slice(1)} </p>
           <p >{user.firstName}</p>
           <p>{user.lastName}</p>
           <ul>
@@ -77,10 +77,10 @@ const Profile = () => {
               }
               console.log(contactInfo);
               return (
-                <li key={index}>
-                  Company: {job.company}, Role: {job.role}, Salary:{" "}
+                <li key={index} className="job-item">
+                  <span>Company:</span> {job.company}, <span>Role:</span> {job.role}, <span>Salary:</span>{" "}
                   {job.advertisedSalary}
-                  Offer made? {job.offerMade} {contactInfo}
+                  {" "}<span>Offer made?</span> {job.offerMade} {contactInfo}
                   <button
                     className="job-expand-button"
                     onClick={() => handleJobClick(job._id)}

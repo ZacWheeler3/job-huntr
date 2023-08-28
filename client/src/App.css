@@ -577,7 +577,7 @@ span {
   margin: 1rem;
   border-radius: 2rem;
   font-weight: 700;
-  font-size: large;
+  font-size: medium;
   transition: 0.4s ease-in;
 }
 .job-expand-button:hover, .job-collapse-button:hover {
@@ -605,6 +605,11 @@ span {
   background-color: #7340ad ;
 }
 
+.username-display {
+  font-size: 2rem;
+  font-weight: 900;
+}
+
 .job-details {
   display: flex;
   flex-wrap: wrap;
@@ -629,7 +634,14 @@ span {
 .job-details ul li {
   margin: 8px;
   font-weight: 600;
+  
 }
+
+.job-item {
+  font-size: 2rem;
+  }
+
+  
 
 
 .developers {
