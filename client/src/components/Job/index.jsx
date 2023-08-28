@@ -16,7 +16,7 @@ const Job = ({jobId}) => {
   if (!data.job) {
     return <h4>Looks like there isn't any more data for this job.</h4>;
   }
-  const { name: contactName, role: contactRole, phone: contactPhone, email: contactEmail, notes: contactNotes } =
+  const { name: contactName, role: contactRole, phone: contactPhone, email: contactEmail, notes: contactNotes, timestamps: createdAt, timestamps: updatedAt} =
     job.contactPerson;
     console.log(contactName);
     console.log(contactRole);
@@ -38,6 +38,8 @@ const Job = ({jobId}) => {
           <p>Phone: {contactPhone}</p>
           <p>Email: {contactEmail}</p>
           <p>Notes: {contactNotes}</p>
+          <p>Created At: {createdAt}</p>
+          <p>Updated At: {updatedAt}</p>
           <ComLog comLogs={job.comLogArray} jobId={jobId}/>
         </div>
       </div>
