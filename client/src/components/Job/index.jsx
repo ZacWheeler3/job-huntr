@@ -1,8 +1,12 @@
 import { useQuery } from "@apollo/client";
-
 import ComLog from "../ComLog";
-
 import { QUERY_JOB } from "../../utils/queries";
+import formatTimestamp from "../../utils/date";
+
+
+
+
+//////////////////////////////////////////////////////////
 
 const Job = ({jobId}) => {
   const { loading, data } = useQuery(QUERY_JOB, {variables: {_id: jobId}});
@@ -38,13 +42,14 @@ const Job = ({jobId}) => {
           <p>Phone: {contactPhone}</p>
           <p>Email: {contactEmail}</p>
           <p>Notes: {contactNotes}</p>
-          <p>Created At: {job.createdAt}</p>
-          <p>Updated At: {job.updatedAt}</p>
+          <p>Created At: {formatTimestamp(job.createdAt)}</p>
+          <p>Updated At: {formatTimestamp(job.updatedAt)}</p>
           <ComLog comLogs={job.comLogArray} jobId={jobId}/>
         </div>
       </div>
     </div>
   );
 };
+
 
 export default Job;
