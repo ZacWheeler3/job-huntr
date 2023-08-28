@@ -25,7 +25,6 @@ const userSchema = new Schema({
   lastName: {
     type: String,
   },
-
   savedJobs: [
     {
       type: Schema.Types.ObjectId,
@@ -38,6 +37,9 @@ const userSchema = new Schema({
       ref: "CommonQuestions",
     },
   ],
+}, { timestamps: true });
+
+
   employmentTerms: {
     type: Schema.Types.ObjectId,
     ref: "EmploymentTerms",
