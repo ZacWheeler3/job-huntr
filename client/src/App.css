@@ -557,17 +557,84 @@ span {
 
 .profile-section {
   color: #ffffff;
-  font-size: 2rem;
+  font-size: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  margin: 10px;
+  padding: 25px;
+  border-radius: 5px;
+  background-color: #00000055;
+  font-family: "JetBrains Mono", monospace;
+  height: 100%;
 }
 
 .job-expand-button {
+  display: inline-block;
+  padding: 15px 25px;
   background-color: #7340ad;
-  color: #ffffff;
+  color: white;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  margin: 1rem;
+  border-radius: 2rem;
+  font-weight: 700;
+  font-size: large;
+  transition: 0.4s ease-in;
+}
+.job-expand-button:hover {
+  background-color: #a180c8;
+  color: #7340ad;
+  transition: ease-in;
+}
+
+.job-expand-button:active {
+  background-color: #7340ad;
+  color: #7340ad;
+}
+
+.profile-view-container {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 0px;
+  height: 100%;
+}
+
+.profile-view-header {
+  display: flex;
+  justify-content: center;
+  margin: 2rem;
+  background-color: #7340ad ;
 }
 
 .job-details {
-  font-size: 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  margin: 10px;
+  padding: 25px;
+  border-radius: 5px;
+  font-family: "JetBrains Mono", monospace;
 }
+
+.job-details ul {
+  font-size: 1.2rem;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  margin: 10px;
+  padding: 25px;
+  border-radius: 5px;
+  background-color: #00000055;
+  font-family: "JetBrains Mono", monospace;
+}
+.job-details ul li {
+  margin: 8px;
+  font-weight: 600;
+}
+
+
 
 /**
  * Correct the font size and margin on `h1` elements within `section` and

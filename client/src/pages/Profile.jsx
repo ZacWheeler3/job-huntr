@@ -42,33 +42,34 @@ const Profile = () => {
 
   return (
     <div>
-      <div className="flex-row justify-center mb-3">
-        <h2 className="flex-row justify-center col-12 col-md-10 bg-dark text-light p-3 mb-5">
-          Viewing {userParam ? `${user.username}'s` : "your"} profile.
+      <div className="profile-view-container">
+        <h2 className="profile-view-header">
+          Viewing {userParam ? `${user.username}'s` : "your"} profile
         </h2>
 
         <div className="profile-section">
-          <p>{user.username}</p>
-          <p>{user.firstName}</p>
+          <p style={{textTransform: 'capitalize' }}>{user.username.charAt(0).toUpperCase() + user.username.slice(1)}</p>
+          <p >{user.firstName}</p>
           <p>{user.lastName}</p>
           <ul>
             {user.savedJobs.map((job, index) => {
               let contactInfo = null;
               if (job.contactPerson) {
                 contactInfo = (
+                  
                   <>
                     <div className="job-details">
                       <ul>
-                        <li> Contact Person Name: {job.contactPerson.name}</li>
-                        <li>Contact Person Role: {job.contactPerson.role}</li>
+                        <li> <span>Contact Person Name:</span> {job.contactPerson.name}</li>
+                        <li><span>Contact Person Role:</span> {job.contactPerson.role}</li>
                         <li>
                           {" "}
-                          Contact Person Phone: {job.contactPerson.phone}
+                          <span>Contact Person Phone:</span> {job.contactPerson.phone}
                         </li>{" "}
                         <li>
-                          Contact Person Email: {job.contactPerson.email}{" "}
+                          <span>Contact Person Email:</span> {job.contactPerson.email}{" "}
                         </li>
-                        <li>Contact Person Notes: {job.contactPerson.notes}</li>
+                        <li><span>Contact Person Notes:</span> {job.contactPerson.notes}</li>
                       </ul>
                     </div>
                   </>
@@ -87,6 +88,10 @@ const Profile = () => {
                   >
                     Expand
                   </button>
+                  <button type="button" class="collapsible">
+                    Collapse
+                  </button>
+                  <div class="content"></div>
                 </li>
               );
             })}
