@@ -37,14 +37,18 @@ const userSchema = new Schema({
       ref: "CommonQuestions",
     },
   ],
-}, { timestamps: true });
-
-
   employmentTerms: {
     type: Schema.Types.ObjectId,
     ref: "EmploymentTerms",
   },
-});
+}, 
+
+
+{ timestamps: true }
+
+
+
+);
 
 userSchema.pre("save", async function (next) {
   if (this.isNew || this.isModified("password")) {
