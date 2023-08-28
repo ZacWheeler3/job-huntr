@@ -1,4 +1,4 @@
-const { User, Job, ComLog, CommonQuestions } = require("../models");
+const { User, Job, ComLog, CommonQuestions, EmploymentTerms } = require("../models");
 
 const { signToken, AuthenticationError } = require("../utils/auth");
 
@@ -105,8 +105,15 @@ const resolvers = {
       return job.contactPerson;
     },
     
-
-    
+    // deleteContactPerson: async (parent, {_id, contactPerson}) => {
+    //   const job = {_id, contactPerson};
+    //   await Job.findOneAndUpdate(
+    //     {_id: _id},
+    //     {contactPerson: null},
+    //     { new: true }
+    //   );
+    //   return job.contactPerson;
+    // },    
 
     updateJob: async (parent, { _id, company, role, offerMade }) => {
       const job = { _id, company, role, offerMade };

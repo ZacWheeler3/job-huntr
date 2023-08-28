@@ -40,6 +40,12 @@ const userSchema = new Schema({
 }, { timestamps: true });
 
 
+  employmentTerms: {
+    type: Schema.Types.ObjectId,
+    ref: "EmploymentTerms",
+  },
+});
+
 userSchema.pre("save", async function (next) {
   if (this.isNew || this.isModified("password")) {
     const saltRounds = 10;
