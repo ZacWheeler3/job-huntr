@@ -52,12 +52,12 @@ const typeDefs = `
 
   type EmploymentTerms {
     _id: ID
-    salary: Number
+    salary: Int
     insurance: Boolean
     location: String
     hoursPerWeek: String
     flexibleHours: Boolean
-    PTO: Number
+    PTO: Int
     retirement: Boolean
     training: String
     mentorship: Boolean
@@ -102,7 +102,6 @@ const typeDefs = `
       direction: String!
       ): ComLog
     updateContactPerson(_id: ID!, contactPerson: ContactPersonInput): Job
-    addEmploymentTerms
   }
 `;
 
