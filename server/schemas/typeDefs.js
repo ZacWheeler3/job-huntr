@@ -92,6 +92,7 @@ type ComLog {
       content: String!
       direction: String!
       ): ComLog
+    updateContactPerson(_id: ID!, contactPerson: ContactPersonInput): Job
   }
 `;
 
