@@ -569,7 +569,7 @@ span {
   height: 100%;
 }
 
-.job-expand-button {
+.job-expand-button, .job-collapse-button {
   display: inline-block;
   padding: 15px 25px;
   background-color: #7340ad;
@@ -583,13 +583,13 @@ span {
   font-size: large;
   transition: 0.4s ease-in;
 }
-.job-expand-button:hover {
+.job-expand-button:hover, .job-collapse-button:hover {
   background-color: #a180c8;
   color: #7340ad;
   transition: ease-in;
 }
 
-.job-expand-button:active {
+.job-expand-button:active, .job-collapse-button:active {
   background-color: #7340ad;
   color: #7340ad;
 }
