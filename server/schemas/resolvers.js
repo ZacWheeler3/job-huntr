@@ -112,15 +112,15 @@ const resolvers = {
       return job.contactPerson;
     },
 
-    // deleteContactPerson: async (parent, {_id, contactPerson}) => {
-    //   const job = {_id, contactPerson};
-    //   await Job.findOneAndUpdate(
-    //     {_id: _id},
-    //     {contactPerson: null},
-    //     { new: true }
-    //   );
-    //   return job.contactPerson;
-    // },
+    deleteContactPerson: async (parent, { _id }) => {
+      const deletedContactPerson = job.contactPerson;
+      await Job.findOneAndUpdate(
+        { _id: _id },
+        { contactPerson: null },
+        { new: true }
+      );
+      return deletedContactPerson;
+    },
 
     updateJob: async (parent, { _id, company, role, offerMade }) => {
       const job = { _id, company, role, offerMade };
@@ -201,9 +201,8 @@ const resolvers = {
       { _id, EmploymentTermsInput },
       context
     ) => {
-      const newTerms = { _id, EmploymentTermsInput };
+      const newTerms = { EmploymentTermsInput };
       await EmploymentTerms.create(
-        { _id: _id },
         {
           tenure: EmploymentTermsInput.tenure,
           salary: EmploymentTermsInput.salary,
@@ -222,6 +221,7 @@ const resolvers = {
 
       await User.findOneAndUpdate(
         { _id: context.user._id },
+        // THIS might be an issue, might need to destructure ETI
         { employmentTerms: EmploymentTermsInput },
         { new: true, runValidators: true }
       );
