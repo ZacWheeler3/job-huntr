@@ -7,6 +7,7 @@ import zac from "../../public/zac.jpg?url";
 import dave from "../../public/dave.png?url";
 import ivy from "../../public/ivy.jpg?url";
 import chris from "../../public/chris.png?url";
+
 const AboutPage = () => {
   return (
     <div className="about-container">
@@ -120,17 +121,23 @@ const AboutPage = () => {
             and am reliable, ensuring that I always meet my deadlines and
             deliver high-quality work. My attention to detail and sharp
             technical skills enable me to create efficient and effective
-            solutions.</p>
-            <p> In my free time, I love playing table tennis, tennis,
-            NBA2k23, and MOBA type games. I find that sports and gaming are a
-            great way to stay active, improve my reflexes, and have fun. When
-            I'm not competing on the court or in the virtual world, you can find
-            me exploring new technologies, playing music, or hiking in the great
-            outdoors.</p>
-            <p> I am excited to bring my skills and experience to new
-            projects and collaborate with like-minded individuals. Whether it's
-            solving complex technical challenges or mastering the latest game,
-            I'm always up for a good challenge!
+            solutions.
+          </p>
+          <p>
+            {" "}
+            In my free time, I love playing table tennis, tennis, NBA2k23, and
+            MOBA type games. I find that sports and gaming are a great way to
+            stay active, improve my reflexes, and have fun. When I'm not
+            competing on the court or in the virtual world, you can find me
+            exploring new technologies, playing music, or hiking in the great
+            outdoors.
+          </p>
+          <p>
+            {" "}
+            I am excited to bring my skills and experience to new projects and
+            collaborate with like-minded individuals. Whether it's solving
+            complex technical challenges or mastering the latest game, I'm
+            always up for a good challenge!
           </p>
           <ul>
             <li>

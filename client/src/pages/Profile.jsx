@@ -42,14 +42,14 @@ const Profile = () => {
 
   return (
     <div>
-      <div className="flex-row justify-center mb-3">
-        <h2 className="flex-row justify-center col-12 col-md-10 bg-dark text-light p-3 mb-5">
-          Viewing {userParam ? `${user.username}'s` : "your"} profile.
+      <div className="profile-view-container">
+        <h2 className="profile-view-header">
+          Viewing {userParam ? `${user.username}'s` : "your"} profile
         </h2>
 
         <div className="profile-section">
-          <p>{user.username}</p>
-          <p>{user.firstName}</p>
+          <p style={{textTransform: 'capitalize' }}>{user.username.charAt(0).toUpperCase() + user.username.slice(1)}</p>
+          <p >{user.firstName}</p>
           <p>{user.lastName}</p>
           <ul>
             {user.savedJobs.map((job, index) => {
@@ -87,6 +87,10 @@ const Profile = () => {
                   >
                     Expand
                   </button>
+                  <button type="button" class="collapsible">
+                    Collapse
+                  </button>
+                  <div class="content"></div>
                 </li>
               );
             })}

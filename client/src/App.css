@@ -557,7 +557,16 @@ span {
 
 .profile-section {
   color: #ffffff;
-  font-size: 2rem;
+  font-size: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  margin: 10px;
+  padding: 25px;
+  border-radius: 5px;
+  background-color: #00000055;
+  font-family: "JetBrains Mono", monospace;
+  height: 100%;
 }
 
 .job-expand-button {
@@ -565,9 +574,43 @@ span {
   color: #ffffff;
 }
 
-.job-details {
-  font-size: 2rem;
+.profile-view-container {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 0px;
+  height: 100%;
 }
+
+.profile-view-header {
+  display: flex;
+  justify-content: center;
+  margin: 2rem;
+  background-color: #7340ad ;
+}
+
+.job-details {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  margin: 10px;
+  padding: 25px;
+  border-radius: 5px;
+  font-family: "JetBrains Mono", monospace;
+}
+
+.job-details ul {
+  font-size: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  margin: 10px;
+  padding: 25px;
+  border-radius: 5px;
+  background-color: #00000055;
+  font-family: "JetBrains Mono", monospace;
+}
+
+
 
 /**
  * Correct the font size and margin on `h1` elements within `section` and
