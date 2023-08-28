@@ -7,7 +7,171 @@ import zac from "../../public/zac.jpg?url";
 
 const AboutPage = () => {
   return (
-    <div className="about-container">
+    <>
+      <container className="developers">
+        <card className="zac"><div className="dev-name">Zac Wheeler</div>
+        <div className="dev-pic">
+          <img src={zac} alt="My Image" />
+        </div>
+        <div className="dev-creds">
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam
+            odio, obcaecati molestiae consequuntur corporis earum voluptatem
+            labore, perspiciatis qui illo rem ex nemo optio! Corrupti voluptatem
+            quod eligendi et repellat! Lorem ipsum dolor sit amet consectetur
+            adipisicing elit. Eligendi iusto aut quidem et dolorum labore nisi
+            atque, sit tempore quam cupiditate obcaecati doloremque odit quis
+            harum? Odio eligendi rerum quis?Lorem ipsum dolor sit amet
+            consectetur adipisicing elit. Reiciendis numquam distinctio optio
+            suscipit, sint saepe dolorum. Cupiditate, asperiores laudantium quo
+            voluptatum odio harum, veniam ullam suscipit odit placeat laborum
+            molestias!
+          </p>
+          <ul>
+            <li>
+              <a href="https://github.com/haileyraehughes89">
+                <GithubIcon />
+              </a>
+            </li>
+            <li>
+              <a href="https://www.linkedin.com/in/hailey-hughes-039382206">
+                <LinkedInIcon />
+              </a>
+            </li>
+          </ul>
+        </div></card>
+        <card className="dave"><div className="dev-name">Hailey Hughes</div>
+        <div className="dev-pic">
+          <img src={zac} alt="My Image" />
+        </div>
+        <div className="dev-creds">
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam
+            odio, obcaecati molestiae consequuntur corporis earum voluptatem
+            labore, perspiciatis qui illo rem ex nemo optio! Corrupti voluptatem
+            quod eligendi et repellat! Lorem ipsum dolor sit amet consectetur
+            adipisicing elit. Eligendi iusto aut quidem et dolorum labore nisi
+            atque, sit tempore quam cupiditate obcaecati doloremque odit quis
+            harum? Odio eligendi rerum quis?Lorem ipsum dolor sit amet
+            consectetur adipisicing elit. Reiciendis numquam distinctio optio
+            suscipit, sint saepe dolorum. Cupiditate, asperiores laudantium quo
+            voluptatum odio harum, veniam ullam suscipit odit placeat laborum
+            molestias!
+          </p>
+          <ul>
+            <li>
+              <a href="https://github.com/haileyraehughes89">
+                <GithubIcon />
+              </a>
+            </li>
+            <li>
+              <a href="https://www.linkedin.com/in/hailey-hughes-039382206">
+                <LinkedInIcon />
+              </a>
+            </li>
+          </ul>
+        </div></card>
+        <card className="hailey"><div className="dev-name">Hailey Hughes</div>
+        <div className="dev-pic">
+          <img src={zac} alt="My Image" />
+        </div>
+        <div className="dev-creds">
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam
+            odio, obcaecati molestiae consequuntur corporis earum voluptatem
+            labore, perspiciatis qui illo rem ex nemo optio! Corrupti voluptatem
+            quod eligendi et repellat! Lorem ipsum dolor sit amet consectetur
+            adipisicing elit. Eligendi iusto aut quidem et dolorum labore nisi
+            atque, sit tempore quam cupiditate obcaecati doloremque odit quis
+            harum? Odio eligendi rerum quis?Lorem ipsum dolor sit amet
+            consectetur adipisicing elit. Reiciendis numquam distinctio optio
+            suscipit, sint saepe dolorum. Cupiditate, asperiores laudantium quo
+            voluptatum odio harum, veniam ullam suscipit odit placeat laborum
+            molestias!
+          </p>
+          <ul>
+            <li>
+              <a href="https://github.com/haileyraehughes89">
+                <GithubIcon />
+              </a>
+            </li>
+            <li>
+              <a href="https://www.linkedin.com/in/hailey-hughes-039382206">
+                <LinkedInIcon />
+              </a>
+            </li>
+          </ul>
+        </div></card>
+        <card className="chris"><div className="dev-name">Hailey Hughes</div>
+        <div className="dev-pic">
+          <img src={zac} alt="My Image" />
+        </div>
+        <div className="dev-creds">
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam
+            odio, obcaecati molestiae consequuntur corporis earum voluptatem
+            labore, perspiciatis qui illo rem ex nemo optio! Corrupti voluptatem
+            quod eligendi et repellat! Lorem ipsum dolor sit amet consectetur
+            adipisicing elit. Eligendi iusto aut quidem et dolorum labore nisi
+            atque, sit tempore quam cupiditate obcaecati doloremque odit quis
+            harum? Odio eligendi rerum quis?Lorem ipsum dolor sit amet
+            consectetur adipisicing elit. Reiciendis numquam distinctio optio
+            suscipit, sint saepe dolorum. Cupiditate, asperiores laudantium quo
+            voluptatum odio harum, veniam ullam suscipit odit placeat laborum
+            molestias!
+          </p>
+          <ul>
+            <li>
+              <a href="https://github.com/haileyraehughes89">
+                <GithubIcon />
+              </a>
+            </li>
+            <li>
+              <a href="https://www.linkedin.com/in/hailey-hughes-039382206">
+                <LinkedInIcon />
+              </a>
+            </li>
+          </ul>
+        </div></card>
+        <card className="ivy"><div className="dev-name">Hailey Hughes</div>
+        <div className="dev-pic">
+          <img src={zac} alt="My Image" />
+        </div>
+        <div className="dev-creds">
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam
+            odio, obcaecati molestiae consequuntur corporis earum voluptatem
+            labore, perspiciatis qui illo rem ex nemo optio! Corrupti voluptatem
+            quod eligendi et repellat! Lorem ipsum dolor sit amet consectetur
+            adipisicing elit. Eligendi iusto aut quidem et dolorum labore nisi
+            atque, sit tempore quam cupiditate obcaecati doloremque odit quis
+            harum? Odio eligendi rerum quis?Lorem ipsum dolor sit amet
+            consectetur adipisicing elit. Reiciendis numquam distinctio optio
+            suscipit, sint saepe dolorum. Cupiditate, asperiores laudantium quo
+            voluptatum odio harum, veniam ullam suscipit odit placeat laborum
+            molestias!
+          </p>
+          <ul>
+            <li>
+              <a href="https://github.com/haileyraehughes89">
+                <GithubIcon />
+              </a>
+            </li>
+            <li>
+              <a href="https://www.linkedin.com/in/hailey-hughes-039382206">
+                <LinkedInIcon />
+              </a>
+            </li>
+          </ul>
+        </div></card>
+      </container>
+    </>
+  );
+};
+export default AboutPage;
+
+{
+  /* <div className="about-container">
       <div className="about-title">
         <h2>Meet Our Team!</h2>
       </div>
@@ -169,7 +333,5 @@ const AboutPage = () => {
           </ul>
         </div>
       </div>
-    </div>
-  );
-};
-export default AboutPage;
+    </div> */
+}
