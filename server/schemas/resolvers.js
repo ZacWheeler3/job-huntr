@@ -1,4 +1,10 @@
-const { User, Job, ComLog, CommonQuestions, EmploymentTerms } = require("../models");
+const {
+  User,
+  Job,
+  ComLog,
+  CommonQuestions,
+  EmploymentTerms,
+} = require("../models");
 
 const { signToken, AuthenticationError } = require("../utils/auth");
 
@@ -16,7 +22,8 @@ const resolvers = {
         return User.findOne({ _id: context.user._id })
           .populate("savedJobs")
           .populate("savedJobs.contactPerson")
-          .populate("savedQuestions");
+          .populate("savedQuestions")
+          .populate("employmentTerms");
       }
       throw AuthenticationError;
     },
@@ -95,16 +102,16 @@ const resolvers = {
       return job;
     },
 
-    updateContactPerson: async (parent, {_id, contactPerson}) => {
-      const job = {_id, contactPerson};
+    updateContactPerson: async (parent, { _id, contactPerson }) => {
+      const job = { _id, contactPerson };
       await Job.findOneAndUpdate(
-        {_id: _id},
-        {contactPerson},
+        { _id: _id },
+        { contactPerson },
         { new: true }
       );
       return job.contactPerson;
     },
-    
+
     // deleteContactPerson: async (parent, {_id, contactPerson}) => {
     //   const job = {_id, contactPerson};
     //   await Job.findOneAndUpdate(
@@ -113,7 +120,7 @@ const resolvers = {
     //     { new: true }
     //   );
     //   return job.contactPerson;
-    // },    
+    // },
 
     updateJob: async (parent, { _id, company, role, offerMade }) => {
       const job = { _id, company, role, offerMade };
@@ -124,26 +131,23 @@ const resolvers = {
       );
 
       return job;
-
     },
     deleteJob: async (parent, { _id }, context) => {
       if (!context.user) {
         throw AuthenticationError;
       }
-    
+
       const job = await Job.findOneAndDelete({ _id: _id });
-    
+
       await User.findOneAndUpdate(
         { _id: context.user._id },
         { $pull: { savedJobs: job._id } }
       );
-    
+
       return job;
     },
 
-    
-
-     addComLog: async (
+    addComLog: async (
       parent,
       { jobId, method, content, direction },
       context
@@ -191,6 +195,37 @@ const resolvers = {
       );
 
       return updatedQuestion;
+    },
+    addEmploymentTerms: async (
+      parent,
+      { _id, EmploymentTermsInput },
+      context
+    ) => {
+      const newTerms = { _id, EmploymentTermsInput };
+      await EmploymentTerms.create(
+        { _id: _id },
+        {
+          tenure: EmploymentTermsInput.tenure,
+          salary: EmploymentTermsInput.salary,
+          insurance: EmploymentTermsInput.insurance,
+          location: EmploymentTermsInput.location,
+          flexibleHours: EmploymentTermsInput.flexibleHours,
+          PTO: EmploymentTermsInput.PTO,
+          retirement: EmploymentTermsInput.retirement,
+          parentalLeave: EmploymentTermsInput.parentalLeave,
+          training: EmploymentTermsInput.training,
+          mentorship: EmploymentTermsInput.mentorship,
+          notes: EmploymentTermsInput.notes,
+        },
+        { new: true }
+      );
+
+      await User.findOneAndUpdate(
+        { _id: context.user._id },
+        { employmentTerms: EmploymentTermsInput },
+        { new: true, runValidators: true }
+      );
+      return newTerms;
     },
   },
 };
