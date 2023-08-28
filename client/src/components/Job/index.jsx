@@ -38,8 +38,8 @@ const Job = ({jobId}) => {
           <p>Phone: {contactPhone}</p>
           <p>Email: {contactEmail}</p>
           <p>Notes: {contactNotes}</p>
-          <p>Created At: {createdAt}</p>
-          <p>Updated At: {updatedAt}</p>
+          <p>Created At: {job.createdAt}</p>
+          <p>Updated At: {job.updatedAt}</p>
           <ComLog comLogs={job.comLogArray} jobId={jobId}/>
         </div>
       </div>
