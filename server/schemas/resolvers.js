@@ -105,15 +105,15 @@ const resolvers = {
       return job.contactPerson;
     },
     
-    deleteContactPerson: async (parent, {_id, contactPerson}) => {
-      const job = {_id, contactPerson};
-      await Job.findOneAndUpdate(
-        {_id: _id},
-        {contactPerson: null},
-        { new: true }
-      );
-      return job.contactPerson;
-    },    
+    // deleteContactPerson: async (parent, {_id, contactPerson}) => {
+    //   const job = {_id, contactPerson};
+    //   await Job.findOneAndUpdate(
+    //     {_id: _id},
+    //     {contactPerson: null},
+    //     { new: true }
+    //   );
+    //   return job.contactPerson;
+    // },    
 
     updateJob: async (parent, { _id, company, role, offerMade }) => {
       const job = { _id, company, role, offerMade };
