@@ -53,7 +53,6 @@ const jobSchema = new Schema(
         type: String,
         required: false,
       },
-      default: null
     },
     comLogArray: [
       {
