@@ -38,6 +38,10 @@ const userSchema = new Schema({
       ref: "CommonQuestions",
     },
   ],
+  employmentTerms: {
+    type: Schema.Types.ObjectId,
+    ref: "EmploymentTerms",
+  },
 });
 
 userSchema.pre("save", async function (next) {
