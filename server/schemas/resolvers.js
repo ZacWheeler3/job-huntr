@@ -1,4 +1,4 @@
-const { User, Job, ComLog, CommonQuestions } = require("../models");
+const { User, Job, ComLog, CommonQuestions, EmploymentTerms } = require("../models");
 
 const { signToken, AuthenticationError } = require("../utils/auth");
 
