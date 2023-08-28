@@ -15,7 +15,8 @@ const resolvers = {
       if (context.user) {
         return User.findOne({ _id: context.user._id })
           .populate("savedJobs")
-          .populate("savedJobs.contactPerson");
+          .populate("savedJobs.contactPerson")
+          .populate("savedQuestions");
       }
       throw AuthenticationError;
     },
@@ -93,24 +94,61 @@ const resolvers = {
       );
       return job;
     },
+
+    updateContactPerson: async (parent, {_id, contactPerson}) => {
+      const job = {_id, contactPerson};
+      await Job.findOneAndUpdate(
+        {_id: _id},
+        {contactPerson},
+        { new: true }
+      );
+      return job.contactPerson;
+    },
     
+    // deleteContactPerson: async (parent, {_id, contactPerson}) => {
+    //   const job = {_id, contactPerson};
+    //   await Job.findOneAndUpdate(
+    //     {_id: _id},
+    //     {contactPerson: null},
+    //     { new: true }
+    //   );
+    //   return job.contactPerson;
+    // },    
 
     updateJob: async (parent, { _id, company, role, offerMade }) => {
-      const job = { _id, company, role, offerMade}
-     await Job.findOneAndUpdate(
+      const job = { _id, company, role, offerMade };
+      await Job.findOneAndUpdate(
         { _id: _id },
         { company, role, offerMade },
         { new: true }
       );
 
       return job;
-    
-    throw AuthenticationError;
-    ('You need to be logged in!');
-  },
 
-    addComLog: async (parent, { method, content, direction }, context) => {
-      if (!context.job) {
+    },
+    deleteJob: async (parent, { _id }, context) => {
+      if (!context.user) {
+        throw AuthenticationError;
+      }
+    
+      const job = await Job.findOneAndDelete({ _id: _id });
+    
+      await User.findOneAndUpdate(
+        { _id: context.user._id },
+        { $pull: { savedJobs: job._id } }
+      );
+    
+      return job;
+    },
+
+    
+
+     addComLog: async (
+      parent,
+      { jobId, method, content, direction },
+      context
+    ) => {
+      if (!context.user) {
         throw AuthenticationError;
       }
       const comLog = await ComLog.create({
@@ -120,13 +158,14 @@ const resolvers = {
       });
 
       await Job.findOneAndUpdate(
-        { _id: context.job._id },
+        { _id: jobId },
         { $addToSet: { comLogArray: comLog._id } },
         { new: true, runValidators: true }
       );
       return comLog;
     },
-addQuestion: async (_parent, { question, response }, context) => {
+
+    addQuestion: async (_parent, { question, response }, context) => {
       if (!context.user) {
         throw AuthenticationError;
       }
@@ -140,7 +179,6 @@ addQuestion: async (_parent, { question, response }, context) => {
         { $addToSet: { savedQuestions: newQuestion._id } },
         { new: true, runValidators: true }
       );
-      console.log(context.user._id);
       console.log("new question added:", newQuestion);
       return newQuestion;
     },
@@ -152,11 +190,9 @@ addQuestion: async (_parent, { question, response }, context) => {
         { new: true }
       );
 
-
       return updatedQuestion;
     },
   },
 };
 
 module.exports = resolvers;
-

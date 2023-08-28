@@ -5,7 +5,6 @@ import ComLog from "../ComLog";
 import { QUERY_JOB } from "../../utils/queries";
 
 const Job = ({jobId}) => {
-  // DAVE NEED TO PASS IN A PROP WITH THE JOB ID
   const { loading, data } = useQuery(QUERY_JOB, {variables: {_id: jobId}});
 
   const job = data?.job;
@@ -17,8 +16,12 @@ const Job = ({jobId}) => {
   if (!data.job) {
     return <h4>Looks like there isn't any more data for this job.</h4>;
   }
-  const { contactName, contactRole, contactPhone, contactEmail, contactNotes } =
+  const { name: contactName, role: contactRole, phone: contactPhone, email: contactEmail, notes: contactNotes } =
     job.contactPerson;
+    console.log(contactName);
+    console.log(contactRole);
+
+    console.log(job.contactPerson);
   return (
     <div>
       <div className="flex-row justify-center mb-3">
@@ -35,7 +38,7 @@ const Job = ({jobId}) => {
           <p>Phone: {contactPhone}</p>
           <p>Email: {contactEmail}</p>
           <p>Notes: {contactNotes}</p>
-          <ComLog comLogs={job.comLogArray}/>
+          <ComLog comLogs={job.comLogArray} jobId={jobId}/>
         </div>
       </div>
     </div>

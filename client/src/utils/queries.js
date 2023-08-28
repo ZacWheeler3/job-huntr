@@ -36,19 +36,12 @@ export const QUERY_JOB = gql`
   }
 `;
 
-export const QUERY_SINGLE_THOUGHT = gql`
-  query getSingleThought($thoughtId: ID!) {
-    thought(thoughtId: $thoughtId) {
+export const QUERY_QUESTION = gql`
+  query question($_id: ID) {
+    question(_id: $_id) {
       _id
-      thoughtText
-      thoughtAuthor
-      createdAt
-      comments {
-        _id
-        commentText
-        commentAuthor
-        createdAt
-      }
+      question
+      response
     }
   }
 `;
@@ -60,6 +53,7 @@ export const QUERY_ME = gql`
       username
       email
       savedJobs {
+        _id
         company
         role
         advertisedSalary
@@ -71,6 +65,10 @@ export const QUERY_ME = gql`
           email
           notes
         }
+      }
+      savedQuestions{
+        question
+        response
       }
     }
   }
