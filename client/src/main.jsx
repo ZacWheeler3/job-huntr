@@ -38,6 +38,10 @@ const router = createBrowserRouter([
         element: <ContactPage />
       },
       {
+        path: '/CommonQuestions',
+        element: <CommonQuestions />
+      },
+      {
         path: '/signup',
         element: <Signup />
       }, {
