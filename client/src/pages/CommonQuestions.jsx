@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { useMutation } from "@apollo/client";
-
+import { useMutation, useQuery } from "@apollo/client";
+import { QUERY_QUESTION } from "../utils/queries";
 import { ADD_QUESTION } from "../utils/mutations";
 
 import Auth from "../utils/auth";
@@ -10,9 +10,13 @@ const CommonQuestions = () => {
   const [question, setQuestion] = useState("");
   const [response, setResponse] = useState("");
 const [addedQuestions, setAddedQuestions] = useState([]);
-
+const { loading, data } = useQuery(QUERY_QUESTION)
   const [addQuestion, { error }] = useMutation(ADD_QUESTION);
+  
+  if (loading) return <p>Loading...</p>;
+ 
 
+const questions = data.questions
   const handleFormSubmit = async (event) => {
     event.preventDefault();
 
@@ -82,7 +86,7 @@ const [addedQuestions, setAddedQuestions] = useState([]);
       )}
 
       <ul>
-      {addedQuestions.map((item, index) => (
+      {questions.map((item, index) => (
         <li key={index}>
           Question: {item.question}, Response: {item.response}
         </li>

@@ -37,14 +37,15 @@ export const QUERY_JOB = gql`
 `;
 
 export const QUERY_QUESTION = gql`
-  query question($_id: ID) {
-    question(_id: $_id) {
+  query questions {
+    questions {
       _id
       question
       response
     }
   }
 `;
+
 
 export const QUERY_ME = gql`
   query me {

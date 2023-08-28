@@ -76,6 +76,7 @@ const typeDefs = `
     jobs: [Job]
     job(_id: ID): Job
     questions: [CommonQuestions]
+    question(_id: ID): CommonQuestions
     comLogs: [ComLog]
     comLog(_id: ID): ComLog
     employmentTerms(_id: ID): EmploymentTerms
