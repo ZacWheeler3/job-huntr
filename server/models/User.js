@@ -25,7 +25,6 @@ const userSchema = new Schema({
   lastName: {
     type: String,
   },
-
   savedJobs: [
     {
       type: Schema.Types.ObjectId,
@@ -38,7 +37,8 @@ const userSchema = new Schema({
       ref: "CommonQuestions",
     },
   ],
-});
+}, { timestamps: true });
+
 
 userSchema.pre("save", async function (next) {
   if (this.isNew || this.isModified("password")) {

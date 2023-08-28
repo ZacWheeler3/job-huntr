@@ -63,7 +63,7 @@ const jobSchema = new Schema(
     default: []
   },
 
-  { timeStamp: true }
+  { timestamps: true }
   
 );
 
