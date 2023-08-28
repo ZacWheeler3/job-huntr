@@ -66,6 +66,7 @@ type ComLog {
     jobs: [Job]
     job(_id: ID): Job
     questions: [CommonQuestions]
+    question(_id: ID): CommonQuestions
     comLogs: [ComLog]
     comLog(_id: ID): ComLog
   }
@@ -79,8 +80,8 @@ type ComLog {
       contactPerson: ContactPersonInput
       offerMade: Boolean
       ): Job
-      addQuestion(question: String!, response: String!): CommonQuestions
-      updateQuestion(_id:ID!, question: String, response: String): CommonQuestions
+    addQuestion(question: String!, response: String!): CommonQuestions
+    updateQuestion(_id:ID!, question: String, response: String): CommonQuestions
     updateJob(_id: ID!, company: String, role: String, offerMade: Boolean): Job
 
     deleteJob(_id: ID!): Job
