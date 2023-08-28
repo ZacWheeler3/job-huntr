@@ -88,7 +88,7 @@ const Profile = () => {
                   >
                     Expand
                   </button>
-                  <button type="button" class="collapsible">
+                  <button type="button" class="job-collapse-button">
                     Collapse
                   </button>
                   <div class="content"></div>
