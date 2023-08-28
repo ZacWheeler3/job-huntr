@@ -14,7 +14,7 @@ const { loading, data } = useQuery(QUERY_QUESTION)
   const [addQuestion, { error }] = useMutation(ADD_QUESTION);
   
   if (loading) return <p>Loading...</p>;
-  if (error) return <p>Error: {error.message}</p>;
+ 
 
 const questions = data.questions
   const handleFormSubmit = async (event) => {
