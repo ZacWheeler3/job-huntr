@@ -1,92 +1,95 @@
-import { Navigate, useParams } from "react-router-dom";
-import { useQuery } from "@apollo/client";
+import { useState } from "react";
+import { Link } from "react-router-dom";
+import { useMutation } from "@apollo/client";
 
-// TO DO: move ADD_JOB and associated stuff into its own file?
-
-
-import { QUERY_USER, QUERY_ME } from "../utils/queries";
+import { ADD_QUESTION } from "../utils/mutations";
 
 import Auth from "../utils/auth";
 
-const Profile = () => {
-  const { username: userParam } = useParams();
+const CommonQuestions = () => {
+  const [question, setQuestion] = useState("");
+  const [response, setResponse] = useState("");
+const [addedQuestions, setAddedQuestions] = useState([]);
 
-  const { loading, data } = useQuery(userParam ? QUERY_USER : QUERY_ME, {
-    variables: { username: userParam },
-  });
+  const [addQuestion, { error }] = useMutation(ADD_QUESTION);
 
-  const user = data?.me || data?.user || {};
-  // navigate to personal profile page if username is yours
-  if (Auth.loggedIn() && Auth.getProfile().data.username === userParam) {
-    return <Navigate to="/me" />;
-  }
+  const handleFormSubmit = async (event) => {
+    event.preventDefault();
 
-  if (loading) {
-    return <div>Loading...</div>;
-  }
 
-  if (!user?.username) {
-    return (
-      <h4>
-        You need to be logged in to see this. Use the navigation links above to
-        sign up or log in!
-      </h4>
-    );
-  }
+    try {
+      const { data } = await addQuestion({
+        variables: {
+          question,
+          response,
+        },
+      });
+      setAddedQuestions([...addedQuestions, { question, response }]);
+
+      setQuestion("");
+      setResponse("");
+    } catch (err) {
+      console.error(err);
+    }
+  };
 
   return (
     <div>
-      <div className="flex-row justify-center mb-3">
-        <h2 className="col-12 col-md-10 bg-dark text-light p-3 mb-5">
-          Viewing {userParam ? `${user.username}'s` : "your"} profile.
-        </h2>
+      <h3>Add a Question</h3>
+      {Auth.loggedIn() ? (
+        <>
+          <form onSubmit={handleFormSubmit}>
+            <div className="form-group">
+              <input
+                type="text"
+                name="question"
+                placeholder="New Question Here"
+                value={question}
+              onChange={(e) => setQuestion(e.target.value)}
+                required
+              />
+            </div>
 
-        <div className="col-12 col-md-10 mb-5">
-          <p>{user.username}</p>
-          <p>{user.firstName}</p>
-          <p>{user.lastName}</p>
-          <ul>
-            {user.savedJobs.map((job, index) => {
-              let contactInfo = null;
-              if (job.contactPerson) {
-                contactInfo = (
-                  <>
-                    Contact Person Name: {job.contactPerson.name} Contact Person
-                    Role: {job.contactPerson.role} Contact Person Phone:{" "}
-                    {job.contactPerson.phone} Contact Person Email:{" "}
-                    {job.contactPerson.email} Contact Person Notes:{" "}
-                    {job.contactPerson.notes}
-                  </>
-                );
-              }
-              console.log(contactInfo);
-              return (
-                <li key={index}>
-                  Company: {job.company}, Role: {job.role}, Salary:{" "}
-                  {job.advertisedSalary}
-                  Offer made? {job.offerMade} {contactInfo}
-                </li>
-              );
-            })}
-          </ul>
-          {/* <ThoughtList
-            thoughts={user.thoughts}
-            title={`${user.username}'s thoughts...`}
-            showTitle={false}
-            showUsername={false}
-          /> */}
-        </div>
-        {!userParam && (
-          <div
-            className="col-12 col-md-10 mb-3 p-3"
-            style={{ border: "1px dotted #1a1a1a" }}
-          >
-            {/* <ThoughtForm /> */}
-          </div>
-        )}
-      </div>
+            <div className="form-group">
+              <input
+                type="text"
+                name="response"
+                placeholder="Response Here"
+                value={response}
+                onChange={(e) => setResponse(e.target.value)}
+                required
+              />
+            </div>
+
+          
+
+            <div className="form-group">
+              <button className="btn btn-primary" type="submit">
+                Add Question
+              </button>
+            </div>
+
+            {error && (
+              <div className="bg-danger text-white p-3">{error.message}</div>
+            )}
+          </form>
+        </>
+      ) : (
+        <p>
+          You need to be logged in to add a job. Please{" "}
+          <Link to="/login">login</Link> or <Link to="/signup">signup.</Link>
+        </p>
+      )}
+
+      <ul>
+      {addedQuestions.map((item, index) => (
+        <li key={index}>
+          Question: {item.question}, Response: {item.response}
+        </li>
+      ))}
+    </ul>
     </div>
   );
 };
 
-export default Profile;
+export default CommonQuestions;

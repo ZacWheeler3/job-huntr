@@ -10,6 +10,7 @@ import ErrorPage from './pages/ErrorPage';
 import AboutPage from './pages/AboutPage.jsx';
 import CompanyPage from './pages/CompanyPage.jsx';
 import ContactPage from './pages/ContactPage.jsx'
+import CommonQuestions from './pages/CommonQuestions.jsx'
 
 const router = createBrowserRouter([
   {

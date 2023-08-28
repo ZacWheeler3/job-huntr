@@ -36,6 +36,16 @@ export const QUERY_JOB = gql`
   }
 `;
 
+export const QUERY_QUESTION = gql`
+  query question($_id: ID) {
+    question(_id: $_id) {
+      _id
+      question
+      response
+    }
+  }
+`;
+
 export const QUERY_SINGLE_THOUGHT = gql`
   query getSingleThought($thoughtId: ID!) {
     thought(thoughtId: $thoughtId) {
@@ -72,6 +82,10 @@ export const QUERY_ME = gql`
           email
           notes
         }
+      }
+      savedQuestions{
+        question
+        response
       }
     }
   }

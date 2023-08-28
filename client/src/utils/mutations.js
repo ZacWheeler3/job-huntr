@@ -108,18 +108,33 @@ export const ADD_COMLOG = gql`
     $method: String!
     $content: String!
     $direction: String!
-  ) {
-    addComLog(
-      jobId: $jobId
-      method: $method
-      content: $content
-      direction: $direction
-    ) {
-      _id
-      method
-      content
-      direction
-    }
-  }
+  ){
+  addComLog(
+          jobId: $jobId
+method: $method
+    content: $content
+    direction: $direction
+  ){
+    _id
+    method
+    content
+    direction
+  }}
 `;
+
+export const ADD_QUESTION = gql`
+  mutation addQuestion(
+    $question: String!
+    $response: String!
+  ){
+  addQuestion(
+    question: $question
+    response: $response
+  ){
+    _id
+    question
+    response
+  }}
+`;
+
 
