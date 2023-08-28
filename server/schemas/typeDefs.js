@@ -9,55 +9,65 @@ const typeDefs = `
    savedQuestions: [CommonQuestions]!
   }
 
-type Job {
-  _id: ID
-  company: String!
-  role: String!
-  advertisedSalary: Int
-  offerMade: Boolean
-  contactPerson: ContactPerson
-  comLogArray: [ComLog]!
-  createdAt: String
-  updatedAt: String
-}
+  type Job {
+    _id: ID
+    company: String!
+    role: String!
+    advertisedSalary: Int
+    offerMade: Boolean
+    contactPerson: ContactPerson
+    comLogArray: [ComLog]!
+    createdAt: String
+    updatedAt: String
+  }
 
-type ContactPerson {
-  name: String!
-  role: String
-  phone: String
-  email: String
-  notes: String
-}
+  type ContactPerson {
+    name: String!
+    role: String
+    phone: String
+    email: String
+    notes: String
+  }
 
-input ContactPersonInput {
-  name: String!
-  role: String
-  phone: String
-  email: String
-  notes: String
-}
+  input ContactPersonInput {
+    name: String!
+    role: String
+    phone: String
+    email: String
+    notes: String
+  }
 
-type CommonQuestions {
-  _id: ID
-  question: String!
-  response: String!
-}
+  type CommonQuestions {
+    _id: ID
+    question: String!
+    response: String!
+  }
 
-type ComLog {
-  _id: ID
+  type ComLog {
+    _id: ID
+    method: String!
+    content: String!
+    direction: String!
+  }
 
-  method: String!
-  content: String!
-  direction: String!
-}
-
+  type EmploymentTerms {
+    _id: ID
+    salary: Number
+    insurance: Boolean
+    location: String
+    hoursPerWeek: String
+    flexibleHours: Boolean
+    PTO: Number
+    retirement: Boolean
+    training: String
+    mentorship: Boolean
+    notes: String
+  }
 
   type Auth {
     token: ID!
     user: User
   }
-
-
 
   type Query {
     users: [User]
@@ -68,31 +78,31 @@ type ComLog {
     questions: [CommonQuestions]
     comLogs: [ComLog]
     comLog(_id: ID): ComLog
+    employmentTerms(_id: ID): EmploymentTerms
   }
 
   type Mutation {
     addUser(username: String!, email: String!, password: String!, firstName: String, lastName: String): Auth
     login(email: String!, password: String!): Auth
-    addJob( company: String!
+    addJob( 
+      company: String!
       role: String!
       advertisedSalary: Int
       contactPerson: ContactPersonInput
       offerMade: Boolean
       ): Job
-      addQuestion(question: String!, response: String!): CommonQuestions
-      updateQuestion(_id:ID!, question: String, response: String): CommonQuestions
+    addQuestion(question: String!, response: String!): CommonQuestions
+    updateQuestion(_id:ID!, question: String, response: String): CommonQuestions
     updateJob(_id: ID!, company: String, role: String, offerMade: Boolean): Job
-
     deleteJob(_id: ID!): Job
-
-
-   addComLog(
+    addComLog(
       jobId: String!
       method: String!
       content: String!
       direction: String!
       ): ComLog
     updateContactPerson(_id: ID!, contactPerson: ContactPersonInput): Job
+    addEmploymentTerms
   }
 `;
 
