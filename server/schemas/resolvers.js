@@ -95,6 +95,19 @@ const resolvers = {
       return job;
     },
 
+    updateContactPerson: async (parent, {_id, contactPerson}) => {
+      const job = {_id, contactPerson};
+      await Job.findOneAndUpdate(
+        {_id: _id},
+        {contactPerson},
+        { new: true }
+      );
+      return job.contactPerson;
+    },
+    
+
+    
+
     updateJob: async (parent, { _id, company, role, offerMade }) => {
       const job = { _id, company, role, offerMade };
       await Job.findOneAndUpdate(
