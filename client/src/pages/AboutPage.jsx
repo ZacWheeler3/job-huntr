@@ -6,6 +6,7 @@ import {
 import zac from "../../public/zac.jpg?url";
 import dave from "../../public/dave.png?url";
 import ivy from "../../public/ivy.jpg?url";
+import chris from "../../public/chris.png?url";
 const AboutPage = () => {
   return (
     <div className="about-container">
@@ -91,17 +92,7 @@ const AboutPage = () => {
         </div>
         <div className="dev-creds">
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam
-            odio, obcaecati molestiae consequuntur corporis earum voluptatem
-            labore, perspiciatis qui illo rem ex nemo optio! Corrupti voluptatem
-            quod eligendi et repellat! Lorem ipsum dolor sit amet consectetur
-            adipisicing elit. Eligendi iusto aut quidem et dolorum labore nisi
-            atque, sit tempore quam cupiditate obcaecati doloremque odit quis
-            harum? Odio eligendi rerum quis?Lorem ipsum dolor sit amet
-            consectetur adipisicing elit. Reiciendis numquam distinctio optio
-            suscipit, sint saepe dolorum. Cupiditate, asperiores laudantium quo
-            voluptatum odio harum, veniam ullam suscipit odit placeat laborum
-            molestias!
+            Zac is my favorite person and i just think he is so freaking cool.
           </p>
           <ul>
             <li>
@@ -118,21 +109,28 @@ const AboutPage = () => {
         </div>
         <div className="dev-name">Christopher Tsang</div>
         <div className="dev-pic">
-          <img src={zac} alt="My Image" />
+          <img src={chris} alt="My Image" />
         </div>
         <div className="dev-creds">
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam
-            odio, obcaecati molestiae consequuntur corporis earum voluptatem
-            labore, perspiciatis qui illo rem ex nemo optio! Corrupti voluptatem
-            quod eligendi et repellat! Lorem ipsum dolor sit amet consectetur
-            adipisicing elit. Eligendi iusto aut quidem et dolorum labore nisi
-            atque, sit tempore quam cupiditate obcaecati doloremque odit quis
-            harum? Odio eligendi rerum quis?Lorem ipsum dolor sit amet
-            consectetur adipisicing elit. Reiciendis numquam distinctio optio
-            suscipit, sint saepe dolorum. Cupiditate, asperiores laudantium quo
-            voluptatum odio harum, veniam ullam suscipit odit placeat laborum
-            molestias!
+            Hello, I'm Christopher Tsang! I am a Full-Stack Developer and Audio
+            Engineer with a passion for solving problems. I enjoy working on
+            challenging projects that require me to think outside the box and
+            come up with innovative solutions. I have experience in IT support
+            and am reliable, ensuring that I always meet my deadlines and
+            deliver high-quality work. My attention to detail and sharp
+            technical skills enable me to create efficient and effective
+            solutions.</p>
+            <p> In my free time, I love playing table tennis, tennis,
+            NBA2k23, and MOBA type games. I find that sports and gaming are a
+            great way to stay active, improve my reflexes, and have fun. When
+            I'm not competing on the court or in the virtual world, you can find
+            me exploring new technologies, playing music, or hiking in the great
+            outdoors.</p>
+            <p> I am excited to bring my skills and experience to new
+            projects and collaborate with like-minded individuals. Whether it's
+            solving complex technical challenges or mastering the latest game,
+            I'm always up for a good challenge!
           </p>
           <ul>
             <li>
