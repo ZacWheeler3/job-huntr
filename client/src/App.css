@@ -570,8 +570,28 @@ span {
 }
 
 .job-expand-button {
+  display: inline-block;
+  padding: 15px 25px;
   background-color: #7340ad;
-  color: #ffffff;
+  color: white;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  margin: 1rem;
+  border-radius: 2rem;
+  font-weight: 700;
+  font-size: large;
+  transition: 0.4s ease-in;
+}
+.job-expand-button:hover {
+  background-color: #a180c8;
+  color: #7340ad;
+  transition: ease-in;
+}
+
+.job-expand-button:active {
+  background-color: #7340ad;
+  color: #7340ad;
 }
 
 .profile-view-container {
@@ -599,7 +619,7 @@ span {
 }
 
 .job-details ul {
-  font-size: 1rem;
+  font-size: 1.2rem;
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;
@@ -608,6 +628,10 @@ span {
   border-radius: 5px;
   background-color: #00000055;
   font-family: "JetBrains Mono", monospace;
+}
+.job-details ul li {
+  margin: 8px;
+  font-weight: 600;
 }
 
 

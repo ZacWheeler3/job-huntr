@@ -56,19 +56,20 @@ const Profile = () => {
               let contactInfo = null;
               if (job.contactPerson) {
                 contactInfo = (
+                  
                   <>
                     <div className="job-details">
                       <ul>
-                        <li> Contact Person Name: {job.contactPerson.name}</li>
-                        <li>Contact Person Role: {job.contactPerson.role}</li>
+                        <li> <span>Contact Person Name:</span> {job.contactPerson.name}</li>
+                        <li><span>Contact Person Role:</span> {job.contactPerson.role}</li>
                         <li>
                           {" "}
-                          Contact Person Phone: {job.contactPerson.phone}
+                          <span>Contact Person Phone:</span> {job.contactPerson.phone}
                         </li>{" "}
                         <li>
-                          Contact Person Email: {job.contactPerson.email}{" "}
+                          <span>Contact Person Email:</span> {job.contactPerson.email}{" "}
                         </li>
-                        <li>Contact Person Notes: {job.contactPerson.notes}</li>
+                        <li><span>Contact Person Notes:</span> {job.contactPerson.notes}</li>
                       </ul>
                     </div>
                   </>
