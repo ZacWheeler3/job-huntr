@@ -70,14 +70,16 @@ export const ADD_JOB = gql`
 
 export const UPDATE_JOB = gql`
   mutation updateJob(
-    $_id: ID!
+    $jobId: ID!
     $company: String
+    $advertisedSalary: Int
     $role: String
-    $offer: Boolean
+    $offerMade: Boolean
   ) {
-    updateJob(_id: $_id, company: $company, role: $role, offer: $offer) {
+    updateJob(_id: $jobId, company: $company, advertisedSalary: $advertisedSalary, role: $role, offerMade: $offerMade) {
       company
       role
+      advertisedSalary
       offerMade
       createdAt
       updatedAt

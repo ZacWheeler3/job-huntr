@@ -126,11 +126,11 @@ const resolvers = {
     },
 
 
-    updateJob: async (parent, { _id, company, role, offerMade }) => {
-      const job = { _id, company, role, offerMade };
+    updateJob: async (parent, { _id, company, advertisedSalary, role, offerMade }) => {
+      const job = { _id, company, advertisedSalary, role, offerMade };
       await Job.findOneAndUpdate(
         { _id: _id },
-        { company, role, offerMade },
+        { company, advertisedSalary, role, offerMade },
         { new: true }
       );
 
