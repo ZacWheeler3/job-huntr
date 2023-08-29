@@ -1,8 +1,12 @@
 import { useQuery } from "@apollo/client";
-
 import ComLog from "../ComLog";
-
 import { QUERY_JOB } from "../../utils/queries";
+import formatTimestamp from "../../utils/date";
+
+
+
+
+//////////////////////////////////////////////////////////
 
 const Job = ({jobId}) => {
   const { loading, data } = useQuery(QUERY_JOB, {variables: {_id: jobId}});
@@ -16,7 +20,7 @@ const Job = ({jobId}) => {
   if (!data.job) {
     return <h4>Looks like there isn't any more data for this job.</h4>;
   }
-  const { name: contactName, role: contactRole, phone: contactPhone, email: contactEmail, notes: contactNotes } =
+  const { name: contactName, role: contactRole, phone: contactPhone, email: contactEmail, notes: contactNotes, timestamps: createdAt, timestamps: updatedAt} =
     job.contactPerson;
     console.log(contactName);
     console.log(contactRole);
@@ -38,11 +42,14 @@ const Job = ({jobId}) => {
           <p>Phone: {contactPhone}</p>
           <p>Email: {contactEmail}</p>
           <p>Notes: {contactNotes}</p>
+          <p>Created At: {formatTimestamp(job.createdAt)}</p>
+          <p>Updated At: {formatTimestamp(job.updatedAt)}</p>
           <ComLog comLogs={job.comLogArray} jobId={jobId}/>
         </div>
       </div>
     </div>
   );
 };
+
 
 export default Job;

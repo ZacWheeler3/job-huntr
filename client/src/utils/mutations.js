@@ -86,6 +86,7 @@ export const UPDATE_JOB = gql`
       role
       offerMade
       createdAt
+      updatedAt
     }
   }
 `;
@@ -98,6 +99,7 @@ export const DELETE_JOB = gql`
       role
       offerMade
       createdAt
+      updatedAt
     }
   }
 `;
@@ -119,6 +121,8 @@ method: $method
     method
     content
     direction
+    createdAt
+    updatedAt
   }}
 `;
 
