@@ -21,8 +21,8 @@ const Home = () => {
           </a>
         </div>
         <div className="navlinks-job">
-          <a className="navlink" href="">
-            My Applications
+          <a className="navlink" href="/jobtracker">
+            My Applications/My Jobs/Job Tracker/Add a job
           </a>
           <a className="navlink" href="">
             Follow-Ups
