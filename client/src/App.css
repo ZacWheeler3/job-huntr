@@ -462,7 +462,6 @@ body {
   margin: 20px 0;
 }
 
-
 .about-container {
   display: flex;
   justify-content: center;
@@ -566,7 +565,8 @@ span {
   height: 100%;
 }
 
-.job-expand-button, .job-collapse-button {
+.job-expand-button,
+.job-collapse-button {
   display: inline-block;
   padding: 15px 25px;
   background-color: #7340ad;
@@ -580,13 +580,15 @@ span {
   font-size: medium;
   transition: 0.4s ease-in;
 }
-.job-expand-button:hover, .job-collapse-button:hover {
+.job-expand-button:hover,
+.job-collapse-button:hover {
   background-color: #a180c8;
   color: #7340ad;
   transition: ease-in;
 }
 
-.job-expand-button:active, .job-collapse-button:active {
+.job-expand-button:active,
+.job-collapse-button:active {
   background-color: #7340ad;
   color: #7340ad;
 }
@@ -602,7 +604,7 @@ span {
   display: flex;
   justify-content: center;
   margin: 2rem;
-  background-color: #7340ad ;
+  background-color: #7340ad;
 }
 
 .username-display {
@@ -634,16 +636,11 @@ span {
 .job-details ul li {
   margin: 8px;
   font-weight: 600;
-  
 }
 
 .job-item {
   font-size: 2rem;
-  }
-
-  
-
-
+}
 
 .developers {
   display: flex;
@@ -714,6 +711,110 @@ span {
   width: auto;
   height: auto;
 }
+
+.page-container {
+  background-color: #00000055;
+  border-radius: 5px;
+  margin: 40px;
+  padding: 15px;
+}
+
+.caq-header {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.about-caq {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10px;
+  color: #a180c8;
+  font-size: 20px;
+  font-weight: 600;
+  padding-bottom: 15px;
+  border-bottom-style: solid;
+}
+
+.question-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-left: 5px;
+  margin-top: 30px;
+  margin-bottom: 15px;
+}
+
+.question {
+  font-size: 25px;
+  color: white;
+  margin-bottom: 5px;
+}
+
+.answer {
+  font-size: 20px;
+}
+
+.add-question {
+  display: inline-block;
+  padding: 10px 10px;
+  background-color: #7340ad;
+  color: white;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  margin: 1rem;
+  border-radius: 2rem;
+  font-weight: 700;
+  font-size: large;
+  transition: 0.4s ease-in;
+}
+
+.add-question::before {
+  content: "\002B";
+  font-size: 25px;
+  color: white;
+}
+
+.add-question::before {
+  content: "\002B";
+  font-size: 25px;
+  color: white;
+}
+
+.add-question:hover {
+  background-color: #a180c8;
+  color: #7340ad;
+  transition: ease-in;
+}
+
+.edit {
+  font-size: small;
+  padding: 10px 10px;
+  background-color: #7340ad;
+  color: white;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  margin: 10px;
+  border-radius: 3px;
+  font-weight: 700;
+  transition: 0.4s ease-in;
+}
+
+.delete {
+  font-size: small;
+  padding: 10px 10px;
+  background-color: #7340ad;
+  color: white;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  border-radius: 3px;
+  font-weight: 700;
+  transition: 0.4s ease-in;
+}
+
 
 /**
  * Correct the font size and margin on `h1` elements within `section` and
@@ -1647,7 +1748,6 @@ a:hover {
 .display-flex {
   display: flex !important;
 }
-
 
 .btn {
   text-align: center;
