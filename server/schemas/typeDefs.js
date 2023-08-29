@@ -108,7 +108,7 @@ const typeDefs = `
       offerMade: Boolean
       ): Job
     addQuestion(question: String!, response: String!): CommonQuestions
-    updateQuestion(_id:ID!, question: String, response: String): CommonQuestions
+    updateQuestion(_id: ID!, question: String!, response: String!): CommonQuestions
     updateJob(_id: ID!, company: String, advertisedSalary: Int, role: String, offerMade: Boolean): Job
     deleteJob(_id: ID!): Boolean
     addComLog(
