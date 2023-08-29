@@ -44,6 +44,9 @@ const resolvers = {
     questions: async () => {
       return CommonQuestions.find();
     },
+    question: async (_parent, { _id }) => {
+      return CommonQuestions.findOne({ _id });
+    },
   },
 
   Mutation: {
@@ -121,6 +124,7 @@ const resolvers = {
       );
       return deletedContactPerson;
     },
+
 
     updateJob: async (parent, { _id, company, role, offerMade }) => {
       const job = { _id, company, role, offerMade };
