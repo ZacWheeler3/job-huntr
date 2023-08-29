@@ -3,7 +3,7 @@ import React, { useState } from "react";
 const FAQ = () => {
   return (
     <div className="page-container">
-      <h2 className="caq-header">Commonly Asked Questions</h2>
+      <h3 className="page-header">Commonly Asked Questions</h3>
       <div className="about-caq">
         Sick of answering the same questions over and over? Store them here for
         future reference!

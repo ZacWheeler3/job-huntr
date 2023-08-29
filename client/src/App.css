@@ -210,7 +210,6 @@ main {
   margin: 5rem;
   padding: 5rem;
   width: 75%;
-  height: 150px;
   animation: loginBox 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
   animation-duration: 0.5s;
 }
@@ -351,7 +350,6 @@ main {
   margin: 5rem;
   padding: 5rem;
   width: 75%;
-  height: 150px;
   animation: loginBox 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
   animation-duration: 0.5s;
 }
@@ -712,6 +710,9 @@ span {
   height: auto;
 }
 
+/*COMPONENT STYLING*/
+/*
+/*FAQ PAGE */
 .page-container {
   background-color: #00000055;
   border-radius: 5px;
@@ -719,7 +720,7 @@ span {
   padding: 15px;
 }
 
-.caq-header {
+.page-header {
   display: flex;
   justify-content: center;
   margin-bottom: 20px;
@@ -746,7 +747,7 @@ span {
 }
 
 .question {
-  font-size: 25px;
+  font-size: 22px;
   color: white;
   margin-bottom: 5px;
 }
@@ -763,7 +764,8 @@ span {
   text-decoration: none;
   border: none;
   cursor: pointer;
-  margin: 1rem;
+  margin-top: 30px;
+  margin-bottom: 5px;
   border-radius: 2rem;
   font-weight: 700;
   font-size: large;
@@ -815,6 +817,82 @@ span {
   transition: 0.4s ease-in;
 }
 
+/*ADD QUESTION PAGE*/
+
+.input-response {
+  font-size: 22px;
+  margin-bottom: 10px;
+  width: 500px;
+}
+
+.form-header {
+  font-size: 22px;
+  margin-bottom: 10px;
+  margin-top: 5px;
+}
+
+.save-question {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px 10px;
+  background-color: #7340ad;
+  color: white;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  margin-top: 20px;
+  margin-bottom: 5px;;
+  border-radius: 2rem;
+  font-weight: 700;
+  font-size: large;
+  transition: 0.4s ease-in;
+}
+
+.save-question:hover {
+  background-color: #a180c8;
+  color: #7340ad;
+  transition: ease-in;
+}
+
+.input-fields {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-left: 5px;
+  margin-top: 30px;
+  margin-bottom: 15px;
+}
+
+/*JOB TRACKER/SNAPSHOT PAGE*/
+
+.jobs {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+  background-color: white;
+}
+
+.jobs td, .jobs th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+.jobs tr:nth-child(even){background-color: #f2f2f2;}
+
+.jobs tr:hover {background-color: #ddd;}
+
+.jobs th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #7340ad;
+  color: white;
+}
+
+.checkbox {
+  background-color: red;
+}
 
 /**
  * Correct the font size and margin on `h1` elements within `section` and
