@@ -27,16 +27,14 @@ const Home = () => {
           <a className="navlink" href="">
             Follow-Ups
           </a>
-          <a className="navlink" href="">
-            Common Questions
+          <a className="navlink" href="/FAQ">
+            Commonly Asked Questions
           </a>
         </div>
       </div>
       <div className="content-container">
         <div className="form" style={{ border: "1px dotted #1a1a1a" }}>
-          <div>
-            <JobForm />
-          </div>
+          
         </div>
       </div>
     </main>
