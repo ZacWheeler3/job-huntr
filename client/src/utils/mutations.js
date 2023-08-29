@@ -117,6 +117,32 @@ export const ADD_COMLOG = gql`
 
 `;
 
+export const UPDATE_COMLOG = gql`
+  mutation updateComLog(
+    $_id: ID!
+    $jobId: String!
+    $method: String!
+    $content: String!
+    $direction: String!
+
+  ){
+  updateComLog(
+    _id: $_id
+    jobId: $jobId
+    method: $method
+    content: $content
+    direction: $direction
+  ){
+    _id
+    method
+    content
+    direction
+    createdAt
+    updatedAt
+  }}
+
+`;
+
 export const ADD_QUESTION = gql`
   mutation addQuestion($question: String!, $response: String!) {
     addQuestion(question: $question, response: $response) {
