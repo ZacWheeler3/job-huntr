@@ -41,7 +41,12 @@ const resolvers = {
     comLog: async () => {
       return ComLog.findOne({ _id });
     },
-    questions: async () => {
+    questions: async (_parent, args, context) => {
+      if (context.user){
+        const {savedQuestions} = await User.findOne({ _id: context.user._id })
+        .populate("savedQuestions");
+        return savedQuestions
+      }
       return CommonQuestions.find();
     },
     question: async (_parent, { _id }) => {
