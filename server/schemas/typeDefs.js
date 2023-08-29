@@ -110,7 +110,7 @@ const typeDefs = `
     addQuestion(question: String!, response: String!): CommonQuestions
     updateQuestion(_id:ID!, question: String, response: String): CommonQuestions
     updateJob(_id: ID!, company: String, advertisedSalary: Int, role: String, offerMade: Boolean): Job
-    deleteJob(_id: ID!): Job
+    deleteJob(_id: ID!): Boolean
     addComLog(
       jobId: String!
       method: String!
@@ -118,7 +118,7 @@ const typeDefs = `
       direction: String!
       ): ComLog
     updateContactPerson(_id: ID!, contactPerson: ContactPersonInput): Job
-    deleteContactPerson(_id: ID!): Job
+    deleteContactPerson(_id: ID!): Boolean
     addEmploymentTerms(employmentTerms: EmploymentTermsInput): EmploymentTerms
   }
 `;

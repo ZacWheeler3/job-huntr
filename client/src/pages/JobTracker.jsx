@@ -1,12 +1,14 @@
 import React, { useState } from "react";
 import { Navigate, useParams } from "react-router-dom";
-import { useQuery } from "@apollo/client";
+import { useQuery, useMutation } from "@apollo/client";
 import Job from "../components/Job";
 import UserTermsForm from "../components/UserTermsForm";
 import JobForm from "../components/JobForm";
 import UpdateJobForm from "../components/UpdateJobForm";
 
 import { QUERY_USER, QUERY_ME } from "../utils/queries";
+import { DELETE_JOB } from "../utils/mutations";
+
 
 import Auth from "../utils/auth";
 
@@ -23,6 +25,13 @@ const Profile = () => {
   const [updatedJobId, setUpdatedJobId] = useState(null);
   const [showJobForm, setShowJobForm] = useState(false);
 
+  const [deleteJob] = useMutation(DELETE_JOB);
+
+
+  const handleJobDelete = (jobId) => {
+    deleteJob({ variables: { _id: jobId } })
+  }
+
   const handleJobUpdate = (jobId) => {
     setUpdatedJobId(jobId);
   };
@@ -30,7 +39,7 @@ const Profile = () => {
   const handleJobClick = (jobId) => {
     setSelectedJobId(jobId);
   };
-  // navigate to personal profile page if username is yours
+
   if (Auth.loggedIn() && Auth.getProfile().data.username === userParam) {
     return <Navigate to="/me" />;
   }
@@ -78,6 +87,13 @@ const Profile = () => {
                     style={{}}
                   >
                     Update This Job
+                  </button>
+                  <button
+                    className="job-delete-button"
+                    onClick={() => handleJobDelete(job._id)}
+                    style={{}}
+                  >
+                    Delete This Job
                   </button>
                   <button
                     className="job-expand-button"

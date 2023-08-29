@@ -146,14 +146,14 @@ const resolvers = {
         throw AuthenticationError;
       }
 
-      const job = await Job.findOneAndDelete({ _id: _id });
+      const job = await Job.findOneAndDelete({ _id });
 
       await User.findOneAndUpdate(
         { _id: context.user._id },
         { $pull: { savedJobs: job._id } }
       );
 
-      return job;
+      return true;
     },
 
     addComLog: async (
