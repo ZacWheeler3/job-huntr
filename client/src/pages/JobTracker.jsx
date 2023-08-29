@@ -4,6 +4,7 @@ import { useQuery } from "@apollo/client";
 import Job from "../components/Job";
 import UserTermsForm from "../components/UserTermsForm";
 import JobForm from "../components/JobForm";
+import UpdateJobForm from "../components/UpdateJobForm";
 
 import { QUERY_USER, QUERY_ME } from "../utils/queries";
 
@@ -19,7 +20,12 @@ const Profile = () => {
   const user = data?.me || data?.user || {};
 
   const [selectedJobId, setSelectedJobId] = useState(null);
+  const [updatedJobId, setUpdatedJobId] = useState(null);
   const [showJobForm, setShowJobForm] = useState(false);
+
+  const handleJobUpdate = (jobId) => {
+    setUpdatedJobId(jobId);
+  };
 
   const handleJobClick = (jobId) => {
     setSelectedJobId(jobId);
@@ -67,6 +73,13 @@ const Profile = () => {
                   {job.role}, <span>Salary:</span> {job.advertisedSalary}{" "}
                   <span>Offer made?</span> {job.offerMade}
                   <button
+                    className="job-update-button"
+                    onClick={() => handleJobUpdate(job._id)}
+                    style={{}}
+                  >
+                    Update This Job
+                  </button>
+                  <button
                     className="job-expand-button"
                     onClick={() => handleJobClick(job._id)}
                     style={{}}
@@ -82,6 +95,8 @@ const Profile = () => {
             })}
           </ul>
           {selectedJobId && <Job jobId={selectedJobId} />}
+          console.log{updatedJobId}
+          {updatedJobId && <UpdateJobForm jobId={updatedJobId} />}
         </div>
         <div>
           {/* TO DO: style the button below and change className */}
