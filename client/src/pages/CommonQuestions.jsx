@@ -76,7 +76,7 @@ const CommonQuestions = () => {
         </>
       ) : (
         <p>
-          You need to be logged in to add a job. Please{" "}
+          You need to be logged in to add a question. Please{" "}
           <Link to="/login">login</Link> or <Link to="/signup">signup.</Link>
         </p>
       )}
