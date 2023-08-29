@@ -12,6 +12,7 @@ import CompanyPage from "./pages/CompanyPage.jsx";
 import ContactPage from "./pages/ContactPage.jsx";
 import CommonQuestions from "./pages/CommonQuestions.jsx";
 import FAQ from "./pages/FAQ.jsx";
+import QuestionUpdate from './components/QuestionUpdate/index.jsx'
 
 const router = createBrowserRouter([
   {
@@ -28,17 +29,9 @@ const router = createBrowserRouter([
         element: <Login />,
       },
       {
-        path: "/AboutPage",
-        element: <AboutPage />,
-      },
-      {
-        path: "/CompanyPage",
-        element: <CompanyPage />,
-      },
-      {
-        path: "/ContactPage",
-        element: <ContactPage />,
-      },
+        path: '/CompanyPage',
+        element: <CompanyPage />
+      }, 
       {
         path: "/CommonQuestions",
         element: <CommonQuestions />,
@@ -49,8 +42,12 @@ const router = createBrowserRouter([
         element: <Signup />,
       },
       {
-        path: "/profiles/:username",
-        element: <Profile />,
+        path: '/updatequestion/:id',
+        element: <QuestionUpdate />
+      },
+      {
+        path: '/updatequestion/:id',
+        element: <QuestionUpdate />
       },
       {
         path: "/me",

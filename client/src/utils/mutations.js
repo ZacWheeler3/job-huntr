@@ -68,20 +68,14 @@ export const ADD_JOB = gql`
   }
 `;
 
-
 export const UPDATE_JOB = gql`
   mutation updateJob(
-    $_id: ID!, 
-    $company: String, 
-    $role: String, 
+    $_id: ID!
+    $company: String
+    $role: String
     $offer: Boolean
-    ) {
-    updateJob(
-      _id: $_id
-      company: $company
-      role: $role
-      offer: $offer
-    ) {
+  ) {
+    updateJob(_id: $_id, company: $company, role: $role, offer: $offer) {
       company
       role
       offerMade
@@ -110,6 +104,7 @@ export const ADD_COMLOG = gql`
     $method: String!
     $content: String!
     $direction: String!
+
   ){
   addComLog(
     jobId: $jobId
@@ -124,20 +119,32 @@ export const ADD_COMLOG = gql`
     createdAt
     updatedAt
   }}
+
 `;
 
 export const ADD_QUESTION = gql`
-  mutation addQuestion(
-    $question: String!
-    $response: String!
-  ){
-  addQuestion(
+  mutation addQuestion($question: String!, $response: String!) {
+    addQuestion(question: $question, response: $response) {
+      _id
+      question
+      response
+    }
+  }
+`;
+
+export const UPDATE_QUESTION = gql`
+mutation updateQuestion(
+  $question: String!
+  $response: String!
+){
+  updateQuestion(
     question: $question
     response: $response
   ){
     _id
     question
     response
+
   }}
 `;
 
@@ -163,4 +170,5 @@ export const ADD_TERMS = gql`
     }
   }
 `;
+
 
