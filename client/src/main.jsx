@@ -11,6 +11,7 @@ import AboutPage from './pages/AboutPage.jsx';
 import CompanyPage from './pages/CompanyPage.jsx';
 import ContactPage from './pages/ContactPage.jsx'
 import CommonQuestions from './pages/CommonQuestions.jsx'
+import QuestionUpdate from './components/QuestionUpdate/index.jsx'
 
 const router = createBrowserRouter([
   {
@@ -40,6 +41,10 @@ const router = createBrowserRouter([
       {
         path: '/CommonQuestions',
         element: <CommonQuestions />
+      },
+      {
+        path: '/updatequestion/:id',
+        element: <QuestionUpdate />
       },
       {
         path: '/signup',

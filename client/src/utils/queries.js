@@ -46,6 +46,15 @@ export const QUERY_QUESTION = gql`
   }
 `;
 
+export const QUERY_QUESTION_BY_ID = gql`
+  query question($id: ID!) {
+    question(_id: $id) {
+      _id
+      question
+      response
+    }
+  }
+`;
 
 export const QUERY_ME = gql`
   query me {
