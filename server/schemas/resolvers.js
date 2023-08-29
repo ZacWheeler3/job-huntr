@@ -173,6 +173,32 @@ const resolvers = {
       return comLog;
     },
 
+    updateComLog: async (
+      parent,
+      { _id, jobId, method, content, direction },
+      context
+    ) => {
+      if (!context.user) {
+        throw AuthenticationError;
+      }
+      const comLog = {_id, jobId, method, content, direction};
+      
+      await ComLog.findOneAndUpdate(
+        {_id: _id},
+        {method, content, direction},
+        {new: true}
+      );
+
+      await Job.findOneAndUpdate(
+        { _id: jobId },
+        { $pull: { comLogArray: comLog._id } },
+        { new: true, runValidators: true }
+      );
+      return comLog;
+    },
+
+
+
     addQuestion: async (_parent, { question, response }, context) => {
       if (!context.user) {
         throw AuthenticationError;
