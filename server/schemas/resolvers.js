@@ -198,7 +198,7 @@ const resolvers = {
     },
     addEmploymentTerms: async (
       parent,
-      { _id, EmploymentTermsInput },
+      { EmploymentTermsInput },
       context
     ) => {
       const newTerms = { EmploymentTermsInput };
