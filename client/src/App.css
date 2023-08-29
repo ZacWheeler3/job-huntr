@@ -564,6 +564,8 @@ span {
 }
 
 .job-expand-button,
+.job-delete-button,
+.job-update-button,
 .job-collapse-button {
   display: inline-block;
   padding: 15px 25px;

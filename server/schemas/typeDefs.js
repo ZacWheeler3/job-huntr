@@ -108,17 +108,18 @@ const typeDefs = `
       offerMade: Boolean
       ): Job
     addQuestion(question: String!, response: String!): CommonQuestions
-    updateQuestion(_id:ID!, question: String, response: String): CommonQuestions
-    updateJob(_id: ID!, company: String, role: String, offerMade: Boolean): Job
-    deleteJob(_id: ID!): Job
+    updateQuestion(_id: ID!, question: String!, response: String!): CommonQuestions
+    updateJob(_id: ID!, company: String, advertisedSalary: Int, role: String, offerMade: Boolean): Job
+    deleteJob(_id: ID!): Boolean
     addComLog(
       jobId: String!
       method: String!
       content: String!
       direction: String!
       ): ComLog
+    updateComLog(_id: ID!, jobId: String!, method: String, content: String, direction: String): ComLog
     updateContactPerson(_id: ID!, contactPerson: ContactPersonInput): Job
-    deleteContactPerson(_id: ID!): Job
+    deleteContactPerson(_id: ID!): Boolean
     addEmploymentTerms(employmentTerms: EmploymentTermsInput): EmploymentTerms
   }
 `;

@@ -70,14 +70,16 @@ export const ADD_JOB = gql`
 
 export const UPDATE_JOB = gql`
   mutation updateJob(
-    $_id: ID!
+    $jobId: ID!
     $company: String
+    $advertisedSalary: Int
     $role: String
-    $offer: Boolean
+    $offerMade: Boolean
   ) {
-    updateJob(_id: $_id, company: $company, role: $role, offer: $offer) {
+    updateJob(_id: $jobId, company: $company, advertisedSalary: $advertisedSalary, role: $role, offerMade: $offerMade) {
       company
       role
+      advertisedSalary
       offerMade
       createdAt
       updatedAt
@@ -87,14 +89,7 @@ export const UPDATE_JOB = gql`
 
 export const DELETE_JOB = gql`
   mutation deleteJob($_id: ID!) {
-    deleteJob(_id: $_id) {
-      _id
-      company
-      role
-      offerMade
-      createdAt
-      updatedAt
-    }
+    deleteJob(_id: $_id)
   }
 `;
 
@@ -107,6 +102,32 @@ export const ADD_COMLOG = gql`
 
   ){
   addComLog(
+    jobId: $jobId
+    method: $method
+    content: $content
+    direction: $direction
+  ){
+    _id
+    method
+    content
+    direction
+    createdAt
+    updatedAt
+  }}
+
+`;
+
+export const UPDATE_COMLOG = gql`
+  mutation updateComLog(
+    $_id: ID!
+    $jobId: String!
+    $method: String!
+    $content: String!
+    $direction: String!
+
+  ){
+  updateComLog(
+    _id: $_id
     jobId: $jobId
     method: $method
     content: $content

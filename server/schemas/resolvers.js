@@ -41,12 +41,7 @@ const resolvers = {
     comLog: async () => {
       return ComLog.findOne({ _id });
     },
-    questions: async (_parent, args, context) => {
-      if (context.user){
-        const {savedQuestions} = await User.findOne({ _id: context.user._id })
-        .populate("savedQuestions");
-        return savedQuestions
-      }
+    questions: async () => {
       return CommonQuestions.find();
     },
     question: async (_parent, { _id }) => {
@@ -131,11 +126,11 @@ const resolvers = {
     },
 
 
-    updateJob: async (parent, { _id, company, role, offerMade }) => {
-      const job = { _id, company, role, offerMade };
+    updateJob: async (parent, { _id, company, advertisedSalary, role, offerMade }) => {
+      const job = { _id, company, advertisedSalary, role, offerMade };
       await Job.findOneAndUpdate(
         { _id: _id },
-        { company, role, offerMade },
+        { company, advertisedSalary, role, offerMade },
         { new: true }
       );
 
@@ -146,14 +141,14 @@ const resolvers = {
         throw AuthenticationError;
       }
 
-      const job = await Job.findOneAndDelete({ _id: _id });
+      const job = await Job.findOneAndDelete({ _id });
 
       await User.findOneAndUpdate(
         { _id: context.user._id },
         { $pull: { savedJobs: job._id } }
       );
 
-      return job;
+      return true;
     },
 
     addComLog: async (
@@ -177,6 +172,32 @@ const resolvers = {
       );
       return comLog;
     },
+
+    updateComLog: async (
+      parent,
+      { _id, jobId, method, content, direction },
+      context
+    ) => {
+      if (!context.user) {
+        throw AuthenticationError;
+      }
+      const comLog = {_id, jobId, method, content, direction};
+      
+      await ComLog.findOneAndUpdate(
+        {_id: _id},
+        {method, content, direction},
+        {new: true}
+      );
+
+      await Job.findOneAndUpdate(
+        { _id: jobId },
+        { $pull: { comLogArray: comLog._id } },
+        { new: true, runValidators: true }
+      );
+      return comLog;
+    },
+
+
 
     addQuestion: async (_parent, { question, response }, context) => {
       if (!context.user) {
