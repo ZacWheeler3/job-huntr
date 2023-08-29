@@ -37,6 +37,20 @@ const typeDefs = `
     notes: String
   }
 
+  input EmploymentTermsInput {
+    tenure: String
+    salary: Int
+    insurance: Boolean
+    location: String
+    flexibleHours: Boolean
+    PTO: Int
+    retirement: Boolean
+    parentalLeave: Boolean
+    training: Boolean
+    mentorship: Boolean
+    notes: String
+  }
+
   type CommonQuestions {
     _id: ID
     question: String!
@@ -52,14 +66,15 @@ const typeDefs = `
 
   type EmploymentTerms {
     _id: ID
+    tenure: String
     salary: Int
     insurance: Boolean
     location: String
-    hoursPerWeek: String
     flexibleHours: Boolean
     PTO: Int
     retirement: Boolean
-    training: String
+    parentalLeave: Boolean
+    training: Boolean
     mentorship: Boolean
     notes: String
   }
@@ -103,6 +118,8 @@ const typeDefs = `
       direction: String!
       ): ComLog
     updateContactPerson(_id: ID!, contactPerson: ContactPersonInput): Job
+    deleteContactPerson(_id: ID!): Job
+    addEmploymentTerms(employmentTerms: EmploymentTermsInput): EmploymentTerms
   }
 `;
 

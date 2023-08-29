@@ -32,6 +32,8 @@ export const QUERY_JOB = gql`
         content
         direction
       }
+      createdAt
+      updatedAt
     }
   }
 `;

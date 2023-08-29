@@ -80,6 +80,7 @@ export const UPDATE_JOB = gql`
       role
       offerMade
       createdAt
+      updatedAt
     }
   }
 `;
@@ -92,6 +93,7 @@ export const DELETE_JOB = gql`
       role
       offerMade
       createdAt
+      updatedAt
     }
   }
 `;
@@ -102,19 +104,22 @@ export const ADD_COMLOG = gql`
     $method: String!
     $content: String!
     $direction: String!
-  ) {
-    addComLog(
-      jobId: $jobId
-      method: $method
-      content: $content
-      direction: $direction
-    ) {
-      _id
-      method
-      content
-      direction
-    }
-  }
+
+  ){
+  addComLog(
+    jobId: $jobId
+    method: $method
+    content: $content
+    direction: $direction
+  ){
+    _id
+    method
+    content
+    direction
+    createdAt
+    updatedAt
+  }}
+
 `;
 
 export const ADD_QUESTION = gql`
@@ -139,5 +144,31 @@ mutation updateQuestion(
     _id
     question
     response
+
+  }}
+`;
+
+export const ADD_TERMS = gql`
+  mutation addEmploymentTerms(
+    $employmentTerms: EmploymentTermsInput
+  ){
+    addEmploymentTerms(
+      employmentTerms: $employmentTerms
+    ){
+      _id
+      tenure
+      salary
+      insurance
+      location
+      flexibleHours
+      PTO
+      retirement
+      parentalLeave
+      training
+      mentorship
+      notes
+    }
   }
-}`;
+`;
+
+

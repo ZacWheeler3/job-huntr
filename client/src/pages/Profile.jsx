@@ -2,6 +2,8 @@ import { Navigate, useParams } from "react-router-dom";
 import { useQuery } from "@apollo/client";
 import { useState } from "react";
 import Job from "../components/Job";
+import UserTermsForm from "../components/UserTermsForm";
+
 
 import { QUERY_USER, QUERY_ME } from "../utils/queries";
 
@@ -98,6 +100,7 @@ const Profile = () => {
           </ul>
           {selectedJobId && <Job jobId={selectedJobId} />}
         </div>
+        <div><UserTermsForm /></div>
       </div>
     </div>
   );

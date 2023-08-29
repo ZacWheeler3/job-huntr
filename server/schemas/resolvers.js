@@ -22,7 +22,8 @@ const resolvers = {
         return User.findOne({ _id: context.user._id })
           .populate("savedJobs")
           .populate("savedJobs.contactPerson")
-          .populate("savedQuestions");
+          .populate("savedQuestions")
+          .populate("employmentTerms");
       }
       throw AuthenticationError;
     },
@@ -114,15 +115,16 @@ const resolvers = {
       return job.contactPerson;
     },
 
-    // deleteContactPerson: async (parent, {_id, contactPerson}) => {
-    //   const job = {_id, contactPerson};
-    //   await Job.findOneAndUpdate(
-    //     {_id: _id},
-    //     {contactPerson: null},
-    //     { new: true }
-    //   );
-    //   return job.contactPerson;
-    // },
+    deleteContactPerson: async (parent, { _id }) => {
+      const deletedContactPerson = job.contactPerson;
+      await Job.findOneAndUpdate(
+        { _id: _id },
+        { contactPerson: null },
+        { new: true }
+      );
+      return deletedContactPerson;
+    },
+
 
     updateJob: async (parent, { _id, company, role, offerMade }) => {
       const job = { _id, company, role, offerMade };
@@ -197,6 +199,37 @@ const resolvers = {
       );
 
       return updatedQuestion;
+    },
+    addEmploymentTerms: async (
+      parent,
+      { EmploymentTermsInput },
+      context
+    ) => {
+      const newTerms = { EmploymentTermsInput };
+      await EmploymentTerms.create(
+        {
+          tenure: EmploymentTermsInput.tenure,
+          salary: EmploymentTermsInput.salary,
+          insurance: EmploymentTermsInput.insurance,
+          location: EmploymentTermsInput.location,
+          flexibleHours: EmploymentTermsInput.flexibleHours,
+          PTO: EmploymentTermsInput.PTO,
+          retirement: EmploymentTermsInput.retirement,
+          parentalLeave: EmploymentTermsInput.parentalLeave,
+          training: EmploymentTermsInput.training,
+          mentorship: EmploymentTermsInput.mentorship,
+          notes: EmploymentTermsInput.notes,
+        },
+        { new: true }
+      );
+
+      await User.findOneAndUpdate(
+        { _id: context.user._id },
+        // THIS might be an issue, might need to destructure ETI
+        { employmentTerms: EmploymentTermsInput },
+        { new: true, runValidators: true }
+      );
+      return newTerms;
     },
   },
 };
