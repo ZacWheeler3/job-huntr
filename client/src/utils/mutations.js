@@ -112,8 +112,8 @@ export const ADD_COMLOG = gql`
     $direction: String!
   ){
   addComLog(
-          jobId: $jobId
-method: $method
+    jobId: $jobId
+    method: $method
     content: $content
     direction: $direction
   ){
@@ -141,4 +141,26 @@ export const ADD_QUESTION = gql`
   }}
 `;
 
+export const ADD_TERMS = gql`
+  mutation addEmploymentTerms(
+    $employmentTerms: EmploymentTermsInput
+  ){
+    addEmploymentTerms(
+      employmentTerms: $employmentTerms
+    ){
+      _id
+      tenure
+      salary
+      insurance
+      location
+      flexibleHours
+      PTO
+      retirement
+      parentalLeave
+      training
+      mentorship
+      notes
+    }
+  }
+`;
 
