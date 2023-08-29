@@ -72,6 +72,7 @@ export const QUERY_ME = gql`
         role
         advertisedSalary
         offerMade
+        createdAt
         contactPerson {
           name
           role
