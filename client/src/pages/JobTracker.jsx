@@ -60,6 +60,7 @@ const JobTracker = () => {
           <td><input type="checkbox" /></td>
         </tr>
       </table>
+      <button className="add-question">Add Job</button>
     </div>
   );
 };
