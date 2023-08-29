@@ -20,6 +20,7 @@ const userSchema = new Schema(
       required: true,
       minlength: 5,
     },
+    
     firstName: {
       type: String,
     },
@@ -43,7 +44,6 @@ const userSchema = new Schema(
       ref: "EmploymentTerms",
     },
   },
-
   { timestamps: true }
 );
 
