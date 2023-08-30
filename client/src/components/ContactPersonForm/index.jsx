@@ -5,7 +5,7 @@ import { ADD_CONTACT_PERSON } from "../../utils/mutations";
 
 import Auth from "../../utils/auth";
 
-const ContactPersonForm = () => {
+const ContactPersonForm = ({jobId}) => {
   const [name, setContactPersonName] = useState("");
   const [role, setContactPersonRole] = useState("");
   const [phone, setContactPersonPhone] = useState("");
@@ -20,6 +20,7 @@ const ContactPersonForm = () => {
     try {
       const { data } = await addContactPerson({
         variables: {
+          jobId,
           name,
           role,
           phone,

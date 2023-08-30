@@ -117,7 +117,9 @@ const typeDefs = `
       direction: String!
       ): ComLog
     updateComLog(_id: ID!, jobId: String!, method: String, content: String, direction: String): ComLog
-    addContactPerson(name: String
+    addContactPerson(
+      jobId: String
+      name: String
       role: String
       phone: String
       email: String

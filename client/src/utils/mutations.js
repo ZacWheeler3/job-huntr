@@ -86,19 +86,21 @@ export const DELETE_JOB = gql`
 
 export const ADD_CONTACT_PERSON = gql`
   mutation addContactPerson(
+    $jobId: String
     $name: String
     $role: String
     $phone: String
     $email: String
-    $notes: String){
+    $notes: String
+    ){
       addContactPerson(
+        jobId: $jobId
         name: $name
         role: $role
         phone: $phone
         email: $email
         notes: $notes
       ){
-        _id
         name
         role
         phone
@@ -106,7 +108,7 @@ export const ADD_CONTACT_PERSON = gql`
         notes
       }
     }
-`
+`;
 
 export const ADD_COMLOG = gql`
   mutation addComLog(

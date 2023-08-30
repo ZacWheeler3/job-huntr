@@ -106,26 +106,23 @@ const resolvers = {
 
     addContactPerson: async (
       parent,
-      { name, role, phone, email, notes },
-      context
+      { jobId, name, role, phone, email, notes }
     ) => {
-     
       const contactPerson = await ContactPerson.create({
-       name,
-       role,
-       phone,
-       email,
-       notes
+        name,
+        role,
+        phone,
+        email,
+        notes,
       });
 
       await Job.findOneAndUpdate(
-        { _id: context.job._id },
+        { _id: jobId },
         { contactPerson: contactPerson._id },
         { new: true, runValidators: true }
       );
       return contactPerson;
     },
-
 
     updateContactPerson: async (parent, { _id, contactPerson }) => {
       const job = { _id, contactPerson };
@@ -147,8 +144,10 @@ const resolvers = {
       return deletedContactPerson;
     },
 
-
-    updateJob: async (parent, { _id, company, advertisedSalary, role, offerMade }) => {
+    updateJob: async (
+      parent,
+      { _id, company, advertisedSalary, role, offerMade }
+    ) => {
       const job = { _id, company, advertisedSalary, role, offerMade };
       await Job.findOneAndUpdate(
         { _id: _id },
@@ -203,12 +202,12 @@ const resolvers = {
       if (!context.user) {
         throw AuthenticationError;
       }
-      const comLog = {_id, jobId, method, content, direction};
-      
+      const comLog = { _id, jobId, method, content, direction };
+
       await ComLog.findOneAndUpdate(
-        {_id: _id},
-        {method, content, direction},
-        {new: true}
+        { _id: _id },
+        { method, content, direction },
+        { new: true }
       );
 
       await Job.findOneAndUpdate(
@@ -218,8 +217,6 @@ const resolvers = {
       );
       return comLog;
     },
-
-
 
     addQuestion: async (_parent, { question, response }, context) => {
       if (!context.user) {
@@ -248,11 +245,7 @@ const resolvers = {
 
       return updatedQuestion;
     },
-    addEmploymentTerms: async (
-      parent,
-      { EmploymentTermsInput },
-      context
-    ) => {
+    addEmploymentTerms: async (parent, { EmploymentTermsInput }, context) => {
       const newTerms = { EmploymentTermsInput };
       await EmploymentTerms.create(
         {
