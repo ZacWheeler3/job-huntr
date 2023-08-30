@@ -15,7 +15,7 @@ const typeDefs = `
     role: String!
     advertisedSalary: Int
     offerMade: Boolean
-    contactPerson: ID
+    contactPerson: ContactPerson
     comLogArray: [ComLog]!
     createdAt: String
     updatedAt: String

@@ -42,26 +42,17 @@ export const ADD_JOB = gql`
     $role: String!
     $advertisedSalary: Int
     $offerMade: Boolean
-    $contactPerson: ContactPersonInput
   ) {
     addJob(
       company: $company
       role: $role
       advertisedSalary: $advertisedSalary
       offerMade: $offerMade
-      contactPerson: $contactPerson
     ) {
       _id
       company
       role
       advertisedSalary
-      contactPerson {
-        name
-        role
-        phone
-        email
-        notes
-      }
       offerMade
       createdAt
     }
@@ -92,6 +83,30 @@ export const DELETE_JOB = gql`
     deleteJob(_id: $_id)
   }
 `;
+
+export const ADD_CONTACT_PERSON = gql`
+  mutation addContactPerson(
+    $name: String
+    $role: String
+    $phone: String
+    $email: String
+    $notes: String){
+      addContactPerson(
+        name: $name
+        role: $role
+        phone: $phone
+        email: $email
+        notes: $notes
+      ){
+        _id
+        name
+        role
+        phone
+        email
+        notes
+      }
+    }
+`
 
 export const ADD_COMLOG = gql`
   mutation addComLog(

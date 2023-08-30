@@ -2,7 +2,7 @@ import { useQuery } from "@apollo/client";
 import ComLog from "../ComLog";
 import { QUERY_JOB } from "../../utils/queries";
 import formatTimestamp from "../../utils/date";
-
+import ContactPersonForm from "../ContactPersonForm"
 
 
 
@@ -12,6 +12,8 @@ const Job = ({jobId}) => {
   const { loading, data } = useQuery(QUERY_JOB, {variables: {_id: jobId}});
 
   const job = data?.job;
+console.log(job);
+
 
   if (loading) {
     return <div>Loading...</div>;
@@ -20,12 +22,12 @@ const Job = ({jobId}) => {
   if (!data.job) {
     return <h4>Looks like there isn't any more data for this job.</h4>;
   }
-  const { name: contactName, role: contactRole, phone: contactPhone, email: contactEmail, notes: contactNotes, timestamps: createdAt, timestamps: updatedAt} =
-    job.contactPerson;
-    console.log(contactName);
-    console.log(contactRole);
+  // const { name: contactName, role: contactRole, phone: contactPhone, email: contactEmail, notes: contactNotes, timestamps: createdAt, timestamps: updatedAt} =
+  //   job.contactPerson;
+  //   console.log(contactName);
+  //   console.log(contactRole);
 
-    console.log(job.contactPerson);
+  //   console.log(job.contactPerson);
   return (
       <div className="flex-row justify-center mb-3">
         <h2 className="col-12 col-md-10 bg-dark text-light p-3 mb-5">
@@ -35,14 +37,14 @@ const Job = ({jobId}) => {
         <div className="col-12 col-md-10 mb-5">
           <p>Advertised Salary: {job.advertisedSalary}</p>
           <p>Offer made? {job.offerMade}</p>
-          <p>Contact Person:</p>
+          {/* <p>Contact Person:</p>
           <p>Name: {contactName}</p>
           <p>Role: {contactRole}</p>
           <p>Phone: {contactPhone}</p>
           <p>Email: {contactEmail}</p>
           <p>Notes: {contactNotes}</p>
           <p>Created At: {formatTimestamp(job.createdAt)}</p>
-          <p>Updated At: {formatTimestamp(job.updatedAt)}</p>
+          <p>Updated At: {formatTimestamp(job.updatedAt)}</p> */}
           <ComLog comLogs={job.comLogArray} jobId={jobId}/>
         </div>
       </div>
