@@ -8,7 +8,7 @@ import formatTimestamp from "../../utils/date";
 
 //////////////////////////////////////////////////////////
 
-const Job = ({jobId, displayState}) => {
+const Job = ({jobId}) => {
   const { loading, data } = useQuery(QUERY_JOB, {variables: {_id: jobId}});
 
   const job = data?.job;
@@ -27,7 +27,6 @@ const Job = ({jobId, displayState}) => {
 
     console.log(job.contactPerson);
   return (
-    <div style={displayState ? {display: "block"} : {display: "none"}}>
       <div className="flex-row justify-center mb-3">
         <h2 className="col-12 col-md-10 bg-dark text-light p-3 mb-5">
           Viewing {job.role} at {job.company}.
@@ -47,7 +46,7 @@ const Job = ({jobId, displayState}) => {
           <ComLog comLogs={job.comLogArray} jobId={jobId}/>
         </div>
       </div>
-    </div>
+    
   );
 };
 
