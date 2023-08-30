@@ -32,7 +32,7 @@ const jobSchema = new Schema(
     },
     contactPerson: {
       type: Schema.Types.ObjectId,
-      ref: "ContactPerson",
+      ref: "Contact",
     },
     comLogArray: [
       {

@@ -29,14 +29,6 @@ const typeDefs = `
     notes: String
   }
 
-  input ContactPersonInput {
-    name: String
-    role: String
-    phone: String
-    email: String
-    notes: String
-  }
-
   input EmploymentTermsInput {
     tenure: String
     salary: Int
@@ -124,7 +116,7 @@ const typeDefs = `
       phone: String
       email: String
       notes: String): ContactPerson
-    updateContactPerson(_id: ID!, contactPerson: ContactPersonInput): Job
+    updateContactPerson(_id: ID!, name: String, role: String, phone: String, email: String, notes: String): Job
     deleteContactPerson(_id: ID!): Boolean
     addEmploymentTerms(employmentTerms: EmploymentTermsInput): EmploymentTerms
   }

@@ -2,7 +2,7 @@ const {
   User,
   Job,
   ComLog,
-  ContactPerson,
+  Contact,
   CommonQuestions,
   EmploymentTerms,
 } = require("../models");
@@ -108,7 +108,7 @@ const resolvers = {
       parent,
       { jobId, name, role, phone, email, notes }
     ) => {
-      const contactPerson = await ContactPerson.create({
+      const contactPerson = await Contact.create({
         name,
         role,
         phone,

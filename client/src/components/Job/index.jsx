@@ -42,9 +42,7 @@ const Job = ({jobId}) => {
                 <p>Updated At: {formatTimestamp(job.updatedAt)}</p>
                 <button className="add-question" onClick={() => setAddContactPersonButton(!addContactPersonButton)}>Add A Contact Person</button>
   {addContactPersonButton && <ContactPersonForm jobId={jobId}/>}
-          <ComLog comLogs={job.comLogArray} jobId={jobId}/>
-          </div>
-    {job.contactPerson &&(
+  {job.contactPerson &&(
     <div>
                 <p>Contact Person:</p>
                 <p>Name: {job.contactPerson.name}</p>
@@ -56,6 +54,9 @@ const Job = ({jobId}) => {
                 
                 </div>
                 )}
+          <ComLog comLogs={job.comLogArray} jobId={jobId}/>
+          </div>
+   
         
       </div>
 

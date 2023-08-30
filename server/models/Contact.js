@@ -3,7 +3,7 @@ const { Schema, model } = require("mongoose");
 const contactSchema = new Schema({
   name: {
     type: String,
-    required: true,
+    required: false,
   },
   role: {
     type: String,
@@ -24,6 +24,6 @@ const contactSchema = new Schema({
     required: false,
   },
 });
-const ContactPerson = model("ContactPerson", contactSchema);
+const Contact = model("Contact", contactSchema);
 
-module.exports = ContactPerson;
+module.exports = Contact;
