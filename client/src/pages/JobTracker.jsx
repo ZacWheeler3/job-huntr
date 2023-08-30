@@ -4,6 +4,8 @@ import { QUERY_USER, QUERY_ME } from "../utils/queries";
 import formatTimestamp from "../utils/date"; 
 import JobForm from "../components/JobForm";
 import { useState } from "react";
+import Job from "../components/Job";
+
 
 import Auth from "../utils/auth";
 
@@ -12,6 +14,11 @@ import Auth from "../utils/auth";
 
 const JobTracker = () => {
   const [addButton, setAddButton] = useState(false);
+  const [selectedJobId, setSelectedJobId] = useState(null);
+
+  const handleJobClick = (jobId) => {
+    setSelectedJobId(jobId);
+  };
 
   const { username: userParam } = useParams();
 
@@ -44,6 +51,7 @@ const JobTracker = () => {
           <th>Position</th>
           <th>Date Applied</th>
           <th>Job Offer</th>
+          <th>Actions</th>
         </tr>
         {user.savedJobs.map((job, index) => {
         return (
@@ -52,13 +60,25 @@ const JobTracker = () => {
           <td>{job.role}</td>
           <td>{formatTimestamp(job.createdAt)}</td>
           <td><input className="checkbox" type="checkbox" /></td>
+          <td>
+          <button
+                    className="job-expand-button"
+                    onClick={() => handleJobClick(job._id)}
+                    style={{}}
+                  >
+                    Expand
+                  </button>
+
+
+          </td>
         </tr>);
-        })},
+        })}
         
         
       </table>
       <button className="add-question" onClick={() => setAddButton(!addButton)}>Add A Job</button>
       {addButton && <JobForm />}
+      {selectedJobId && <Job jobId={selectedJobId} />}
 
     </div>
   );
