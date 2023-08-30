@@ -15,14 +15,14 @@ const typeDefs = `
     role: String!
     advertisedSalary: Int
     offerMade: Boolean
-    contactPerson: ContactPerson
+    contactPerson: ID
     comLogArray: [ComLog]!
     createdAt: String
     updatedAt: String
   }
 
   type ContactPerson {
-    name: String!
+    name: String
     role: String
     phone: String
     email: String
@@ -30,7 +30,7 @@ const typeDefs = `
   }
 
   input ContactPersonInput {
-    name: String!
+    name: String
     role: String
     phone: String
     email: String
@@ -104,7 +104,6 @@ const typeDefs = `
       company: String!
       role: String!
       advertisedSalary: Int
-      contactPerson: ContactPersonInput
       offerMade: Boolean
       ): Job
     addQuestion(question: String!, response: String!): CommonQuestions
@@ -118,6 +117,11 @@ const typeDefs = `
       direction: String!
       ): ComLog
     updateComLog(_id: ID!, jobId: String!, method: String, content: String, direction: String): ComLog
+    addContactPerson(name: String
+      role: String
+      phone: String
+      email: String
+      notes: String): ContactPerson
     updateContactPerson(_id: ID!, contactPerson: ContactPersonInput): Job
     deleteContactPerson(_id: ID!): Boolean
     addEmploymentTerms(employmentTerms: EmploymentTermsInput): EmploymentTerms

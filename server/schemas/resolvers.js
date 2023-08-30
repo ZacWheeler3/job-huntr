@@ -2,6 +2,7 @@ const {
   User,
   Job,
   ComLog,
+  ContactPerson,
   CommonQuestions,
   EmploymentTerms,
 } = require("../models");
@@ -21,7 +22,6 @@ const resolvers = {
       if (context.user) {
         return User.findOne({ _id: context.user._id })
           .populate("savedJobs")
-          .populate("savedJobs.contactPerson")
           .populate("savedQuestions")
           .populate("employmentTerms");
       }
@@ -83,7 +83,7 @@ const resolvers = {
     },
     addJob: async (
       parent,
-      { company, role, advertisedSalary, offerMade, contactPerson },
+      { company, role, advertisedSalary, offerMade },
       context
     ) => {
       if (!context.user) {
@@ -94,7 +94,6 @@ const resolvers = {
         role,
         advertisedSalary,
         offerMade,
-        contactPerson,
       });
 
       await User.findOneAndUpdate(
@@ -104,6 +103,29 @@ const resolvers = {
       );
       return job;
     },
+
+    addContactPerson: async (
+      parent,
+      { name, role, phone, email, notes },
+      context
+    ) => {
+     
+      const contactPerson = await ContactPerson.create({
+       name,
+       role,
+       phone,
+       email,
+       notes
+      });
+
+      await Job.findOneAndUpdate(
+        { _id: context.job._id },
+        { contactPerson: contactPerson._id },
+        { new: true, runValidators: true }
+      );
+      return contactPerson;
+    },
+
 
     updateContactPerson: async (parent, { _id, contactPerson }) => {
       const job = { _id, contactPerson };
