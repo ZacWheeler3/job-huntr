@@ -460,13 +460,13 @@ body {
   margin: 20px 0;
 }
 
-.about-container {
-  display: flex;
-  justify-content: center;
+.developers {
+  
   flex-wrap: wrap;
   margin-top: 5rem;
   color: #ffff;
 }
+
 
 .about-title h2 {
   color: #ffffff;
@@ -482,7 +482,8 @@ body {
 }
 
 .dev-pic img {
-  flex-wrap: wrap;
+  display: flex;
+  
   width: 200px;
   height: auto;
   border-radius: 2px;
@@ -759,8 +760,9 @@ span {
 }
 
 .add-question {
-  display: inline-block;
-  padding: 10px 10px;
+  display: flex;
+  align-items: center;
+  padding: 7px 8px;
   background-color: #7340ad;
   color: white;
   text-decoration: none;
@@ -780,11 +782,6 @@ span {
   color: white;
 }
 
-.add-question::before {
-  content: "\002B";
-  font-size: 25px;
-  color: white;
-}
 
 .add-question:hover {
   background-color: #a180c8;
@@ -807,7 +804,7 @@ span {
 }
 
 .delete {
-  font-size: small;
+  font-size: 2rem;
   padding: 10px 10px;
   background-color: #7340ad;
   color: white;
