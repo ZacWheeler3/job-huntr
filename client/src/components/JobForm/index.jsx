@@ -10,24 +10,11 @@ const JobForm = () => {
   const [role, setRole] = useState("");
   const [advertisedSalary, setAdvertisedSalary] = useState("");
   const [offerMade, setOfferMade] = useState(false);
-  const [contactPersonName, setContactPersonName] = useState("");
-  const [contactPersonRole, setContactPersonRole] = useState("");
-  const [contactPersonPhone, setContactPersonPhone] = useState("");
-  const [contactPersonEmail, setContactPersonEmail] = useState("");
-  const [contactPersonNotes, setContactPersonNotes] = useState("");
 
   const [addJob, { error }] = useMutation(ADD_JOB);
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
-
-    const contactPerson = {
-      name: contactPersonName,
-      role: contactPersonRole,
-      phone: contactPersonPhone,
-      email: contactPersonEmail,
-      notes: contactPersonNotes
-    }
 
     try {
       const { data } = await addJob({
@@ -36,18 +23,12 @@ const JobForm = () => {
           role,
           advertisedSalary: parseInt(advertisedSalary, 10),
           offerMade,
-          contactPerson
         },
       });
       setCompany("");
       setRole("");
       setAdvertisedSalary("");
       setOfferMade(false);
-      setContactPersonName("");
-      setContactPersonRole("");
-      setContactPersonPhone("");
-      setContactPersonEmail("");
-      setContactPersonNotes("");
     } catch (err) {
       console.error(err);
     }
@@ -103,58 +84,6 @@ const JobForm = () => {
                 />
               </label>
             </div>
-
-            <div className="form-group">
-              <input
-                type="text"
-                name="contactPersonName"
-                placeholder="Contact Person Name"
-                value={contactPersonName}
-                onChange={(e) => setContactPersonName(e.target.value)}
-                
-              />
-            </div>
-            <div className="form-group">
-              <input
-                type="text"
-                name="contactPersonRole"
-                placeholder="Contact Person Role"
-                value={contactPersonRole}
-                onChange={(e) => setContactPersonRole(e.target.value)}
-                
-              />
-            </div>
-            <div className="form-group">
-              <input
-                type="text"
-                name="contactPersonPhone"
-                placeholder="Contact Person Phone"
-                value={contactPersonPhone}
-                onChange={(e) => setContactPersonPhone(e.target.value)}
-                
-              />
-            </div>
-            <div className="form-group">
-              <input
-                type="text"
-                name="contactPersonEmail"
-                placeholder="Contact Person Email"
-                value={contactPersonEmail}
-                onChange={(e) => setContactPersonEmail(e.target.value)}
-                
-              />
-            </div>
-            <div className="form-group">
-              <input
-                type="text"
-                name="contactPersonNotes"
-                placeholder="Contact Person Notes"
-                value={contactPersonNotes}
-                onChange={(e) => setContactPersonNotes(e.target.value)}
-                
-              />
-            </div>
-
 
             <div className="form-group">
               <button className="btn btn-primary" type="submit">

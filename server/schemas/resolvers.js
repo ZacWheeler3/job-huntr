@@ -2,6 +2,7 @@ const {
   User,
   Job,
   ComLog,
+  Contact,
   CommonQuestions,
   EmploymentTerms,
 } = require("../models");
@@ -21,7 +22,6 @@ const resolvers = {
       if (context.user) {
         return User.findOne({ _id: context.user._id })
           .populate("savedJobs")
-          .populate("savedJobs.contactPerson")
           .populate("savedQuestions")
           .populate("employmentTerms");
       }
@@ -83,7 +83,7 @@ const resolvers = {
     },
     addJob: async (
       parent,
-      { company, role, advertisedSalary, offerMade, contactPerson },
+      { company, role, advertisedSalary, offerMade },
       context
     ) => {
       if (!context.user) {
@@ -94,7 +94,6 @@ const resolvers = {
         role,
         advertisedSalary,
         offerMade,
-        contactPerson,
       });
 
       await User.findOneAndUpdate(
@@ -103,6 +102,26 @@ const resolvers = {
         { new: true, runValidators: true }
       );
       return job;
+    },
+
+    addContactPerson: async (
+      parent,
+      { jobId, name, role, phone, email, notes }
+    ) => {
+      const contactPerson = await Contact.create({
+        name,
+        role,
+        phone,
+        email,
+        notes,
+      });
+
+      await Job.findOneAndUpdate(
+        { _id: jobId },
+        { contactPerson: contactPerson._id },
+        { new: true, runValidators: true }
+      );
+      return contactPerson;
     },
 
     updateContactPerson: async (parent, { _id, contactPerson }) => {
@@ -125,8 +144,10 @@ const resolvers = {
       return deletedContactPerson;
     },
 
-
-    updateJob: async (parent, { _id, company, advertisedSalary, role, offerMade }) => {
+    updateJob: async (
+      parent,
+      { _id, company, advertisedSalary, role, offerMade }
+    ) => {
       const job = { _id, company, advertisedSalary, role, offerMade };
       await Job.findOneAndUpdate(
         { _id: _id },
@@ -181,12 +202,12 @@ const resolvers = {
       if (!context.user) {
         throw AuthenticationError;
       }
-      const comLog = {_id, jobId, method, content, direction};
-      
+      const comLog = { _id, jobId, method, content, direction };
+
       await ComLog.findOneAndUpdate(
-        {_id: _id},
-        {method, content, direction},
-        {new: true}
+        { _id: _id },
+        { method, content, direction },
+        { new: true }
       );
 
       await Job.findOneAndUpdate(
@@ -196,8 +217,6 @@ const resolvers = {
       );
       return comLog;
     },
-
-
 
     addQuestion: async (_parent, { question, response }, context) => {
       if (!context.user) {
@@ -226,11 +245,7 @@ const resolvers = {
 
       return updatedQuestion;
     },
-    addEmploymentTerms: async (
-      parent,
-      { EmploymentTermsInput },
-      context
-    ) => {
+    addEmploymentTerms: async (parent, { EmploymentTermsInput }, context) => {
       const newTerms = { EmploymentTermsInput };
       await EmploymentTerms.create(
         {

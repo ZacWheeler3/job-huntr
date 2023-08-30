@@ -73,13 +73,6 @@ export const QUERY_ME = gql`
         advertisedSalary
         offerMade
         createdAt
-        contactPerson {
-          name
-          role
-          phone
-          email
-          notes
-        }
       }
       savedQuestions{
         question
