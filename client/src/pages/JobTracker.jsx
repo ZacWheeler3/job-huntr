@@ -1,11 +1,12 @@
 import { Navigate, useParams } from "react-router-dom";
-import { useQuery } from "@apollo/client";
+import { useQuery, useMutation } from "@apollo/client";
 import { QUERY_USER, QUERY_ME } from "../utils/queries";
 import formatTimestamp from "../utils/date"; 
 import JobForm from "../components/JobForm";
 import { useState } from "react";
 import Job from "../components/Job";
 import UpdateJobForm from "../components/UpdateJobForm";
+import { DELETE_JOB } from "../utils/mutations";
 
 
 import Auth from "../utils/auth";
@@ -17,6 +18,7 @@ const JobTracker = () => {
   const [addButton, setAddButton] = useState(false);
   const [selectedJobId, setSelectedJobId] = useState(null);
   const [updatedJobId, setUpdatedJobId] = useState(null);
+  const [deleteJob] = useMutation(DELETE_JOB);
 
 
   const handleJobClick = (jobId) => {
@@ -26,7 +28,9 @@ const JobTracker = () => {
   const handleJobUpdate = (jobId) => {
     setUpdatedJobId(jobId);
   };
-
+  const handleJobDelete = (jobId) => {
+    deleteJob({ variables: { _id: jobId } })
+  }
   const { username: userParam } = useParams();
 
   const { loading, data } = useQuery(userParam ? QUERY_USER : QUERY_ME, {
@@ -73,7 +77,7 @@ const JobTracker = () => {
                     onClick={() => handleJobClick(job._id)}
                     style={{}}
                   >
-                    Expand
+                    See More Info
                   </button>
                   <button
                     className="job-update-button"
@@ -82,7 +86,13 @@ const JobTracker = () => {
                   >
                     Update This Job
                   </button>
-
+                  <button
+                    className="job-delete-button"
+                    onClick={() => handleJobDelete(job._id)}
+                    style={{}}
+                  >
+                    Delete This Job
+                  </button>
           </td>
         </tr>);
         })}
