@@ -16,11 +16,6 @@ const JobForm = () => {
   const [contactPersonEmail, setContactPersonEmail] = useState("");
   const [contactPersonNotes, setContactPersonNotes] = useState("");
 
-
-  // const [thoughtText, setThoughtText] = useState('');
-
-  // const [characterCount, setCharacterCount] = useState(0);
-
   const [addJob, { error }] = useMutation(ADD_JOB);
 
   const handleFormSubmit = async (event) => {
@@ -53,7 +48,6 @@ const JobForm = () => {
       setContactPersonPhone("");
       setContactPersonEmail("");
       setContactPersonNotes("");
-      // setThoughtText('');
     } catch (err) {
       console.error(err);
     }
