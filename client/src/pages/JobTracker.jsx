@@ -5,6 +5,7 @@ import formatTimestamp from "../utils/date";
 import JobForm from "../components/JobForm";
 import { useState } from "react";
 import Job from "../components/Job";
+import UpdateJobForm from "../components/UpdateJobForm";
 
 
 import Auth from "../utils/auth";
@@ -15,9 +16,15 @@ import Auth from "../utils/auth";
 const JobTracker = () => {
   const [addButton, setAddButton] = useState(false);
   const [selectedJobId, setSelectedJobId] = useState(null);
+  const [updatedJobId, setUpdatedJobId] = useState(null);
+
 
   const handleJobClick = (jobId) => {
     setSelectedJobId(jobId);
+  };
+
+  const handleJobUpdate = (jobId) => {
+    setUpdatedJobId(jobId);
   };
 
   const { username: userParam } = useParams();
@@ -68,7 +75,13 @@ const JobTracker = () => {
                   >
                     Expand
                   </button>
-
+                  <button
+                    className="job-update-button"
+                    onClick={() => handleJobUpdate(job._id)}
+                    style={{}}
+                  >
+                    Update This Job
+                  </button>
 
           </td>
         </tr>);
@@ -79,6 +92,7 @@ const JobTracker = () => {
       <button className="add-question" onClick={() => setAddButton(!addButton)}>Add A Job</button>
       {addButton && <JobForm />}
       {selectedJobId && <Job jobId={selectedJobId} />}
+      {updatedJobId && <UpdateJobForm jobId={updatedJobId} />}
 
     </div>
   );
