@@ -110,6 +110,27 @@ export const ADD_CONTACT_PERSON = gql`
     }
 `;
 
+export const UPDATE_CONTACT_PERSON = gql`
+mutation updateContactPerson(
+  $_id: ID!
+  $name: String
+  $role: String
+  $phone: String
+  $email: String
+  $notes: String
+){
+  updateContactPerson(_id: $_id, name: $name, role: $role, phone: $phone, email: $email, notes: $notes){
+    name
+    role
+    phone
+    email
+    notes
+  }
+
+}
+`
+
+
 export const ADD_COMLOG = gql`
   mutation addComLog(
     $jobId: String!

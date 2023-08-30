@@ -47,6 +47,9 @@ const resolvers = {
     question: async (_parent, { _id }) => {
       return CommonQuestions.findOne({ _id });
     },
+    contacts: async() => {
+      return Contact.find();
+    }
   },
 
   Mutation: {
@@ -124,14 +127,14 @@ const resolvers = {
       return contactPerson;
     },
 
-    updateContactPerson: async (parent, { _id, contactPerson }) => {
-      const job = { _id, contactPerson };
-      await Job.findOneAndUpdate(
+    updateContactPerson: async (parent, { _id, name, role, phone, email, notes }) => {
+      const contactPerson = { _id, name, role, phone, email, notes };
+      await Contact.findOneAndUpdate(
         { _id: _id },
-        { contactPerson },
+        { name, role, phone, email, notes },
         { new: true }
       );
-      return job.contactPerson;
+      return contactPerson;
     },
 
     deleteContactPerson: async (parent, { _id }) => {
