@@ -1,13 +1,16 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useQuery } from "@apollo/client";
 import { QUERY_QUESTION } from "../utils/queries";
 import { LuPencil as PencilIcon } from "react-icons/lu";
 import { BsTrash3 as TrashIcon } from "react-icons/bs"
 
 const FAQ = () => {
-
+ 
   const { loading, data } = useQuery(QUERY_QUESTION);
+  const navigate = useNavigate();
+  
+  
   
 
 
@@ -22,6 +25,14 @@ const FAQ = () => {
       <div className="about-caq">
         Sick of answering the same questions over and over? Store them here for
         future reference!
+        
+          <button
+            className="btn btn-dark mb-3"
+            onClick={() => navigate('/addquestion')}
+          >
+            Add a Question
+          </button>
+        
       </div>
       <ul>
                 {questions.map((item, index) => (
