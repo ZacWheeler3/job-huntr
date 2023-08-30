@@ -128,7 +128,13 @@ mutation updateContactPerson(
   }
 
 }
-`
+`;
+
+export const DELETE_CONTACT_PERSON = gql`
+  mutation deleteContactPerson($_id: ID!, $jobId: String!) {
+    deleteContactPerson(_id: $_id, jobId: $jobId)
+  }
+`;
 
 
 export const ADD_COMLOG = gql`
