@@ -1,25 +1,20 @@
 import { Navigate, useParams } from "react-router-dom";
 import { useQuery, useMutation } from "@apollo/client";
 import { QUERY_USER, QUERY_ME } from "../utils/queries";
-import formatTimestamp from "../utils/date"; 
+import formatTimestamp from "../utils/date";
 import JobForm from "../components/JobForm";
 import { useState } from "react";
 import Job from "../components/Job";
 import UpdateJobForm from "../components/UpdateJobForm";
 import { DELETE_JOB } from "../utils/mutations";
 
-
 import Auth from "../utils/auth";
-
-
-
 
 const JobTracker = () => {
   const [addButton, setAddButton] = useState(false);
   const [selectedJobId, setSelectedJobId] = useState(null);
   const [updatedJobId, setUpdatedJobId] = useState(null);
   const [deleteJob] = useMutation(DELETE_JOB);
-
 
   const handleJobClick = (jobId) => {
     setSelectedJobId(jobId);
@@ -29,8 +24,8 @@ const JobTracker = () => {
     setUpdatedJobId(jobId);
   };
   const handleJobDelete = (jobId) => {
-    deleteJob({ variables: { _id: jobId } })
-  }
+    deleteJob({ variables: { _id: jobId } });
+  };
   const { username: userParam } = useParams();
 
   const { loading, data } = useQuery(userParam ? QUERY_USER : QUERY_ME, {
@@ -55,7 +50,9 @@ const JobTracker = () => {
 
   return (
     <div className="page-container">
-      <h3 className="page-header">Viewing {userParam ? `${user.username}'s` : "your"} saved jobs</h3>
+      <h3 className="page-header">
+        Viewing {userParam ? `${user.username}'s` : "your"} saved jobs
+      </h3>
       <table className="jobs">
         <tr>
           <th>Company</th>
@@ -65,49 +62,49 @@ const JobTracker = () => {
           <th>Actions</th>
         </tr>
         {user.savedJobs.map((job, index) => {
-        return (
-        <tr key={index}>
-        <td>{job.company}</td>
-          <td>{job.role}</td>
-          <td>{formatTimestamp(job.createdAt)}</td>
-          <td><input className="checkbox" type="checkbox" /></td>
-          <td>
-          <button
-                    className="job-expand-button"
-                    onClick={() => handleJobClick(job._id)}
-                    style={{}}
-                  >
-                    See More Info
-                  </button>
-                  <button
-                    className="job-update-button"
-                    onClick={() => handleJobUpdate(job._id)}
-                    style={{}}
-                  >
-                    Update This Job
-                  </button>
-                  <button
-                    className="job-delete-button"
-                    onClick={() => handleJobDelete(job._id)}
-                    style={{}}
-                  >
-                    Delete This Job
-                  </button>
-          </td>
-        </tr>);
+          return (
+            <tr key={index}>
+              <td>{job.company}</td>
+              <td>{job.role}</td>
+              <td>{formatTimestamp(job.createdAt)}</td>
+              <td>
+                <input className="checkbox" type="checkbox" />
+              </td>
+              <td>
+                <button
+                  className="job-expand-button"
+                  onClick={() => handleJobClick(job._id)}
+                  style={{}}
+                >
+                  See More Info
+                </button>
+                <button
+                  className="job-update-button"
+                  onClick={() => handleJobUpdate(job._id)}
+                  style={{}}
+                >
+                  Update This Job
+                </button>
+                <button
+                  className="job-delete-button"
+                  onClick={() => handleJobDelete(job._id)}
+                  style={{}}
+                >
+                  Delete This Job
+                </button>
+              </td>
+            </tr>
+          );
         })}
-        
-        
       </table>
-      <button className="add-question" onClick={() => setAddButton(!addButton)}>Add A Job</button>
+      <button className="add-question" onClick={() => setAddButton(!addButton)}>
+        Add A Job
+      </button>
       {addButton && <JobForm />}
       {selectedJobId && <Job jobId={selectedJobId} />}
       {updatedJobId && <UpdateJobForm jobId={updatedJobId} />}
-
     </div>
   );
 };
 
 export default JobTracker;
-
-

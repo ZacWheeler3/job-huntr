@@ -15,13 +15,14 @@ const typeDefs = `
     role: String!
     advertisedSalary: Int
     offerMade: Boolean
-    contactPerson: ContactPerson
+    contactPerson: Contact
     comLogArray: [ComLog]!
     createdAt: String
     updatedAt: String
   }
 
-  type ContactPerson {
+  type Contact {
+    _id: ID
     name: String
     role: String
     phone: String
@@ -87,6 +88,7 @@ const typeDefs = `
     comLogs: [ComLog]
     comLog(_id: ID): ComLog
     employmentTerms(_id: ID): EmploymentTerms
+    contacts: [Contact]
   }
 
   type Mutation {
@@ -115,8 +117,8 @@ const typeDefs = `
       role: String
       phone: String
       email: String
-      notes: String): ContactPerson
-    updateContactPerson(_id: ID!, name: String, role: String, phone: String, email: String, notes: String): Job
+      notes: String): Contact
+    updateContactPerson(_id: ID!, name: String, role: String, phone: String, email: String, notes: String): Contact
     deleteContactPerson(_id: ID!): Boolean
     addEmploymentTerms(employmentTerms: EmploymentTermsInput): EmploymentTerms
   }

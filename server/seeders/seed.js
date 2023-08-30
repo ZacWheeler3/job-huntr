@@ -15,7 +15,7 @@ db.once('open', async () => {
 
     await cleanDB('CommonQuestions', 'commonquestions');
 
-    // await cleanDB('ContactPerson', 'contactpersons');
+    await cleanDB('Contact', 'contacts');
 
     await cleanDB('EmploymentTerms', 'employmentterms');
 

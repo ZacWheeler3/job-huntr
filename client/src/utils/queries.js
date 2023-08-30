@@ -21,6 +21,7 @@ export const QUERY_JOB = gql`
       advertisedSalary
       offerMade
       contactPerson {
+        _id
         name
         role
         phone
