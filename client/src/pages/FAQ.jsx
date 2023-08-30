@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { useQuery } from "@apollo/client";
 import { QUERY_QUESTION } from "../utils/queries";
-
-
+import { LuPencil as PencilIcon } from "react-icons/lu";
+import { BsTrash3 as TrashIcon } from "react-icons/bs"
 
 const FAQ = () => {
 
@@ -29,8 +29,8 @@ const FAQ = () => {
                     <div className="question-container">
                       <span className="question">
                         {item.question}
-                        <button className="edit">Edit</button>
-                        <button className="delete">Delete</button>
+                        <button className="edit"><PencilIcon/></button>
+                        <button className="delete"><TrashIcon/></button>
                       </span>
                       <span className="answer">
                       {item.response}

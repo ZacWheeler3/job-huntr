@@ -4,7 +4,6 @@ import { useState } from "react";
 import Job from "../components/Job";
 import UserTermsForm from "../components/UserTermsForm";
 
-
 import { QUERY_USER, QUERY_ME } from "../utils/queries";
 
 import Auth from "../utils/auth";
@@ -50,60 +49,97 @@ const Profile = () => {
         </h2>
 
         <div className="profile-section">
-          <p className= "username-display"style={{textTransform: 'capitalize' }}>{user.username.charAt(0).toUpperCase() + user.username.slice(1)} </p>
-          <p >{user.firstName}</p>
+          <p
+            className="username-display"
+            style={{ textTransform: "capitalize" }}
+          >
+            {user.username.charAt(0).toUpperCase() + user.username.slice(1)}{" "}
+          </p>
+          <p>{user.firstName}</p>
           <p>{user.lastName}</p>
-          <ul>
-            {user.savedJobs.map((job, index) => {
-              let contactInfo = null;
-              if (job.contactPerson) {
-                contactInfo = (
-                  
-                  <>
-                    <div className="job-details">
-                      <ul>
-                        <li> <span>Contact Person Name:</span> {job.contactPerson.name}</li>
-                        <li><span>Contact Person Role:</span> {job.contactPerson.role}</li>
-                        <li>
-                          {" "}
-                          <span>Contact Person Phone:</span> {job.contactPerson.phone}
-                        </li>{" "}
-                        <li>
-                          <span>Contact Person Email:</span> {job.contactPerson.email}{" "}
-                        </li>
-                        <li><span>Contact Person Notes:</span> {job.contactPerson.notes}</li>
-                      </ul>
-                    </div>
-                  </>
-                );
-              }
-              console.log(contactInfo);
+          <div>
+            {user?.savedJobs?.map((job, index) => {
               return (
-                <li key={index} className="job-item">
-                  <span>Company:</span> {job.company}, <span>Role:</span> {job.role}, <span>Salary:</span>{" "}
-                  {job.advertisedSalary}
-                  {" "}<span>Offer made?</span> {job.offerMade} {contactInfo}
-                  <button
-                    className="job-expand-button"
-                    onClick={() => handleJobClick(job._id)}
-                    style={{}}
-                  >
-                    Expand
-                  </button>
-                  <button type="button" class="job-collapse-button">
-                    Collapse
-                  </button>
-                  <div class="content"></div>
-                </li>
+                <>
+                  <div className="job-details">
+                    <ul>
+                      <li>
+                        {" "}
+                        <span>Contact Person Name:</span>{" "}
+                        {job.contactPerson.name}
+                      </li>
+                      <li>
+                        <span>Contact Person Role:</span>{" "}
+                        {job.contactPerson.role}
+                      </li>
+                      <li>
+                        {" "}
+                        <span>Contact Person Phone:</span>{" "}
+                        {job.contactPerson.phone}
+                      </li>{" "}
+                      <li>
+                        <span>Contact Person Email:</span>{" "}
+                        {job.contactPerson.email}{" "}
+                      </li>
+                      <li>
+                        <span>Contact Person Notes:</span>{" "}
+                        {job.contactPerson.notes}
+                      </li>
+                    </ul>
+                  </div>
+                  <ContentSection job={job} handleJobClick={handleJobClick} />
+                </>
               );
             })}
-          </ul>
-          {selectedJobId && <Job jobId={selectedJobId} />}
+          </div>
         </div>
-        <div><UserTermsForm /></div>
+        <div>
+          <UserTermsForm />
+        </div>
       </div>
     </div>
   );
 };
+
+function ContentSection({ job, handleJobClick }) {
+  const [displayState, setDisplayState] = useState(false);
+
+  return (
+    <div key={job._id} className="job-item">
+      <span>Company:</span> {job.company}, <span>Role:</span> {job.role},{" "}
+      <span>Salary:</span> {job.advertisedSalary} <span>Offer made?</span>{" "}
+      {job.offerMade}
+      <ExpandButton
+        handleJobClick={handleJobClick}
+        jobId={job._Id}
+        setDisplayState={setDisplayState}
+        displayState={displayState}
+      />
+      <div class="content">
+        <Job jobId={job._id} displayState={displayState} />
+      </div>
+    </div>
+  );
+}
+
+function ExpandButton({
+  handleJobClick,
+  jobId,
+  setDisplayState,
+  displayState,
+}) {
+  return (
+    <button
+      className="job-expand-button"
+      onClick={() => {
+        handleJobClick(jobId);
+        displayState ? setDisplayState(false) : setDisplayState(true);
+      }}
+      style={{}}
+    >
+      {displayState ? "Collapse" : "Expand"}
+    </button>
+  );
+}
 
 export default Profile;
