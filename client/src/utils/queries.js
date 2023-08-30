@@ -29,6 +29,7 @@ export const QUERY_JOB = gql`
         notes
       }
       comLogArray {
+        _id
         method
         content
         direction

@@ -155,8 +155,7 @@ export const ADD_COMLOG = gql`
     method
     content
     direction
-    createdAt
-    updatedAt
+
   }}
 
 `;
@@ -164,7 +163,6 @@ export const ADD_COMLOG = gql`
 export const UPDATE_COMLOG = gql`
   mutation updateComLog(
     $_id: ID!
-    $jobId: String!
     $method: String!
     $content: String!
     $direction: String!
@@ -172,7 +170,6 @@ export const UPDATE_COMLOG = gql`
   ){
   updateComLog(
     _id: $_id
-    jobId: $jobId
     method: $method
     content: $content
     direction: $direction
@@ -181,8 +178,7 @@ export const UPDATE_COMLOG = gql`
     method
     content
     direction
-    createdAt
-    updatedAt
+   
   }}
 
 `;

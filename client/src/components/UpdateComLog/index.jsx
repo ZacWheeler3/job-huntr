@@ -1,27 +1,21 @@
-import {useState} from 'react';
-import {ADD_COMLOG} from '../../utils/mutations';
-import {useMutation} from "@apollo/client";
-import UpdateComLog from "../UpdateComLog"
+import { useState } from "react";
+import { UPDATE_COMLOG } from "../../utils/mutations";
+import { useMutation } from "@apollo/client";
 
-const ComLog = ({ comLogs = [], jobId }) => {
+const UpdateComLog = ({ _id }) => {
   const [method, setMethod] = useState("");
   const [content, setContent] = useState("");
   const [direction, setDirection] = useState("");
-  const [updatedComLogId, setUpdatedComLogId] = useState(null);
 
-  const [addComLog, { error }] = useMutation(ADD_COMLOG);
-
-  const handleComLogUpdate = (_id) => {
-    setUpdatedComLogId(_id);
-  };
+  const [updateComLog, { error }] = useMutation(UPDATE_COMLOG);
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
 
     try {
-      const { data } = await addComLog({
+      const { data } = await updateComLog({
         variables: {
-          jobId,
+          _id,
           method,
           content,
           direction,
@@ -34,25 +28,11 @@ const ComLog = ({ comLogs = [], jobId }) => {
       console.error(err);
     }
   };
-  
-  const addLogButtonHandler = () => {
-
-  }
 
   return (
     <>
-      <div className="form-group">
-        <button
-          className="btn btn-primary"
-          type="submit"
-          onClick={addLogButtonHandler}
-        >
-          Add Communication
-        </button>
-      </div>
-
       <div>
-        <h3>Add a Communication</h3>
+        <h3>Update This Communication</h3>
 
         <form onSubmit={handleFormSubmit}>
           <div className="form-group">
@@ -87,39 +67,15 @@ const ComLog = ({ comLogs = [], jobId }) => {
           </div>
           <div className="form-group">
             <button className="btn btn-primary" type="submit">
-              Submit Communication
+              Submit Updated Communication
             </button>
           </div>
         </form>
       </div>
 
-
-      <ul>
-        {!comLogs.length ? (
-          <h3>No Communication Yet</h3>
-        ) : (
-          comLogs.map((comLog, index) => {
-            console.log(comLog);
-            return (
-              <li key={index}>
-                Method: {comLog.method}, Content: {comLog.content}, Direction:
-                {comLog.direction}
-                 <button
-          className="btn btn-primary"
-          type="submit"
-          onClick={() => handleComLogUpdate(comLog._id)}
-        >
-          Update This Communication
-        </button>
-        {updatedComLogId && <UpdateComLog _id={updatedComLogId} />}
-
-              </li>
-            );
-          })
-        )}
-      </ul>
+      
     </>
   );
 };
 
-export default ComLog;
+export default UpdateComLog;
