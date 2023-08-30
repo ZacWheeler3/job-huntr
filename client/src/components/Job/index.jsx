@@ -1,10 +1,11 @@
-import { useQuery } from "@apollo/client";
+import { useQuery, useMutation } from "@apollo/client";
 import ComLog from "../ComLog";
 import { QUERY_JOB } from "../../utils/queries";
 import formatTimestamp from "../../utils/date";
 import ContactPersonForm from "../ContactPersonForm";
 import { useState } from "react";
 import UpdateContactPersonForm from '../UpdateContactPersonForm';
+import { DELETE_CONTACT_PERSON } from "../../utils/mutations";
 
 //////////////////////////////////////////////////////////
 
@@ -12,9 +13,14 @@ const Job = ({ jobId }) => {
   const [addContactPersonButton, setAddContactPersonButton] = useState(false);
  
   const [updatedContactId, setUpdatedContactId] = useState(null);
+  const [deleteContact] = useMutation(DELETE_CONTACT_PERSON);
 
   const handleContactUpdate = (_id) => {
     setUpdatedContactId(_id);
+  };
+
+  const handleContactDelete = (_id, jobId) => {
+    deleteContact({ variables: { _id, jobId } });
   };
 
   const { loading, data } = useQuery(QUERY_JOB, { variables: { _id: jobId } });
@@ -62,6 +68,13 @@ const Job = ({ jobId }) => {
                   style={{}}
                 >
                   Update This Contact
+                </button>
+                <button
+                  className="contact-delete-button"
+                  onClick={() => handleContactDelete(job.contactPerson._id, jobId)}
+                  style={{}}
+                >
+                  Delete This Contact
                 </button>
                 </div>
 

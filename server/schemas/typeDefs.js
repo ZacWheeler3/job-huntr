@@ -119,7 +119,7 @@ const typeDefs = `
       email: String
       notes: String): Contact
     updateContactPerson(_id: ID!, name: String, role: String, phone: String, email: String, notes: String): Contact
-    deleteContactPerson(_id: ID!): Boolean
+    deleteContactPerson(_id: ID!, jobId: String!): Boolean
     addEmploymentTerms(employmentTerms: EmploymentTermsInput): EmploymentTerms
   }
 `;
