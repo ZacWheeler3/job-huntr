@@ -13,9 +13,7 @@ const AboutPage = () => {
   return (
     <>
       <section className="developers">
-      <div className="about-title">
-        <h2>Meet Our Team!</h2>
-      </div>
+        <h2 className="about-title">Meet Our Team!</h2>
         <card className="hailey"><div className="dev-name">Hailey Hughes</div>
         <div className="dev-pic">
           <img src={hailey} alt="My Image" />
