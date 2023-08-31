@@ -219,6 +219,17 @@ const resolvers = {
       return comLog;
     },
 
+    deleteComLog: async (parent, { _id, jobId }) => {
+      const comLog = await ComLog.findOneAndDelete({ _id });
+
+      await Job.findOneAndUpdate(
+        { _id: jobId },
+        { $pull: { comLogArray: _id } }
+      );
+
+      return true;
+    },
+
     addQuestion: async (_parent, { question, response }, context) => {
       if (!context.user) {
         throw AuthenticationError;
