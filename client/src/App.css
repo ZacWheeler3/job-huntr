@@ -584,14 +584,18 @@ span {
   transition: 0.4s ease-in;
 }
 .job-expand-button:hover,
-.job-collapse-button:hover {
+.job-update-button:hover,
+.job-collapse-button:hover,
+.job-expand-button:hover,
+.job-delete-button:hover {
   background-color: #a180c8;
   color: #7340ad;
   transition: ease-in;
 }
 
 .job-expand-button:active,
-.job-collapse-button:active {
+.job-collapse-button:active,
+.job-expand-button:active {
   background-color: #7340ad;
   color: #7340ad;
 }
@@ -875,24 +879,64 @@ span {
 }
 
 .jobs td, .jobs th {
-  border: 1px solid #ddd;
+  border: 1px solid #ffffff;
   padding: 8px;
 }
 
 .jobs tr:nth-child(even){background-color: #f2f2f2;}
 
-.jobs tr:hover {background-color: #ddd;}
+.jobs tr:hover {background-color: #ddd;
+}
 
 .jobs th {
   padding-top: 12px;
   padding-bottom: 12px;
-  text-align: left;
   background-color: #7340ad;
   color: white;
 }
 
-.checkbox {
+.jobs tr td .custom-checkbox {
+ margin-left: 25px;
+}
+
+/* .jobs .checkbox tr {
   background-color: purple;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+} */
+
+.custom-checkbox {
+  margin-right: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border: 2px solid #ccc;
+  border-radius: 3px;
+  background-color: #ffffff;
+  outline: none;
+  cursor: pointer;
+  vertical-align: middle;
+  margin: 0;
+}
+
+.custom-checkbox:checked {
+  color: #ffffff;
+  background-color: #7340ad;
+  border: 2px solid #a180c8;
+}
+
+.custom-checkbox::before {
+  content: '\2713';
+  transform: translate();
+  opacity: 0;
+}
+
+.custom-checkbox:checked:before {
+  opacity: 1;
 }
 
 /**
@@ -1970,9 +2014,9 @@ form {
 }
 
 form .form-group {
-  display: block;
+  display:block;
   width: 100%;
-  margin: 0.625rem 0;
+  margin: 1rem;
 }
 
 form .form-input,

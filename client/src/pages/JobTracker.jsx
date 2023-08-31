@@ -68,7 +68,7 @@ const JobTracker = () => {
               <td>{job.role}</td>
               <td>{formatTimestamp(job.createdAt)}</td>
               <td>
-                <input className="checkbox" type="checkbox" />
+                <input className="custom-checkbox" type="checkbox" id="checkbox" />
               </td>
               <td>
                 <button
