@@ -18,9 +18,10 @@ const Header = () => {
         <div className="navbar-button">
           {Auth.loggedIn() ? (
             <>
-              {/* <Link className="profile-button" to="/me">
-                {Auth.getProfile().data.username}'s profile
-              </Link> */}
+              <Link className="profile-button" to="/">
+                Home
+              </Link>
+
               <button className="logout-button" onClick={logout}>
                 Logout
               </button>

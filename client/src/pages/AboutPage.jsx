@@ -12,8 +12,8 @@ import hailey from "../../public/hailey.jpg?url";
 const AboutPage = () => {
   return (
     <>
+        <div className="about-title">Meet Our Team!</div>
       <section className="developers">
-        <h2 className="about-title">Meet Our Team!</h2>
         <card className="hailey"><div className="dev-name">Hailey Hughes</div>
         <div className="dev-pic">
           <img src={hailey} alt="My Image" />

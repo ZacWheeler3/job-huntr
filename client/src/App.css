@@ -465,7 +465,7 @@ body {
 .developers {
   
   flex-wrap: wrap;
-  margin-top: 5rem;
+  margin-top: 1rem;
   color: #ffff;
 }
 
@@ -474,8 +474,9 @@ body {
   display: flex;
   justify-content: center;
   color: #ffffff;
-  font-size: 3rem;
-  animation: 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+  margin: 80px;
+  font-size: 48px;
+  font-family: "JetBrains Mono", monospace;
 }
 
 .dev-name {
@@ -1932,10 +1933,6 @@ a:hover {
   color: #d9e9e8;
 }
 
-.btn.btn-primary:hover {
-  background-color: #a180c8;
-}
-
 .btn.btn-danger {
   background-color: #ff002b;
   color: #ffffff;
@@ -1995,10 +1992,6 @@ a:hover {
   color: #ffffff;
 }
 
-.btn.btn-link:hover {
-  background-color: #7340ad;
-}
-
 .card {
   border: 1px solid #1a1a1a;
   margin-bottom: 1rem;
@@ -2055,7 +2048,6 @@ form .form-group {
 form .form-input,
 form .form-textarea {
   display: block;
-   
 }
 
 form select {
@@ -2078,6 +2070,7 @@ form .form-input {
   width: 100%;
   padding: 0.75rem;
   color: #000000;
+
   background-color: #ffffff;
   margin: 0.625rem 0;
   font-size: 1.2rem;
