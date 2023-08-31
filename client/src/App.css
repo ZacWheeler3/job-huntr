@@ -7,7 +7,8 @@ html {
 
 .navlinks-container {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  justify-content: center;
   margin-bottom: 0px;
   height: 100%;
 }
@@ -468,7 +469,9 @@ body {
 }
 
 
-.about-title h2 {
+.about-title {
+  display: flex;
+  justify-content: center;
   color: #ffffff;
   font-size: 3rem;
   animation: 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
@@ -746,19 +749,21 @@ span {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  margin-left: 5px;
+  /* margin-left: 5px; */
   margin-top: 30px;
   margin-bottom: 15px;
 }
 
+
 .question {
-  font-size: 22px;
+  font-size: 28px;
   color: white;
   margin-bottom: 5px;
+  
 }
 
 .answer {
-  font-size: 20px;
+  font-size: 23px;
 }
 
 .add-question {
@@ -792,7 +797,7 @@ span {
 }
 
 .edit {
-  font-size: small;
+  font-size: smaller;
   padding: 10px 10px;
   background-color: #7340ad;
   color: white;
@@ -806,7 +811,7 @@ span {
 }
 
 .delete {
-  font-size: 2rem;
+  font-size: smaller;
   padding: 10px 10px;
   background-color: #7340ad;
   color: white;
@@ -816,6 +821,13 @@ span {
   border-radius: 3px;
   font-weight: 700;
   transition: 0.4s ease-in;
+}
+
+.delete:hover,
+ .edit:hover {
+  background-color: #a180c8;
+  color: white;
+  transition: ease-in;
 }
 
 /*ADD QUESTION PAGE*/
