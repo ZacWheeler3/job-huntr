@@ -375,6 +375,7 @@ body {
   position: absolute;
   margin-top: 0.5rem;
   margin-left: 0.5rem;
+  
 }
 
 .form-input {
@@ -601,6 +602,11 @@ span {
 .job-expand-button:active {
   background-color: #7340ad;
   color: #7340ad;
+}
+
+.add-job-body input {
+  margin-top: 10px;
+  margin-left: 10px;
 }
 
 .profile-view-container {
@@ -893,6 +899,7 @@ span {
 .jobs td, .jobs th {
   border: 1px solid #ffffff;
   padding: 8px;
+  font-size: 1.3rem;
 }
 
 .jobs tr:nth-child(even){background-color: #f2f2f2;}
@@ -911,12 +918,11 @@ span {
  margin-left: 25px;
 }
 
-/* .jobs .checkbox tr {
-  background-color: purple;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-} */
+.offer-form-group:checked {
+  color: #ffffff;
+  background-color: #7340ad;
+  border: 2px solid #a180c8;
+}
 
 .custom-checkbox {
   margin-right: 2rem;
@@ -942,7 +948,7 @@ span {
 }
 
 .custom-checkbox::before {
-  content: '\2713';
+  content: '\2714';
   transform: translate();
   opacity: 0;
 }
@@ -1922,12 +1928,12 @@ a:hover {
 }
 
 .btn.btn-primary {
-  background-color: #a180c8;
+  background-color: #7340ad;
   color: #d9e9e8;
 }
 
 .btn.btn-primary:hover {
-  background-color: #57779a;
+  background-color: #a180c8;
 }
 
 .btn.btn-danger {
@@ -1990,7 +1996,7 @@ a:hover {
 }
 
 .btn.btn-link:hover {
-  background-color: #31a9e1;
+  background-color: #7340ad;
 }
 
 .card {
@@ -2027,13 +2033,12 @@ a:hover {
 }
 
 form {
+  
   color: #a180c8;
   background-color: #00000055;
   border-radius: 5px;
-  display: flex;
   justify-content: center;
   flex-direction: column;
-  margin-left: 25rem;
   width: 100%;
 }
 
@@ -2047,11 +2052,10 @@ form .form-group {
  
 }
 
-
 form .form-input,
 form .form-textarea {
   display: block;
- 
+   
 }
 
 form select {
@@ -2073,7 +2077,7 @@ form .form-label {
 form .form-input {
   width: 100%;
   padding: 0.75rem;
-  color: #ffff;
+  color: #000000;
   background-color: #ffffff;
   margin: 0.625rem 0;
   font-size: 1.2rem;
@@ -2093,6 +2097,12 @@ form [type="radio"] {
 label form [type="checkbox"],
 label form [type="radio"] {
   display: inline-block;
+  
+}
+
+.update-job-header {
+  display: flex;
+  justify-content: center;
 }
 
 .container {
