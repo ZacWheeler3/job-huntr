@@ -2,6 +2,8 @@ import {useState} from 'react';
 import {ADD_COMLOG} from '../../utils/mutations';
 import {useMutation} from "@apollo/client";
 import UpdateComLog from "../UpdateComLog"
+import {DELETE_COMLOG} from '../../utils/mutations';
+
 
 const ComLog = ({ comLogs = [], jobId }) => {
   const [method, setMethod] = useState("");
@@ -10,11 +12,17 @@ const ComLog = ({ comLogs = [], jobId }) => {
   const [updatedComLogId, setUpdatedComLogId] = useState(null);
 
   const [addComLog, { error }] = useMutation(ADD_COMLOG);
+  const [deleteComLog] = useMutation(DELETE_COMLOG);
+
 
   const handleComLogUpdate = (_id) => {
     setUpdatedComLogId(_id);
   };
 
+  const handleComLogDelete = (_id, jobId) => {
+    deleteComLog({ variables: { _id, jobId } });
+  };
+  
   const handleFormSubmit = async (event) => {
     event.preventDefault();
 
@@ -111,6 +119,13 @@ const ComLog = ({ comLogs = [], jobId }) => {
         >
           Update This Communication
         </button>
+        <button
+                  className="job-delete-button"
+                  onClick={() => handleComLogDelete(comLog._id, jobId)}
+                  style={{}}
+                >
+                  Delete This Communication
+                </button>
         {updatedComLogId && <UpdateComLog _id={updatedComLogId} />}
 
               </li>
