@@ -51,7 +51,8 @@ const JobTracker = () => {
   return (
     <div className="page-container">
       <h3 className="page-header">
-        Viewing {userParam ? `${user.username}'s` : "your"} saved jobs
+        Job Tracker
+        {/* Viewing {userParam ? `${user.username}'s` : "your"} saved jobs */}
       </h3>
       <table className="jobs">
         <tr>
@@ -76,21 +77,21 @@ const JobTracker = () => {
                   onClick={() => handleJobClick(job._id)}
                   style={{}}
                 >
-                  See More Info
+                  Details
                 </button>
                 <button
                   className="job-update-button"
                   onClick={() => handleJobUpdate(job._id)}
                   style={{}}
                 >
-                  Update This Job
+                  Edit Job
                 </button>
                 <button
                   className="job-delete-button"
                   onClick={() => handleJobDelete(job._id)}
                   style={{}}
                 >
-                  Delete This Job
+                  Delete Job
                 </button>
               </td>
             </tr>
@@ -100,10 +101,13 @@ const JobTracker = () => {
       <button className="add-question" onClick={() => setAddButton(!addButton)}>
         Add A Job
       </button>
-      <h3 className="add-job">Add a Job</h3>
+      <div className="add-job-body">
+      
       {addButton && <JobForm />}
       {selectedJobId && <Job jobId={selectedJobId} />}
+      
       {updatedJobId && <UpdateJobForm jobId={updatedJobId} />}
+      </div>
     </div>
   );
 };

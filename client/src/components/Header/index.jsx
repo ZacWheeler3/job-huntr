@@ -21,6 +21,7 @@ const Header = () => {
               <Link className="profile-button" to="/">
                 Home
               </Link>
+
               <button className="logout-button" onClick={logout}>
                 Logout
               </button>
