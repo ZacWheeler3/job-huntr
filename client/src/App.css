@@ -1927,10 +1927,6 @@ a:hover {
   color: #d9e9e8;
 }
 
-.btn.btn-primary:hover {
-  background-color: #57779a;
-}
-
 .btn.btn-danger {
   background-color: #ff002b;
   color: #ffffff;
@@ -1990,10 +1986,6 @@ a:hover {
   color: #ffffff;
 }
 
-.btn.btn-link:hover {
-  background-color: #31a9e1;
-}
-
 .card {
   border: 1px solid #1a1a1a;
   margin-bottom: 1rem;
@@ -2031,10 +2023,8 @@ form {
   color: #a180c8;
   background-color: #00000055;
   border-radius: 5px;
-  display: flex;
   justify-content: center;
   flex-direction: column;
-  margin-left: 25rem;
   width: 100%;
 }
 
@@ -2052,6 +2042,7 @@ form .form-group {
 form .form-input,
 form .form-textarea {
   display: block;
+  color: black;
  
 }
 
@@ -2074,7 +2065,7 @@ form .form-label {
 form .form-input {
   width: 100%;
   padding: 0.75rem;
-  color: #ffff;
+  color: black;
   background-color: #ffffff;
   margin: 0.625rem 0;
   font-size: 1.2rem;
