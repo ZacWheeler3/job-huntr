@@ -84,14 +84,14 @@ const JobTracker = () => {
                   onClick={() => handleJobUpdate(job._id)}
                   style={{}}
                 >
-                  Edit Job
+                  Edit
                 </button>
                 <button
                   className="job-delete-button"
                   onClick={() => handleJobDelete(job._id)}
                   style={{}}
                 >
-                  Delete Job
+                  Delete
                 </button>
               </td>
             </tr>
