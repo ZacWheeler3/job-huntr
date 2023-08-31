@@ -2009,7 +2009,19 @@ a:hover {
   border-radius: calc(0.18rem - 1px) calc(0.18rem - 1px) 0 0;
 }
 
+.add-job {
+  display: flex;
+  justify-content: center;
+}
+
 form {
+  color: #a180c8;
+  background-color: #00000055;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  margin-left: 25rem;
   width: 100%;
 }
 
@@ -2018,10 +2030,16 @@ form .form-group {
   width: 100%;
   margin: 1rem;
 }
+.form-group {
+ font-size: 1.5rem;
+ 
+}
+
 
 form .form-input,
 form .form-textarea {
   display: block;
+ 
 }
 
 form select {
@@ -2043,7 +2061,7 @@ form .form-label {
 form .form-input {
   width: 100%;
   padding: 0.75rem;
-  color: #1a1a1a;
+  color: #ffff;
   background-color: #ffffff;
   margin: 0.625rem 0;
   font-size: 1.2rem;

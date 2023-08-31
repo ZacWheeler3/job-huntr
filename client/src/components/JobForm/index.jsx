@@ -36,7 +36,7 @@ const JobForm = () => {
 
   return (
     <div>
-      <h3>Add a Job</h3>
+      
       {Auth.loggedIn() ? (
         <>
           <form onSubmit={handleFormSubmit}>

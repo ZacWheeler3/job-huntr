@@ -100,6 +100,7 @@ const JobTracker = () => {
       <button className="add-question" onClick={() => setAddButton(!addButton)}>
         Add A Job
       </button>
+      <h3 className="add-job">Add a Job</h3>
       {addButton && <JobForm />}
       {selectedJobId && <Job jobId={selectedJobId} />}
       {updatedJobId && <UpdateJobForm jobId={updatedJobId} />}
