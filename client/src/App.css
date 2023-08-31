@@ -464,7 +464,7 @@ body {
 .developers {
   
   flex-wrap: wrap;
-  margin-top: 5rem;
+  margin-top: 1rem;
   color: #ffff;
 }
 
@@ -473,8 +473,9 @@ body {
   display: flex;
   justify-content: center;
   color: #ffffff;
-  font-size: 3rem;
-  animation: 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+  margin: 80px;
+  font-size: 48px;
+  font-family: "JetBrains Mono", monospace;
 }
 
 .dev-name {
