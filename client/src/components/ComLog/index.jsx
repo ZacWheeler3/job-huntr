@@ -126,7 +126,7 @@ const ComLog = ({ comLogs = [], jobId }) => {
                 >
                   Delete This Communication
                 </button>
-        {updatedComLogId && <UpdateComLog _id={updatedComLogId} />}
+        {updatedComLogId === comLog._id && <UpdateComLog _id={updatedComLogId} />}
 
               </li>
             );
