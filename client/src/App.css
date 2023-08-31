@@ -7,7 +7,8 @@ html {
 
 .navlinks-container {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  justify-content: center;
   margin-bottom: 0px;
   height: 100%;
 }
@@ -210,7 +211,6 @@ main {
   margin: 5rem;
   padding: 5rem;
   width: 75%;
-  height: 150px;
   animation: loginBox 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
   animation-duration: 0.5s;
 }
@@ -351,7 +351,6 @@ main {
   margin: 5rem;
   padding: 5rem;
   width: 75%;
-  height: 150px;
   animation: loginBox 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
   animation-duration: 0.5s;
 }
@@ -462,16 +461,17 @@ body {
   margin: 20px 0;
 }
 
-
-.about-container {
-  display: flex;
-  justify-content: center;
+.developers {
+  
   flex-wrap: wrap;
   margin-top: 5rem;
   color: #ffff;
 }
 
-.about-title h2 {
+
+.about-title {
+  display: flex;
+  justify-content: center;
   color: #ffffff;
   font-size: 3rem;
   animation: 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
@@ -485,7 +485,8 @@ body {
 }
 
 .dev-pic img {
-  flex-wrap: wrap;
+  display: flex;
+  
   width: 200px;
   height: auto;
   border-radius: 2px;
@@ -566,7 +567,12 @@ span {
   height: 100%;
 }
 
-.job-expand-button, .job-collapse-button {
+.job-expand-button,
+.job-delete-button,
+.job-update-button,
+.contact-update-button,
+.contact-delete-button,
+.job-collapse-button {
   display: inline-block;
   padding: 15px 25px;
   background-color: #7340ad;
@@ -580,13 +586,19 @@ span {
   font-size: medium;
   transition: 0.4s ease-in;
 }
-.job-expand-button:hover, .job-collapse-button:hover {
+.job-expand-button:hover,
+.job-update-button:hover,
+.job-collapse-button:hover,
+.job-expand-button:hover,
+.job-delete-button:hover {
   background-color: #a180c8;
   color: #7340ad;
   transition: ease-in;
 }
 
-.job-expand-button:active, .job-collapse-button:active {
+.job-expand-button:active,
+.job-collapse-button:active,
+.job-expand-button:active {
   background-color: #7340ad;
   color: #7340ad;
 }
@@ -602,7 +614,7 @@ span {
   display: flex;
   justify-content: center;
   margin: 2rem;
-  background-color: #7340ad ;
+  background-color: #7340ad;
 }
 
 .username-display {
@@ -634,16 +646,11 @@ span {
 .job-details ul li {
   margin: 8px;
   font-weight: 600;
-  
 }
 
 .job-item {
   font-size: 2rem;
-  }
-
-  
-
-
+}
 
 .developers {
   display: flex;
@@ -713,6 +720,235 @@ span {
   border-radius: 5px;
   width: auto;
   height: auto;
+}
+
+/*COMPONENT STYLING*/
+/*
+/*FAQ PAGE */
+.page-container {
+  background-color: #00000055;
+  border-radius: 5px;
+  margin: 40px;
+  padding: 15px;
+}
+
+.page-header {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.about-caq {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10px;
+  color: #a180c8;
+  font-size: 20px;
+  font-weight: 600;
+  padding-bottom: 15px;
+  border-bottom-style: solid;
+}
+
+.question-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  /* margin-left: 5px; */
+  margin-top: 30px;
+  margin-bottom: 15px;
+}
+
+
+.question {
+  font-size: 28px;
+  color: white;
+  margin-bottom: 5px;
+  
+}
+
+.answer {
+  font-size: 23px;
+}
+
+.add-question {
+  display: flex;
+  align-items: center;
+  padding: 7px 8px;
+  background-color: #7340ad;
+  color: white;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  margin-top: 30px;
+  margin-bottom: 5px;
+  border-radius: 2rem;
+  font-weight: 700;
+  font-size: large;
+  transition: 0.4s ease-in;
+}
+
+.add-question::before {
+  content: "\002B";
+  font-size: 25px;
+  color: white;
+}
+
+
+.add-question:hover {
+  background-color: #a180c8;
+  color: #7340ad;
+  transition: ease-in;
+}
+
+.edit {
+  font-size: smaller;
+  padding: 10px 10px;
+  background-color: #7340ad;
+  color: white;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  margin: 10px;
+  border-radius: 3px;
+  font-weight: 700;
+  transition: 0.4s ease-in;
+}
+
+.delete {
+  font-size: smaller;
+  padding: 10px 10px;
+  background-color: #7340ad;
+  color: white;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  border-radius: 3px;
+  font-weight: 700;
+  transition: 0.4s ease-in;
+}
+
+.delete:hover,
+ .edit:hover {
+  background-color: #a180c8;
+  color: white;
+  transition: ease-in;
+}
+
+/*ADD QUESTION PAGE*/
+
+.input-response {
+  font-size: 22px;
+  margin-bottom: 10px;
+  width: 500px;
+}
+
+.form-header {
+  font-size: 22px;
+  margin-bottom: 10px;
+  margin-top: 5px;
+}
+
+.save-question {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px 10px;
+  background-color: #7340ad;
+  color: white;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  margin-top: 20px;
+  margin-bottom: 5px;;
+  border-radius: 2rem;
+  font-weight: 700;
+  font-size: large;
+  transition: 0.4s ease-in;
+}
+
+.save-question:hover {
+  background-color: #a180c8;
+  color: #7340ad;
+  transition: ease-in;
+}
+
+.input-fields {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-left: 5px;
+  margin-top: 30px;
+  margin-bottom: 15px;
+}
+
+/*JOB TRACKER/SNAPSHOT PAGE*/
+
+.jobs {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+  background-color: white;
+}
+
+.jobs td, .jobs th {
+  border: 1px solid #ffffff;
+  padding: 8px;
+}
+
+.jobs tr:nth-child(even){background-color: #f2f2f2;}
+
+.jobs tr:hover {background-color: #ddd;
+}
+
+.jobs th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  background-color: #7340ad;
+  color: white;
+}
+
+.jobs tr td .custom-checkbox {
+ margin-left: 25px;
+}
+
+/* .jobs .checkbox tr {
+  background-color: purple;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+} */
+
+.custom-checkbox {
+  margin-right: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border: 2px solid #ccc;
+  border-radius: 3px;
+  background-color: #ffffff;
+  outline: none;
+  cursor: pointer;
+  vertical-align: middle;
+  margin: 0;
+}
+
+.custom-checkbox:checked {
+  color: #ffffff;
+  background-color: #7340ad;
+  border: 2px solid #a180c8;
+}
+
+.custom-checkbox::before {
+  content: '\2713';
+  transform: translate();
+  opacity: 0;
+}
+
+.custom-checkbox:checked:before {
+  opacity: 1;
 }
 
 /**
@@ -1648,7 +1884,6 @@ a:hover {
   display: flex !important;
 }
 
-
 .btn {
   text-align: center;
   display: inline-block;
@@ -1786,19 +2021,37 @@ a:hover {
   border-radius: calc(0.18rem - 1px) calc(0.18rem - 1px) 0 0;
 }
 
+.add-job {
+  display: flex;
+  justify-content: center;
+}
+
 form {
+  color: #a180c8;
+  background-color: #00000055;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  margin-left: 25rem;
   width: 100%;
 }
 
 form .form-group {
-  display: block;
+  display:block;
   width: 100%;
-  margin: 0.625rem 0;
+  margin: 1rem;
 }
+.form-group {
+ font-size: 1.5rem;
+ 
+}
+
 
 form .form-input,
 form .form-textarea {
   display: block;
+ 
 }
 
 form select {
@@ -1820,7 +2073,7 @@ form .form-label {
 form .form-input {
   width: 100%;
   padding: 0.75rem;
-  color: #1a1a1a;
+  color: #ffff;
   background-color: #ffffff;
   margin: 0.625rem 0;
   font-size: 1.2rem;

@@ -1,4 +1,11 @@
-const { User, Job, ComLog, CommonQuestions, EmploymentTerms } = require("../models");
+const {
+  User,
+  Job,
+  ComLog,
+  Contact,
+  CommonQuestions,
+  EmploymentTerms,
+} = require("../models");
 
 const { signToken, AuthenticationError } = require("../utils/auth");
 
@@ -15,8 +22,8 @@ const resolvers = {
       if (context.user) {
         return User.findOne({ _id: context.user._id })
           .populate("savedJobs")
-          .populate("savedJobs.contactPerson")
-          .populate("savedQuestions");
+          .populate("savedQuestions")
+          .populate("employmentTerms");
       }
       throw AuthenticationError;
     },
@@ -36,6 +43,12 @@ const resolvers = {
     },
     questions: async () => {
       return CommonQuestions.find();
+    },
+    question: async (_parent, { _id }) => {
+      return CommonQuestions.findOne({ _id });
+    },
+    contacts: async () => {
+      return Contact.find();
     },
   },
 
@@ -73,7 +86,7 @@ const resolvers = {
     },
     addJob: async (
       parent,
-      { company, role, advertisedSalary, offerMade, contactPerson },
+      { company, role, advertisedSalary, offerMade },
       context
     ) => {
       if (!context.user) {
@@ -84,7 +97,6 @@ const resolvers = {
         role,
         advertisedSalary,
         offerMade,
-        contactPerson,
       });
 
       await User.findOneAndUpdate(
@@ -95,55 +107,79 @@ const resolvers = {
       return job;
     },
 
-    updateContactPerson: async (parent, {_id, contactPerson}) => {
-      const job = {_id, contactPerson};
+    addContactPerson: async (
+      parent,
+      { jobId, name, role, phone, email, notes }
+    ) => {
+      const contactPerson = await Contact.create({
+        name,
+        role,
+        phone,
+        email,
+        notes,
+      });
+
       await Job.findOneAndUpdate(
-        {_id: _id},
-        {contactPerson},
+        { _id: jobId },
+        { contactPerson: contactPerson._id },
+        { new: true, runValidators: true }
+      );
+      return contactPerson;
+    },
+
+    updateContactPerson: async (
+      parent,
+      { _id, name, role, phone, email, notes }
+    ) => {
+      const contactPerson = { _id, name, role, phone, email, notes };
+      await Contact.findOneAndUpdate(
+        { _id: _id },
+        { name, role, phone, email, notes },
         { new: true }
       );
-      return job.contactPerson;
+      return contactPerson;
     },
-    
-    // deleteContactPerson: async (parent, {_id, contactPerson}) => {
-    //   const job = {_id, contactPerson};
-    //   await Job.findOneAndUpdate(
-    //     {_id: _id},
-    //     {contactPerson: null},
-    //     { new: true }
-    //   );
-    //   return job.contactPerson;
-    // },    
 
-    updateJob: async (parent, { _id, company, role, offerMade }) => {
-      const job = { _id, company, role, offerMade };
+    deleteContactPerson: async (parent, { contactId: _id, jobId }) => {
+      await Job.findOneAndUpdate(
+        { _id: jobId },
+        { contactPerson: null },
+        { new: true }
+      );
+      const deletedContactPerson = await Contact.findOneAndDelete({ _id });
+
+      return deletedContactPerson;
+    },
+
+    updateJob: async (
+      parent,
+      { _id, company, advertisedSalary, role, offerMade }
+    ) => {
+      const job = { _id, company, advertisedSalary, role, offerMade };
       await Job.findOneAndUpdate(
         { _id: _id },
-        { company, role, offerMade },
+        { company, advertisedSalary, role, offerMade },
         { new: true }
       );
 
       return job;
-
     },
     deleteJob: async (parent, { _id }, context) => {
       if (!context.user) {
         throw AuthenticationError;
       }
-    
-      const job = await Job.findOneAndDelete({ _id: _id });
-    
+
+      const job = await Job.findOneAndDelete({ _id });
+
       await User.findOneAndUpdate(
         { _id: context.user._id },
         { $pull: { savedJobs: job._id } }
       );
-    
-      return job;
+
+      return true;
     },
 
-    
-
-     addComLog: async (
+    addComLog: async (
       parent,
       { jobId, method, content, direction },
       context
@@ -163,6 +199,35 @@ const resolvers = {
         { new: true, runValidators: true }
       );
       return comLog;
+    },
+
+    updateComLog: async (
+      parent,
+      { _id, method, content, direction },
+      context
+    ) => {
+      if (!context.user) {
+        throw AuthenticationError;
+      }
+      const comLog = { _id, method, content, direction };
+      await ComLog.findOneAndUpdate(
+        { _id: _id },
+        { method, content, direction },
+        { new: true }
+      );
+
+      return comLog;
+    },
+
+    deleteComLog: async (parent, { _id, jobId }) => {
+      const comLog = await ComLog.findOneAndDelete({ _id });
+
+      await Job.findOneAndUpdate(
+        { _id: jobId },
+        { $pull: { comLogArray: _id } }
+      );
+
+      return true;
     },
 
     addQuestion: async (_parent, { question, response }, context) => {
@@ -191,6 +256,33 @@ const resolvers = {
       );
 
       return updatedQuestion;
+    },
+    addEmploymentTerms: async (parent, { EmploymentTermsInput }, context) => {
+      const newTerms = { EmploymentTermsInput };
+      await EmploymentTerms.create(
+        {
+          tenure: EmploymentTermsInput.tenure,
+          salary: EmploymentTermsInput.salary,
+          insurance: EmploymentTermsInput.insurance,
+          location: EmploymentTermsInput.location,
+          flexibleHours: EmploymentTermsInput.flexibleHours,
+          PTO: EmploymentTermsInput.PTO,
+          retirement: EmploymentTermsInput.retirement,
+          parentalLeave: EmploymentTermsInput.parentalLeave,
+          training: EmploymentTermsInput.training,
+          mentorship: EmploymentTermsInput.mentorship,
+          notes: EmploymentTermsInput.notes,
+        },
+        { new: true }
+      );
+
+      await User.findOneAndUpdate(
+        { _id: context.user._id },
+        // THIS might be an issue, might need to destructure ETI
+        { employmentTerms: EmploymentTermsInput },
+        { new: true, runValidators: true }
+      );
+      return newTerms;
     },
   },
 };

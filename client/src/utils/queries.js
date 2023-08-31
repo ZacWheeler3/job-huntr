@@ -21,6 +21,7 @@ export const QUERY_JOB = gql`
       advertisedSalary
       offerMade
       contactPerson {
+        _id
         name
         role
         phone
@@ -28,20 +29,35 @@ export const QUERY_JOB = gql`
         notes
       }
       comLogArray {
+        _id
         method
         content
         direction
       }
+      createdAt
+      updatedAt
     }
   }
 `;
 
 export const QUERY_QUESTION = gql`
-  query question($_id: ID) {
-    question(_id: $_id) {
+  query questions {
+    questions {
       _id
       question
       response
+      
+    }
+  }
+`;
+
+export const QUERY_QUESTION_BY_ID = gql`
+  query question($id: ID!) {
+    question(_id: $id) {
+      _id
+      question
+      response
+      
     }
   }
 `;
@@ -58,13 +74,7 @@ export const QUERY_ME = gql`
         role
         advertisedSalary
         offerMade
-        contactPerson {
-          name
-          role
-          phone
-          email
-          notes
-        }
+        createdAt
       }
       savedQuestions{
         question
