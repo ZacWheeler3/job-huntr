@@ -49,7 +49,7 @@ const UpdateJobForm = ({jobId}) => {
               <input
                 type="text"
                 name="company"
-                placeholder="Company Name"
+                placeholder={"Company Name"}
                 value={company}
                 onChange={(e) => setCompany(e.target.value)}
                 required
