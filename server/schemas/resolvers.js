@@ -41,8 +41,12 @@ const resolvers = {
     comLog: async () => {
       return ComLog.findOne({ _id });
     },
-    questions: async () => {
-      return CommonQuestions.find();
+    questions: async (_parent, args, context) => {
+      if (context.user) {
+        const {savedQuestions} = await User.findOne({_id:context.user._id}).populate("savedQuestions");
+        return savedQuestions
+      }
+      throw AuthenticationError
     },
     question: async (_parent, { _id }) => {
       return CommonQuestions.findOne({ _id });
@@ -238,7 +242,7 @@ const resolvers = {
         question,
         response,
       });
-
+      
       await User.findOneAndUpdate(
         { _id: context.user._id },
         { $addToSet: { savedQuestions: newQuestion._id } },
@@ -246,6 +250,16 @@ const resolvers = {
       );
       console.log("new question added:", newQuestion);
       return newQuestion;
+    },
+
+    deleteQuestion: async (_parent, { _id, questionId }, context) => {
+      const question = await CommonQuestions.findOneAndDelete({ _id });
+
+      await CommonQuestions.findOneAndUpdate(
+        { _id: questionId },
+        { $pull: { questionArray: _id } }
+      );
+      return true;
     },
     updateQuestion: async (_parent, { _id, question, response }) => {
       const updatedQuestion = { _id, question, response };
