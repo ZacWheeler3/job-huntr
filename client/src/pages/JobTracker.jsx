@@ -14,7 +14,10 @@ const JobTracker = () => {
   const [addButton, setAddButton] = useState(false);
   const [selectedJobId, setSelectedJobId] = useState(null);
   const [updatedJobId, setUpdatedJobId] = useState(null);
-  const [deleteJob] = useMutation(DELETE_JOB);
+  const [deleteJob] = useMutation(DELETE_JOB, {refetchQueries: [
+    QUERY_ME,
+    'me'
+  ]});
 
   const handleJobClick = (jobId) => {
     setSelectedJobId(jobId);

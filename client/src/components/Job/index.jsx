@@ -13,7 +13,10 @@ const Job = ({ jobId }) => {
   const [addContactPersonButton, setAddContactPersonButton] = useState(false);
  
   const [updatedContactId, setUpdatedContactId] = useState(null);
-  const [deleteContact] = useMutation(DELETE_CONTACT_PERSON);
+  const [deleteContact] = useMutation(DELETE_CONTACT_PERSON, {refetchQueries: [
+    QUERY_JOB,
+    'job'
+  ]});
 
   const handleContactUpdate = (_id) => {
     setUpdatedContactId(_id);
