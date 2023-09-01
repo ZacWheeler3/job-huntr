@@ -44,8 +44,9 @@ const ContactPersonForm = ({jobId}) => {
   };
 
   return (
-    <div>
-      <h3>Add a Contact Person</h3>
+    <div className="add-contact-container">
+      <h2>Add a Contact Person</h2>
+      <h5><span>To update an existing contact fill out the form below</span></h5>
       {Auth.loggedIn() ? (
         <>
           <form onSubmit={handleFormSubmit}>
@@ -96,7 +97,7 @@ const ContactPersonForm = ({jobId}) => {
             </div>
 
             <div className="form-group">
-              <button className="btn btn-primary" type="submit">
+              <button className="contact-button" type="submit">
                 Add Contact Person
               </button>
             </div>

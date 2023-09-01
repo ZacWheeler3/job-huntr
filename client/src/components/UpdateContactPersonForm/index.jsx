@@ -99,7 +99,7 @@ const UpdateContactPersonForm = ({_id}) => {
             </div>
 
             <div className="form-group">
-              <button className="btn btn-primary" type="submit">
+              <button className="update-contact-person-button" type="submit">
                 Update Contact Person
               </button>
             </div>

@@ -18,10 +18,9 @@ const Job = () => {
   const [addContactPersonButton, setAddContactPersonButton] = useState(false);
 
   const [updatedContactId, setUpdatedContactId] = useState(null);
-  const [deleteContact] = useMutation(DELETE_CONTACT_PERSON, {refetchQueries: [
-    QUERY_JOB,
-    'job'
-  ]});
+  const [deleteContact] = useMutation(DELETE_CONTACT_PERSON, {
+    refetchQueries: [QUERY_JOB, "job"],
+  });
 
   const handleContactUpdate = (_id) => {
     setUpdatedContactId(_id);
@@ -54,6 +53,7 @@ const Job = () => {
           <h2>Details </h2>
           &nbsp; <MagnifyIcon />
         </div>
+        
         <p>
           <span>Advertised Salary:</span> {job.advertisedSalary}
         </p>
@@ -67,7 +67,7 @@ const Job = () => {
           <span>Updated At:</span> {formatTimestamp(job.updatedAt)}
         </p>
         <button
-          className="add-question"
+          className="add-question-button"
           onClick={() => setAddContactPersonButton(!addContactPersonButton)}
         >
           Update Contact
@@ -75,16 +75,28 @@ const Job = () => {
         {addContactPersonButton && <ContactPersonForm jobId={jobId} />}
         {job.contactPerson && (
           <div>
-             <div className="LuUser">
-          <h2>Contact Person </h2>
-          &nbsp; <LuUser />
-        </div>
-            <p>Name: {job.contactPerson.name}</p>
-            <p>Role: {job.contactPerson.role}</p>
-            <p>Phone: {job.contactPerson.phone}</p>
-            <p>Email: {job.contactPerson.email}</p>
-            <p>Notes: {job.contactPerson.notes}</p>
-
+            <div className="LuUser">
+              <h2>Contact Person </h2>
+              &nbsp; <LuUser />
+            </div>
+            <h5><span>Below is the current company contact</span></h5>
+            <div className="single-job-current">
+            <p>
+              <span>Name:</span> {job.contactPerson.name}
+            </p>
+            <p>
+              <span>Role:</span> {job.contactPerson.role}
+            </p>
+            <p>
+              <span>Phone:</span> {job.contactPerson.phone}
+            </p>
+            <p>
+              <span>Email:</span> {job.contactPerson.email}
+            </p>
+            <p>
+              <span>Notes:</span> {job.contactPerson.notes}
+            </p>
+            </div>
             <button
               className="contact-update-button"
               onClick={() => handleContactUpdate(job.contactPerson._id)}

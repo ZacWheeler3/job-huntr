@@ -57,7 +57,7 @@ const ComLog = ({ comLogs = [], jobId }) => {
     <>
       <div className="form-group">
         <button
-          className="btn btn-primary"
+          className="add-comm-button"
           type="submit"
           onClick={addLogButtonHandler}
         >
@@ -100,7 +100,7 @@ const ComLog = ({ comLogs = [], jobId }) => {
             />
           </div>
           <div className="form-group">
-            <button className="btn btn-primary" type="submit">
+            <button className="submit-comm-button" type="submit">
               Submit Communication
             </button>
           </div>
