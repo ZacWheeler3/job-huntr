@@ -1,4 +1,4 @@
-import { Navigate, useParams } from "react-router-dom";
+import { Navigate, useNavigate, useParams } from "react-router-dom";
 import { useQuery, useMutation } from "@apollo/client";
 import { QUERY_USER, QUERY_ME } from "../utils/queries";
 import formatTimestamp from "../utils/date";
@@ -19,8 +19,10 @@ const JobTracker = () => {
     'me'
   ]});
 
+
+  const navigate= useNavigate();
   const handleJobClick = (jobId) => {
-    setSelectedJobId(jobId);
+    navigate(jobId)
   };
 
   const handleJobUpdate = (jobId) => {

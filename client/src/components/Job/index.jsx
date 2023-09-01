@@ -6,10 +6,13 @@ import ContactPersonForm from "../ContactPersonForm";
 import { useState } from "react";
 import UpdateContactPersonForm from '../UpdateContactPersonForm';
 import { DELETE_CONTACT_PERSON } from "../../utils/mutations";
+import { useParams } from "react-router-dom";
 
 //////////////////////////////////////////////////////////
 
-const Job = ({ jobId }) => {
+const Job = (  ) => {
+const {jobId}=useParams()
+
   const [addContactPersonButton, setAddContactPersonButton] = useState(false);
  
   const [updatedContactId, setUpdatedContactId] = useState(null);
