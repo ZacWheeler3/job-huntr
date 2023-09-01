@@ -376,7 +376,6 @@ body {
   position: absolute;
   margin-top: 0.5rem;
   margin-left: 0.5rem;
-  
 }
 
 .form-input {
@@ -464,12 +463,10 @@ body {
 }
 
 .developers {
-  
   flex-wrap: wrap;
   margin-top: 1rem;
   color: #ffff;
 }
-
 
 .about-title {
   display: flex;
@@ -489,7 +486,7 @@ body {
 
 .dev-pic img {
   display: flex;
-  
+
   width: 200px;
   height: auto;
   border-radius: 2px;
@@ -542,7 +539,6 @@ span {
   align-items: center;
   font-size: 2rem;
   background-color: #000000;
-  
 }
 
 #error-page p {
@@ -576,7 +572,12 @@ span {
 .job-update-button,
 .contact-update-button,
 .contact-delete-button,
-.job-collapse-button, .contact-button, .update-contact-person-button, .add-comm-button, .submit-comm-button, .add-question-button {
+.job-collapse-button,
+.contact-button,
+.update-contact-person-button,
+.add-comm-button,
+.submit-comm-button,
+.add-question-button {
   display: inline-block;
   padding: 15px 15px;
   background-color: #7340ad;
@@ -594,7 +595,12 @@ span {
 .job-update-button:hover,
 .job-collapse-button:hover,
 .job-expand-button:hover,
-.job-delete-button:hover, .contact-button:hover, .update-contact-person-button:hover, .add-comm-button:hover, .submit-comm-button:hover, .add-question-button:hover {
+.job-delete-button:hover,
+.contact-button:hover,
+.update-contact-person-button:hover,
+.add-comm-button:hover,
+.submit-comm-button:hover,
+.add-question-button:hover {
   background-color: #a180c8;
   color: #7340ad;
   transition: ease-in;
@@ -602,7 +608,12 @@ span {
 
 .job-expand-button:active,
 .job-collapse-button:active,
-.job-expand-button:active, .contact-button:active, .update-contact-person-button:active, .add-comm-button:active, .submit-comm-button:active, .add-question-button:active {
+.job-expand-button:active,
+.contact-button:active,
+.update-contact-person-button:active,
+.add-comm-button:active,
+.submit-comm-button:active,
+.add-question-button:active {
   background-color: #7340ad;
   color: #7340ad;
 }
@@ -740,7 +751,7 @@ span {
   margin: 40px;
   padding: 15px;
   width: auto;
-  margin-left: 5rem;
+  
 }
 
 .page-header {
@@ -769,12 +780,10 @@ span {
   margin-bottom: 15px;
 }
 
-
 .question {
   font-size: 28px;
   color: white;
   margin-bottom: 5px;
-  
 }
 
 .answer {
@@ -803,7 +812,6 @@ span {
   font-size: 25px;
   color: white;
 }
-
 
 .add-question:hover {
   background-color: #a180c8;
@@ -840,7 +848,7 @@ span {
 }
 
 .delete:hover,
- .edit:hover {
+.edit:hover {
   background-color: #a180c8;
   color: white;
   transition: ease-in;
@@ -871,7 +879,7 @@ span {
   border: none;
   cursor: pointer;
   margin-top: 20px;
-  margin-bottom: 5px;;
+  margin-bottom: 5px;
   border-radius: 2rem;
   font-weight: 700;
   font-size: large;
@@ -902,15 +910,23 @@ span {
   width: auto;
 }
 
-.jobs td, .jobs th {
+table {
+margin-left: 3.5rem;
+}
+
+.jobs td,
+.jobs th {
   border: 1px solid #ffffff;
   padding: 8px;
   font-size: 1.3rem;
 }
 
-.jobs tr:nth-child(even){background-color: #f2f2f2;}
+.jobs tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
 
-.jobs tr:hover {background-color: #ddd;
+.jobs tr:hover {
+  background-color: #ddd;
 }
 
 .jobs th {
@@ -921,7 +937,7 @@ span {
 }
 
 .jobs tr td .custom-checkbox {
- margin-left: 25px;
+  margin-left: 25px;
 }
 
 .offer-form-group:checked {
@@ -954,7 +970,7 @@ span {
 }
 
 .custom-checkbox::before {
-  content: '\2714';
+  content: "\2714";
   transform: translate();
   opacity: 0;
 }
@@ -975,23 +991,24 @@ span {
   width: 100%;
   padding: 20px;
   padding-left: 40px;
-  margin-right: 50px ;
-} 
+  margin-right: 50px;
+}
 
 .single-job-details {
   margin-left: 30px;
   margin-top: 20px;
 }
 
-.single-job-details h2{
-  display: flex
+.single-job-details h2 {
+  display: flex;
 }
 
 .single-job-details p {
   font-size: 22px;
 }
 
-.magnify-icon, .user-icon {
+.magnify-icon,
+.user-icon {
   display: flex;
   font-size: 2rem;
   color: #a180c8;
@@ -1000,7 +1017,7 @@ span {
 .LuUser {
   display: flex;
   font-size: 2rem;
-  color: #a180c8;  
+  color: #a180c8;
 }
 
 .single-job-current p {
@@ -2079,7 +2096,6 @@ a:hover {
 }
 
 form {
-  
   color: #a180c8;
   background-color: #00000055;
   border-radius: 5px;
@@ -2089,13 +2105,12 @@ form {
 }
 
 form .form-group {
-  display:block;
+  display: block;
   width: 100%;
   margin: 1rem;
 }
 .form-group {
- font-size: 1.5rem;
- 
+  font-size: 1.5rem;
 }
 
 form .form-input,
@@ -2143,7 +2158,6 @@ form [type="radio"] {
 label form [type="checkbox"],
 label form [type="radio"] {
   display: inline-block;
-  
 }
 
 .update-job-header {
