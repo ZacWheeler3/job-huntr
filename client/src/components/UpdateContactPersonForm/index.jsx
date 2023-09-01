@@ -44,13 +44,14 @@ const UpdateContactPersonForm = ({_id}) => {
   };
 
   return (
-    <div>
+    <div className="contact-form-container">
      <div className="magnify-icon">
           <h2>Update This Contact Person </h2>
           &nbsp; <UserIcon />
         </div>
       {Auth.loggedIn() ? (
         <>
+        
           <form onSubmit={handleFormSubmit}>
             <div className="form-group">
               <input
