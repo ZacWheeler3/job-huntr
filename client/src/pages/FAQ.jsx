@@ -31,10 +31,8 @@ const FAQ = () => {
             <div className="question-container">
               <span className="question">
                 {item.question}
-                <button className="edit">
-                  <PencilIcon />
-                </button>
-                <button className="delete" onClick={() => handleQuestionDelete(item._id)}>
+               
+                &nbsp;<button className="delete" onClick={() => handleQuestionDelete(item._id)}>
                   <TrashIcon />
                 </button>
               </span>
