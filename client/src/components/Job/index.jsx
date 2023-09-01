@@ -39,21 +39,22 @@ const {jobId}=useParams()
   }
 
   return (
-    <div className="flex-row justify-center mb-3">
-      <h2 className="col-12 col-md-10 bg-dark text-light p-3 mb-5">
-        Viewing {job.role} at {job.company}.
+    <div className="single-job-container">
+      <h2 className="single-job-title">
+        Viewing {job.role} at&nbsp;<span>{job.company}</span>.
       </h2>
 
-      <div className="col-12 col-md-10 mb-5">
-        <p>Advertised Salary: {job.advertisedSalary}</p>
-        <p>Offer made? {job.offerMade}</p>
-        <p>Created At: {formatTimestamp(job.createdAt)}</p>
-        <p>Updated At: {formatTimestamp(job.updatedAt)}</p>
+      <div className="single-job-details">
+        <h2>Details</h2>
+        <p><span>Advertised Salary:</span> {job.advertisedSalary}</p>
+        <p><span>Offer made?</span> {job.offerMade}</p>
+        <p><span>Created At:</span> {formatTimestamp(job.createdAt)}</p>
+        <p><span>Updated At:</span> {formatTimestamp(job.updatedAt)}</p>
         <button
           className="add-question"
           onClick={() => setAddContactPersonButton(!addContactPersonButton)}
         >
-          Add A Contact Person
+          Update Contact
         </button>
         {addContactPersonButton && <ContactPersonForm jobId={jobId} />}
         {job.contactPerson && (

@@ -799,7 +799,7 @@ span {
 }
 
 .add-question::before {
-  content: "\002B";
+  /* content: "\002B"; */
   font-size: 25px;
   color: white;
 }
@@ -960,6 +960,30 @@ span {
 
 .custom-checkbox:checked:before {
   opacity: 1;
+}
+
+.single-job-container {
+  background-color: #00000055;
+  border-radius: 5px;
+}
+
+.single-job-title {
+  display: flex;
+  justify-content: center;
+  background-color: #7340ad;
+  width: 100%;
+  padding: 20px;
+  padding-left: 40px;
+  margin-right: 50px ;
+} 
+
+.single-job-details {
+  margin-left: 30px;
+  margin-top: 20px;
+}
+
+.single-job-details p {
+  font-size: 22px;
 }
 
 /**
