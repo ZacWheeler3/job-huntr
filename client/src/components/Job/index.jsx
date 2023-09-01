@@ -8,6 +8,7 @@ import UpdateContactPersonForm from "../UpdateContactPersonForm";
 import { DELETE_CONTACT_PERSON } from "../../utils/mutations";
 import { useParams } from "react-router-dom";
 import { PiMagnifyingGlassBold as MagnifyIcon } from "react-icons/pi";
+import { LuUser } from "react-icons/lu";
 
 //////////////////////////////////////////////////////////
 
@@ -74,7 +75,10 @@ const Job = () => {
         {addContactPersonButton && <ContactPersonForm jobId={jobId} />}
         {job.contactPerson && (
           <div>
-            <p>Contact Person:</p>
+             <div className="LuUser">
+          <h2>Contact Person </h2>
+          &nbsp; <LuUser />
+        </div>
             <p>Name: {job.contactPerson.name}</p>
             <p>Role: {job.contactPerson.role}</p>
             <p>Phone: {job.contactPerson.phone}</p>
@@ -86,14 +90,14 @@ const Job = () => {
               onClick={() => handleContactUpdate(job.contactPerson._id)}
               style={{}}
             >
-              Update This Contact
+              Update Contact
             </button>
             <button
               className="contact-delete-button"
               onClick={() => handleContactDelete(job.contactPerson._id, jobId)}
               style={{}}
             >
-              Delete This Contact
+              Delete Contact
             </button>
           </div>
         )}

@@ -826,6 +826,7 @@ span {
 }
 
 .delete {
+  margin-left: 20px;
   font-size: smaller;
   padding: 10px 10px;
   background-color: #7340ad;
@@ -990,10 +991,16 @@ span {
   font-size: 22px;
 }
 
-.magnify-icon {
+.magnify-icon, .user-icon {
   display: flex;
   font-size: 2rem;
   color: #a180c8;
+}
+
+.LuUser {
+  display: flex;
+  font-size: 2rem;
+  color: #a180c8;  
 }
 
 /**
