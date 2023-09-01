@@ -576,9 +576,9 @@ span {
 .job-update-button,
 .contact-update-button,
 .contact-delete-button,
-.job-collapse-button {
+.job-collapse-button, .contact-button, .update-contact-person-button {
   display: inline-block;
-  padding: 15px 25px;
+  padding: 15px 15px;
   background-color: #7340ad;
   color: white;
   text-decoration: none;
@@ -594,7 +594,7 @@ span {
 .job-update-button:hover,
 .job-collapse-button:hover,
 .job-expand-button:hover,
-.job-delete-button:hover {
+.job-delete-button:hover, .contact-button:hover, .update-contact-person-button:hover {
   background-color: #a180c8;
   color: #7340ad;
   transition: ease-in;
@@ -602,7 +602,7 @@ span {
 
 .job-expand-button:active,
 .job-collapse-button:active,
-.job-expand-button:active {
+.job-expand-button:active, .contact-button:active, .update-contact-person-button:active {
   background-color: #7340ad;
   color: #7340ad;
 }
@@ -1001,6 +1001,14 @@ span {
   display: flex;
   font-size: 2rem;
   color: #a180c8;  
+}
+
+.single-job-current p {
+  font-size: 22px;
+}
+
+.add-contact-container {
+  margin-top: 20px;
 }
 
 /**
