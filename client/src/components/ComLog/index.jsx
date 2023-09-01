@@ -5,6 +5,7 @@ import UpdateComLog from "../UpdateComLog";
 import { DELETE_COMLOG } from "../../utils/mutations";
 import { QUERY_JOB } from "../../utils/queries";
 import { AiOutlineComment as CommIcon } from "react-icons/ai";
+import { FaRegSadCry as SadIcon } from "react-icons/fa";
 
 const ComLog = ({ comLogs = [], jobId }) => {
   const [method, setMethod] = useState("");
@@ -62,11 +63,11 @@ const ComLog = ({ comLogs = [], jobId }) => {
       </div>
 
       <div>
-      <div className="magnify-icon">
+        <div className="magnify-icon">
           <h2>Add a Communication </h2>
           &nbsp; <CommIcon />
         </div>
-
+        <h5><span>Add any new correspondence with this company</span></h5>
         <form onSubmit={handleFormSubmit}>
           <div className="form-group">
             <input
@@ -108,7 +109,10 @@ const ComLog = ({ comLogs = [], jobId }) => {
 
       <ul>
         {!comLogs.length ? (
-          <h3>No Communication Yet</h3>
+          <div className="magnify-icon">
+          <h3>No Communication Yet&nbsp;</h3>
+          <SadIcon/>
+          </div>
         ) : (
           comLogs.map((comLog, index) => {
             console.log(comLog);
