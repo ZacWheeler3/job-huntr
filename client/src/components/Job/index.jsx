@@ -4,17 +4,18 @@ import { QUERY_JOB } from "../../utils/queries";
 import formatTimestamp from "../../utils/date";
 import ContactPersonForm from "../ContactPersonForm";
 import { useState } from "react";
-import UpdateContactPersonForm from '../UpdateContactPersonForm';
+import UpdateContactPersonForm from "../UpdateContactPersonForm";
 import { DELETE_CONTACT_PERSON } from "../../utils/mutations";
 import { useParams } from "react-router-dom";
+import { PiMagnifyingGlassBold as MagnifyIcon } from "react-icons/pi";
 
 //////////////////////////////////////////////////////////
 
-const Job = (  ) => {
-const {jobId}=useParams()
+const Job = () => {
+  const { jobId } = useParams();
 
   const [addContactPersonButton, setAddContactPersonButton] = useState(false);
- 
+
   const [updatedContactId, setUpdatedContactId] = useState(null);
   const [deleteContact] = useMutation(DELETE_CONTACT_PERSON, {refetchQueries: [
     QUERY_JOB,
@@ -48,11 +49,22 @@ const {jobId}=useParams()
       </h2>
 
       <div className="single-job-details">
-        <h2>Details</h2>
-        <p><span>Advertised Salary:</span> {job.advertisedSalary}</p>
-        <p><span>Offer made?</span> {job.offerMade}</p>
-        <p><span>Created At:</span> {formatTimestamp(job.createdAt)}</p>
-        <p><span>Updated At:</span> {formatTimestamp(job.updatedAt)}</p>
+        <div className="magnify-icon">
+          <h2>Details </h2>
+          &nbsp; <MagnifyIcon />
+        </div>
+        <p>
+          <span>Advertised Salary:</span> {job.advertisedSalary}
+        </p>
+        <p>
+          <span>Offer made?</span> {job.offerMade}
+        </p>
+        <p>
+          <span>Created At:</span> {formatTimestamp(job.createdAt)}
+        </p>
+        <p>
+          <span>Updated At:</span> {formatTimestamp(job.updatedAt)}
+        </p>
         <button
           className="add-question"
           onClick={() => setAddContactPersonButton(!addContactPersonButton)}
@@ -68,25 +80,24 @@ const {jobId}=useParams()
             <p>Phone: {job.contactPerson.phone}</p>
             <p>Email: {job.contactPerson.email}</p>
             <p>Notes: {job.contactPerson.notes}</p>
-          
-          <button
-                  className="contact-update-button"
-                  onClick={() => handleContactUpdate(job.contactPerson._id)}
-                  style={{}}
-                >
-                  Update This Contact
-                </button>
-                <button
-                  className="contact-delete-button"
-                  onClick={() => handleContactDelete(job.contactPerson._id, jobId)}
-                  style={{}}
-                >
-                  Delete This Contact
-                </button>
-                </div>
 
+            <button
+              className="contact-update-button"
+              onClick={() => handleContactUpdate(job.contactPerson._id)}
+              style={{}}
+            >
+              Update This Contact
+            </button>
+            <button
+              className="contact-delete-button"
+              onClick={() => handleContactDelete(job.contactPerson._id, jobId)}
+              style={{}}
+            >
+              Delete This Contact
+            </button>
+          </div>
         )}
-      {updatedContactId && <UpdateContactPersonForm _id={updatedContactId} />}
+        {updatedContactId && <UpdateContactPersonForm _id={updatedContactId} />}
 
         <ComLog comLogs={job.comLogArray} jobId={jobId} />
       </div>
