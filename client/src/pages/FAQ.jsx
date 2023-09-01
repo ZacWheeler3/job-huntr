@@ -8,7 +8,10 @@ import { DELETE_QUESTION } from "../utils/mutations";
 
 const FAQ = () => {
   const { loading, data } = useQuery(QUERY_QUESTION);
-  const [deleteQuestion] = useMutation(DELETE_QUESTION)
+  const [deleteQuestion] = useMutation(DELETE_QUESTION, {refetchQueries: [
+    QUERY_QUESTION,
+    'questions'
+  ]})
   const navigate = useNavigate();
   const handleQuestionDelete = (questionId) => {
     deleteQuestion({ variables: { _id: questionId } });
