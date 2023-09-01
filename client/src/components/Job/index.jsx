@@ -67,7 +67,7 @@ const Job = () => {
           <span>Updated At:</span> {formatTimestamp(job.updatedAt)}
         </p>
         <button
-          className="add-question"
+          className="add-question-button"
           onClick={() => setAddContactPersonButton(!addContactPersonButton)}
         >
           Update Contact
