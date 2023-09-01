@@ -982,12 +982,18 @@ span {
   margin-top: 20px;
 }
 
+.single-job-details h2{
+  display: flex
+}
+
 .single-job-details p {
   font-size: 22px;
 }
 
 .magnify-icon {
-  color: red;
+  display: flex;
+  font-size: 2rem;
+  color: #a180c8;
 }
 
 /**

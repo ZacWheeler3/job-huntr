@@ -51,7 +51,7 @@ const Job = () => {
       <div className="single-job-details">
         <div className="magnify-icon">
           <h2>Details </h2>
-          <MagnifyIcon />
+          &nbsp; <MagnifyIcon />
         </div>
         <p>
           <span>Advertised Salary:</span> {job.advertisedSalary}
