@@ -1,9 +1,10 @@
-import {useState} from 'react';
-import {ADD_COMLOG} from '../../utils/mutations';
-import {useMutation} from "@apollo/client";
-import UpdateComLog from "../UpdateComLog"
-import {DELETE_COMLOG} from '../../utils/mutations';
-import {QUERY_JOB} from '../../utils/queries';
+import { useState } from "react";
+import { ADD_COMLOG } from "../../utils/mutations";
+import { useMutation } from "@apollo/client";
+import UpdateComLog from "../UpdateComLog";
+import { DELETE_COMLOG } from "../../utils/mutations";
+import { QUERY_JOB } from "../../utils/queries";
+import { AiOutlineComment as CommIcon } from "react-icons/ai";
 
 const ComLog = ({ comLogs = [], jobId }) => {
   const [method, setMethod] = useState("");
@@ -11,15 +12,12 @@ const ComLog = ({ comLogs = [], jobId }) => {
   const [direction, setDirection] = useState("");
   const [updatedComLogId, setUpdatedComLogId] = useState(null);
 
-  const [addComLog, { error }] = useMutation(ADD_COMLOG, {refetchQueries: [
-    QUERY_JOB,
-    'job'
-  ]});
-  const [deleteComLog] = useMutation(DELETE_COMLOG, {refetchQueries: [
-    QUERY_JOB,
-    'job'
-  ]});
-
+  const [addComLog, { error }] = useMutation(ADD_COMLOG, {
+    refetchQueries: [QUERY_JOB, "job"],
+  });
+  const [deleteComLog] = useMutation(DELETE_COMLOG, {
+    refetchQueries: [QUERY_JOB, "job"],
+  });
 
   const handleComLogUpdate = (_id) => {
     setUpdatedComLogId(_id);
@@ -28,7 +26,7 @@ const ComLog = ({ comLogs = [], jobId }) => {
   const handleComLogDelete = (_id, jobId) => {
     deleteComLog({ variables: { _id, jobId } });
   };
-  
+
   const handleFormSubmit = async (event) => {
     event.preventDefault();
 
@@ -48,10 +46,8 @@ const ComLog = ({ comLogs = [], jobId }) => {
       console.error(err);
     }
   };
-  
-  const addLogButtonHandler = () => {
 
-  }
+  const addLogButtonHandler = () => {};
 
   return (
     <>
@@ -66,7 +62,10 @@ const ComLog = ({ comLogs = [], jobId }) => {
       </div>
 
       <div>
-        <h3>Add a Communication</h3>
+      <div className="magnify-icon">
+          <h2>Add a Communication </h2>
+          &nbsp; <CommIcon />
+        </div>
 
         <form onSubmit={handleFormSubmit}>
           <div className="form-group">
@@ -107,7 +106,6 @@ const ComLog = ({ comLogs = [], jobId }) => {
         </form>
       </div>
 
-
       <ul>
         {!comLogs.length ? (
           <h3>No Communication Yet</h3>
@@ -118,22 +116,23 @@ const ComLog = ({ comLogs = [], jobId }) => {
               <li key={index}>
                 Method: {comLog.method}, Content: {comLog.content}, Direction:
                 {comLog.direction}
-                 <button
-          className="btn btn-primary"
-          type="submit"
-          onClick={() => handleComLogUpdate(comLog._id)}
-        >
-          Update This Communication
-        </button>
-        <button
+                <button
+                  className="btn btn-primary"
+                  type="submit"
+                  onClick={() => handleComLogUpdate(comLog._id)}
+                >
+                  Update This Communication
+                </button>
+                <button
                   className="job-delete-button"
                   onClick={() => handleComLogDelete(comLog._id, jobId)}
                   style={{}}
                 >
                   Delete This Communication
                 </button>
-        {updatedComLogId === comLog._id && <UpdateComLog _id={updatedComLogId} />}
-
+                {updatedComLogId === comLog._id && (
+                  <UpdateComLog _id={updatedComLogId} />
+                )}
               </li>
             );
           })

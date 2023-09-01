@@ -97,6 +97,7 @@ const Job = () => {
               <span>Notes:</span> {job.contactPerson.notes}
             </p>
             </div>
+            
             <button
               className="contact-update-button"
               onClick={() => handleContactUpdate(job.contactPerson._id)}

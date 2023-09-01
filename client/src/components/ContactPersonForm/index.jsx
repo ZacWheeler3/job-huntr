@@ -98,7 +98,7 @@ const ContactPersonForm = ({jobId}) => {
 
             <div className="form-group">
               <button className="contact-button" type="submit">
-                Add Contact Person
+                Submit
               </button>
             </div>
 

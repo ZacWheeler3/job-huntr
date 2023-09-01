@@ -600,7 +600,7 @@ span {
 .update-contact-person-button:hover,
 .add-comm-button:hover,
 .submit-comm-button:hover,
-.add-question-button:hover {
+.add-question-button:hover, .contact-update-button:hover, .contact-delete-button:hover {
   background-color: #a180c8;
   color: #7340ad;
   transition: ease-in;
@@ -613,7 +613,7 @@ span {
 .update-contact-person-button:active,
 .add-comm-button:active,
 .submit-comm-button:active,
-.add-question-button:active {
+.add-question-button:active,.contact-update-button:active, .contact-delete-button:active {
   background-color: #7340ad;
   color: #7340ad;
 }
@@ -1026,6 +1026,10 @@ margin-left: 3.5rem;
 
 .add-contact-container {
   margin-top: 20px;
+}
+
+.contact-form-container .form-group input {
+  margin-top: 2px;
 }
 
 /**
@@ -2102,15 +2106,17 @@ form {
   justify-content: center;
   flex-direction: column;
   width: 100%;
-}
+  }
 
 form .form-group {
   display: block;
   width: 100%;
   margin: 1rem;
+ 
 }
 .form-group {
   font-size: 1.5rem;
+  padding-top: 4px;
 }
 
 form .form-input,
