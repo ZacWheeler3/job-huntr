@@ -1015,6 +1015,7 @@ table {
   background-color: #00000055;
   border-radius: 5px;
   margin: 15px;
+  padding: 15px;
 }
 
 .single-job-title {
@@ -1067,8 +1068,21 @@ table {
 
 .com-logs {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   flex-wrap: wrap;
+  color: white;
+  background-color: #00000055;
+  border-radius: 5px;
+  margin: 15px;
+  padding: 15px;
+  width: 40%;
+  font-size: large;
+}
+
+.com-text {
+  display: flex;
+  flex-direction: row;
+  width: auto;
 }
 
 .add-com-form {

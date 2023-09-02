@@ -49,7 +49,7 @@ const ContactPersonForm = ({jobId}) => {
       <h5><span>To update an existing contact fill out the form below</span></h5>
       {Auth.loggedIn() ? (
         <>
-          <form onSubmit={handleFormSubmit}>
+          <form className="form-background" onSubmit={handleFormSubmit}>
             <div className="form-group">
               <input
                 type="text"

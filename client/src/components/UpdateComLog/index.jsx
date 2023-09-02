@@ -34,10 +34,10 @@ const UpdateComLog = ({ _id }) => {
 
   return (
     <>
-      <div>
+      <div className="logs">
         <h3>Update This Communication</h3>
 
-        <form className="form-background" onSubmit={handleFormSubmit}>
+        <form onSubmit={handleFormSubmit}>
           <div className="form-group">
             <input
               type="text"
@@ -70,7 +70,7 @@ const UpdateComLog = ({ _id }) => {
           </div>
           <div className="form-group">
             <button className="submit-comm-button" type="submit">
-              Submit Updated Communication
+              Submit
             </button>
           </div>
         </form>

@@ -52,7 +52,7 @@ const UpdateContactPersonForm = ({_id}) => {
       {Auth.loggedIn() ? (
         <>
         
-          <form onSubmit={handleFormSubmit}>
+          <form className="form-background" onSubmit={handleFormSubmit}>
             <div className="form-group">
               <input
                 type="text"
