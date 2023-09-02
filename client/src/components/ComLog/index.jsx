@@ -72,14 +72,19 @@ const ComLog = ({ comLogs = [], jobId }) => {
         </h5>
         <form className="form-background" onSubmit={handleFormSubmit}>
           <div className="form-group">
-            <input
-              type="text"
+            <select
               name="method"
               placeholder="Method"
               value={method}
               onChange={(e) => setMethod(e.target.value)}
               required
-            />
+            >
+              
+              <option value="website">website</option>
+              <option value="email" selected>email</option>
+              <option value="phone">phone</option>
+              <option value="in-person">in-person</option>
+            </select>
           </div>
           <div className="form-group">
             <input
@@ -92,14 +97,23 @@ const ComLog = ({ comLogs = [], jobId }) => {
             />
           </div>{" "}
           <div className="form-group">
-            <input
-              type="text"
+            <select
+              
               name="direction"
               placeholder="Direction"
               value={direction}
               onChange={(e) => setDirection(e.target.value)}
-              required
-            />
+              required>
+                <option value="incoming" selected>Incoming</option>
+                <option value="outgoing">outgoing</option>
+
+
+
+              </select>
+
+
+
+            
           </div>
           <div className="form-group">
             <button className="submit-comm-button" type="submit">
@@ -120,10 +134,12 @@ const ComLog = ({ comLogs = [], jobId }) => {
             console.log(comLog);
             return (
               <li className="com-logs" key={index}>
-                <div className="com-text"><span>Method:&nbsp;</span>&nbsp;{comLog.method}&nbsp;{" "}
-                <span>Content:&nbsp;</span>&nbsp;{comLog.content} &nbsp;
-                <span>Direction:&nbsp;</span>
-                &nbsp;{comLog.direction}</div>
+                <div className="com-text">
+                  <span>Method:&nbsp;</span>&nbsp;{comLog.method}&nbsp;{" "}
+                  <span>Content:&nbsp;</span>&nbsp;{comLog.content} &nbsp;
+                  <span>Direction:&nbsp;</span>
+                  &nbsp;{comLog.direction}
+                </div>
                 <button
                   className="submit-comm-button"
                   type="submit"

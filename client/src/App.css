@@ -1031,6 +1031,7 @@ table {
 .single-job-details {
   margin-left: 30px;
   margin-top: 20px;
+  width: 500px;
 }
 
 .single-job-details h2 {
@@ -1095,6 +1096,20 @@ table {
   background-color: #00000055;
   border-radius: 5px;
   width: 40%;
+}
+
+.job-info-row {
+  display: flex;
+}
+
+.job-info-row > span:nth-child(1) {
+  margin-right: auto;
+}
+
+.job-info-row > span:nth-child(2) {
+  width: 300px;
+  text-align: left;
+  color: #ffffff;
 }
 
 /**
