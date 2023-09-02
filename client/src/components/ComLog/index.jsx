@@ -52,7 +52,7 @@ const ComLog = ({ comLogs = [], jobId }) => {
 
   return (
     <>
-      <div className="form-group">
+      {/* <div className="form-group">
         <button
           className="add-comm-button"
           type="submit"
@@ -60,15 +60,17 @@ const ComLog = ({ comLogs = [], jobId }) => {
         >
           Add Communication
         </button>
-      </div>
+      </div> */}
 
       <div>
         <div className="magnify-icon">
           <h2>Add a Communication </h2>
           &nbsp; <CommIcon />
         </div>
-        <h5><span>Add any new correspondence with this company</span></h5>
-        <form onSubmit={handleFormSubmit}>
+        <h5>
+          <span>Add any new correspondence with this company</span>
+        </h5>
+        <form className="form-background" onSubmit={handleFormSubmit}>
           <div className="form-group">
             <input
               type="text"
@@ -110,29 +112,31 @@ const ComLog = ({ comLogs = [], jobId }) => {
       <ul>
         {!comLogs.length ? (
           <div className="magnify-icon">
-          <h3>No Communication Yet&nbsp;</h3>
-          <SadIcon/>
+            <h3>No Communication Yet&nbsp;</h3>
+            <SadIcon />
           </div>
         ) : (
           comLogs.map((comLog, index) => {
             console.log(comLog);
             return (
-              <li key={index}>
-                Method: {comLog.method}, Content: {comLog.content}, Direction:
-                {comLog.direction}
+              <li className="com-logs" key={index}>
+                <div className="com-text"><span>Method:&nbsp;</span>&nbsp;{comLog.method}&nbsp;{" "}
+                <span>Content:&nbsp;</span>&nbsp;{comLog.content} &nbsp;
+                <span>Direction:&nbsp;</span>
+                &nbsp;{comLog.direction}</div>
                 <button
-                  className="btn btn-primary"
+                  className="submit-comm-button"
                   type="submit"
                   onClick={() => handleComLogUpdate(comLog._id)}
                 >
-                  Update This Communication
+                  Update
                 </button>
                 <button
                   className="job-delete-button"
                   onClick={() => handleComLogDelete(comLog._id, jobId)}
                   style={{}}
                 >
-                  Delete This Communication
+                  Delete
                 </button>
                 {updatedComLogId === comLog._id && (
                   <UpdateComLog _id={updatedComLogId} />

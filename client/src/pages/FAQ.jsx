@@ -45,7 +45,7 @@ const FAQ = () => {
         ))}
       </ul>
       <button
-          className="job-expand-button"
+          className="caq-button"
           onClick={() => navigate("/addquestion")}
         >
           Add Question

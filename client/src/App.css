@@ -578,7 +578,6 @@ span {
 .add-comm-button,
 .submit-comm-button,
 .add-question-button {
-  display: inline-block;
   padding: 15px 15px;
   background-color: #7340ad;
   color: white;
@@ -590,7 +589,9 @@ span {
   font-weight: 700;
   font-size: medium;
   transition: 0.4s ease-in;
+  width: auto;
 }
+
 .job-expand-button:hover,
 .job-update-button:hover,
 .job-collapse-button:hover,
@@ -600,7 +601,9 @@ span {
 .update-contact-person-button:hover,
 .add-comm-button:hover,
 .submit-comm-button:hover,
-.add-question-button:hover, .contact-update-button:hover, .contact-delete-button:hover {
+.add-question-button:hover,
+.contact-update-button:hover,
+.contact-delete-button:hover {
   background-color: #a180c8;
   color: #7340ad;
   transition: ease-in;
@@ -613,7 +616,9 @@ span {
 .update-contact-person-button:active,
 .add-comm-button:active,
 .submit-comm-button:active,
-.add-question-button:active,.contact-update-button:active, .contact-delete-button:active {
+.add-question-button:active,
+.contact-update-button:active,
+.contact-delete-button:active {
   background-color: #7340ad;
   color: #7340ad;
 }
@@ -746,12 +751,14 @@ span {
 /*
 /*FAQ PAGE */
 .page-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   background-color: #00000055;
   border-radius: 5px;
-  margin: 40px;
+  margin: 15px;
   padding: 15px;
-  width: auto;
-  
+  width: 100%;
 }
 
 .page-header {
@@ -769,6 +776,21 @@ span {
   font-weight: 600;
   padding-bottom: 15px;
   border-bottom-style: solid;
+}
+
+.caq-button {
+  padding: 15px 15px;
+  background-color: #7340ad;
+  color: white;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  margin: 1rem;
+  border-radius: 2rem;
+  font-weight: 700;
+  font-size: medium;
+  transition: 0.4s ease-in;
+  width: 15%;
 }
 
 .question-container {
@@ -805,6 +827,7 @@ span {
   font-weight: 700;
   font-size: large;
   transition: 0.4s ease-in;
+  width: 10%;
 }
 
 .add-question::before {
@@ -910,8 +933,15 @@ span {
   width: auto;
 }
 
+.form-background {
+  background-color: #00000055;
+  border-radius: 5px;
+  padding: 15px;
+  width: 32%;
+}
+
 table {
-margin-left: 3.5rem;
+  width: 100%;
 }
 
 .jobs td,
@@ -979,9 +1009,13 @@ margin-left: 3.5rem;
   opacity: 1;
 }
 
+/*COM-LOGS & DETAILS*/
+
 .single-job-container {
   background-color: #00000055;
   border-radius: 5px;
+  margin: 15px;
+  padding: 15px;
 }
 
 .single-job-title {
@@ -1030,6 +1064,37 @@ margin-left: 3.5rem;
 
 .contact-form-container .form-group input {
   margin-top: 2px;
+}
+
+.com-logs {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  color: white;
+  background-color: #00000055;
+  border-radius: 5px;
+  margin: 15px;
+  padding: 15px;
+  width: 40%;
+  font-size: large;
+}
+
+.com-text {
+  display: flex;
+  flex-direction: row;
+  width: auto;
+}
+
+.add-com-form {
+  background-color: #00000055;
+  border-radius: 5px;
+  width: auto;
+}
+
+.com-form {
+  background-color: #00000055;
+  border-radius: 5px;
+  width: 40%;
 }
 
 /**
@@ -2099,20 +2164,19 @@ a:hover {
   justify-content: center;
 }
 
-form {
+/* form {
   color: #a180c8;
   background-color: #00000055;
   border-radius: 5px;
   justify-content: center;
   flex-direction: column;
   width: 100%;
-  }
+  } */
 
 form .form-group {
   display: block;
   width: 100%;
   margin: 1rem;
- 
 }
 .form-group {
   font-size: 1.5rem;
