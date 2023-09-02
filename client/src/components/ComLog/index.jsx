@@ -73,15 +73,17 @@ const ComLog = ({ comLogs = [], jobId }) => {
         <form className="form-background" onSubmit={handleFormSubmit}>
           <div className="form-group">
             <select
+              className="single-job-dropdown"
               name="method"
               placeholder="Method"
               value={method}
               onChange={(e) => setMethod(e.target.value)}
               required
             >
-              
               <option value="website">website</option>
-              <option value="email" selected>email</option>
+              <option value="email" selected>
+                email
+              </option>
               <option value="phone">phone</option>
               <option value="in-person">in-person</option>
             </select>
@@ -97,23 +99,18 @@ const ComLog = ({ comLogs = [], jobId }) => {
             />
           </div>{" "}
           <div className="form-group">
-            <select
-              
+            <select className="single-job-dropdown"
               name="direction"
               placeholder="Direction"
               value={direction}
               onChange={(e) => setDirection(e.target.value)}
-              required>
-                <option value="incoming" selected>Incoming</option>
-                <option value="outgoing">outgoing</option>
-
-
-
-              </select>
-
-
-
-            
+              required
+            >
+              <option value="incoming" selected>
+                incoming
+              </option>
+              <option value="outgoing">outgoing</option>
+            </select>
           </div>
           <div className="form-group">
             <button className="submit-comm-button" type="submit">

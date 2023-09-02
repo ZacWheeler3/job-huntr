@@ -937,7 +937,7 @@ span {
   background-color: #00000055;
   border-radius: 5px;
   padding: 15px;
-  width: 32%;
+  width: 216%;
 }
 
 table {
@@ -1081,8 +1081,10 @@ table {
 }
 
 .com-text {
+  color: #ffffff;
+  font-size: 22px;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   width: auto;
 }
 
@@ -1110,6 +1112,10 @@ table {
   width: 300px;
   text-align: left;
   color: #ffffff;
+}
+
+.single-job-dropdown {
+ width: 278px; 
 }
 
 /**
@@ -2178,15 +2184,6 @@ a:hover {
   display: flex;
   justify-content: center;
 }
-
-/* form {
-  color: #a180c8;
-  background-color: #00000055;
-  border-radius: 5px;
-  justify-content: center;
-  flex-direction: column;
-  width: 100%;
-  } */
 
 form .form-group {
   display: block;
