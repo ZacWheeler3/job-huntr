@@ -89,10 +89,10 @@ const ComLog = ({ comLogs = [], jobId }) => {
             </select>
           </div>
           <div className="form-group">
-            <input
+            <input className="comm-log-content-section"
               type="text"
               name="content"
-              placeholder="Content"
+              placeholder="content"
               value={content}
               onChange={(e) => setContent(e.target.value)}
               required
