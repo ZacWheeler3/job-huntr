@@ -54,17 +54,17 @@ const Job = () => {
           &nbsp; <MagnifyIcon />
         </div>
         
-        <p>
-          <span>Advertised Salary:</span> {job.advertisedSalary}
+        <p className="job-info-row">
+          <span>Advertised Salary:</span> <span>{job.advertisedSalary}</span>
         </p>
-        <p>
-          <span>Offer made?</span> {job.offerMade}
+        <p className="job-info-row">
+          <span>Offer made?</span> <span>{job.offerMade}</span>
         </p>
-        <p>
-          <span>Created At:</span> {formatTimestamp(job.createdAt)}
+        <p className="job-info-row">
+          <span>Created At:</span><span>{formatTimestamp(job.createdAt)}</span>
         </p>
-        <p>
-          <span>Updated At:</span> {formatTimestamp(job.updatedAt)}
+        <p className="job-info-row">
+          <span>Updated At:</span> <span>{formatTimestamp(job.updatedAt)}</span>
         </p>
         <button
           className="add-question-button"
@@ -81,20 +81,20 @@ const Job = () => {
             </div>
             <h5><span>Below is the current company contact</span></h5>
             <div className="single-job-current">
-            <p>
-              <span>Name:</span> {job.contactPerson.name}
+            <p className="job-info-row">
+              <span>Name:</span> <span>{job.contactPerson.name}</span>
             </p>
-            <p>
-              <span>Role:</span> {job.contactPerson.role}
+            <p className="job-info-row">
+              <span>Role:</span> <span>{job.contactPerson.role}</span>
             </p>
-            <p>
-              <span>Phone:</span> {job.contactPerson.phone}
+            <p className="job-info-row">
+              <span>Phone:</span> <span>{job.contactPerson.phone}</span>
             </p>
-            <p>
-              <span>Email:</span> {job.contactPerson.email}
+            <p className="job-info-row">
+              <span>Email:</span> <span>{job.contactPerson.email}</span>
             </p>
-            <p>
-              <span>Notes:</span> {job.contactPerson.notes}
+            <p className="job-info-row">
+              <span>Notes:</span> <span>{job.contactPerson.notes}</span>
             </p>
             </div>
             
