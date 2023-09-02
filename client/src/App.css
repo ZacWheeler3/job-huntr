@@ -1069,15 +1069,16 @@ table {
 
 .com-logs {
   display: flex;
-  flex-direction: row;
+  justify-content: center;
+  flex-direction: column;
   flex-wrap: wrap;
   color: white;
-  /* background-color: #00000055; */
-  border-radius: 5px;
   margin: 15px;
   padding: 15px;
-  width: 40%;
+  width: 65%;
   font-size: large;
+  background-color: #00000055;
+  border-radius: 5px;
 }
 
 .com-text {
@@ -1086,10 +1087,16 @@ table {
   margin-top: 20px;
   display: flex;
   flex-direction: column;
+  word-spacing: 20px;
   width: auto;
-  
+ 
 }
 
+.com-text span {
+  display: flex;
+  padding-right: 40px;
+  margin: 20px;
+}
 .add-com-form {
   background-color: #00000055;
   border-radius: 5px;
@@ -1117,7 +1124,7 @@ table {
 }
 
 .single-job-dropdown {
- width: 278px; 
+  width: 278px;
 }
 
 /**
@@ -2193,6 +2200,7 @@ form .form-group {
   margin: 1rem;
 }
 .form-group {
+  color: #000000;
   font-size: 1.5rem;
   padding-top: 4px;
 }
@@ -2228,6 +2236,10 @@ form .form-input {
   font-size: 1.2rem;
   border: 1px solid #484848;
   border-radius: 0.3rem;
+}
+
+.comm-log-content-section {
+  color: #000000;
 }
 
 form .form-input.form-input-squared {
