@@ -130,7 +130,7 @@ const ComLog = ({ comLogs = [], jobId }) => {
           comLogs.map((comLog, index) => {
             console.log(comLog);
             return (
-              <li className="com-logs" key={index}>
+              <div className="com-logs" key={index}>
                 <div className="com-text">
                   <span>Method:&nbsp;</span>&nbsp;{comLog.method}&nbsp;{" "}
                   <span>Content:&nbsp;</span>&nbsp;{comLog.content} &nbsp;
@@ -154,7 +154,7 @@ const ComLog = ({ comLogs = [], jobId }) => {
                 {updatedComLogId === comLog._id && (
                   <UpdateComLog _id={updatedComLogId} />
                 )}
-              </li>
+              </div>
             );
           })
         )}
