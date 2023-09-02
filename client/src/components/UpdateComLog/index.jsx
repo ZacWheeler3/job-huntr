@@ -3,16 +3,14 @@ import { UPDATE_COMLOG } from "../../utils/mutations";
 import { useMutation } from "@apollo/client";
 import { QUERY_JOB } from "../../utils/queries";
 
-
 const UpdateComLog = ({ _id }) => {
   const [method, setMethod] = useState("");
   const [content, setContent] = useState("");
   const [direction, setDirection] = useState("");
 
-  const [updateComLog, { error }] = useMutation(UPDATE_COMLOG, {refetchQueries: [
-    QUERY_JOB,
-    'job'
-  ]});
+  const [updateComLog, { error }] = useMutation(UPDATE_COMLOG, {
+    refetchQueries: [QUERY_JOB, "job"],
+  });
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
@@ -39,7 +37,7 @@ const UpdateComLog = ({ _id }) => {
       <div>
         <h3>Update This Communication</h3>
 
-        <form onSubmit={handleFormSubmit}>
+        <form className="form-background" onSubmit={handleFormSubmit}>
           <div className="form-group">
             <input
               type="text"
@@ -71,14 +69,12 @@ const UpdateComLog = ({ _id }) => {
             />
           </div>
           <div className="form-group">
-            <button className="btn btn-primary" type="submit">
+            <button className="submit-comm-button" type="submit">
               Submit Updated Communication
             </button>
           </div>
         </form>
       </div>
-
-      
     </>
   );
 };
