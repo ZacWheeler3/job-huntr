@@ -10,7 +10,9 @@ const AddQuestion = () => {
   const [question, setQuestion] = useState("");
   const [response, setResponse] = useState("");
   const [addedQuestions, setAddedQuestions] = useState([]);
-  const [addQuestion, { error }] = useMutation(ADD_QUESTION);
+  const [addQuestion, { error }] = useMutation(ADD_QUESTION, {
+    refetchQueries: [QUERY_QUESTION, "questions"],
+  });
   const navigate = useNavigate();
   const handleFormSubmit = async (event) => {
     event.preventDefault();
