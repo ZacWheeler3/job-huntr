@@ -10,8 +10,6 @@ import { useParams } from "react-router-dom";
 import { PiMagnifyingGlassBold as MagnifyIcon } from "react-icons/pi";
 import { LuUser } from "react-icons/lu";
 
-//////////////////////////////////////////////////////////
-
 const Job = () => {
   const { jobId } = useParams();
 
@@ -53,7 +51,7 @@ const Job = () => {
           <h2>Details </h2>
           &nbsp; <MagnifyIcon />
         </div>
-        
+
         <p className="job-info-row">
           <span>Advertised Salary:</span> <span>{job.advertisedSalary}</span>
         </p>
@@ -61,7 +59,8 @@ const Job = () => {
           <span>Offer made?</span> <span>{job.offerMade}</span>
         </p>
         <p className="job-info-row">
-          <span>Created At:</span><span>{formatTimestamp(job.createdAt)}</span>
+          <span>Created At:</span>
+          <span>{formatTimestamp(job.createdAt)}</span>
         </p>
         <p className="job-info-row">
           <span>Updated At:</span> <span>{formatTimestamp(job.updatedAt)}</span>
@@ -79,25 +78,27 @@ const Job = () => {
               <h2>Contact Person </h2>
               &nbsp; <LuUser />
             </div>
-            <h5><span>Below is the current company contact</span></h5>
+            <h5>
+              <span>Below is the current company contact</span>
+            </h5>
             <div className="single-job-current">
-            <p className="job-info-row">
-              <span>Name:</span> <span>{job.contactPerson.name}</span>
-            </p>
-            <p className="job-info-row">
-              <span>Role:</span> <span>{job.contactPerson.role}</span>
-            </p>
-            <p className="job-info-row">
-              <span>Phone:</span> <span>{job.contactPerson.phone}</span>
-            </p>
-            <p className="job-info-row">
-              <span>Email:</span> <span>{job.contactPerson.email}</span>
-            </p>
-            <p className="job-info-row">
-              <span>Notes:</span> <span>{job.contactPerson.notes}</span>
-            </p>
+              <p className="job-info-row">
+                <span>Name:</span> <span>{job.contactPerson.name}</span>
+              </p>
+              <p className="job-info-row">
+                <span>Role:</span> <span>{job.contactPerson.role}</span>
+              </p>
+              <p className="job-info-row">
+                <span>Phone:</span> <span>{job.contactPerson.phone}</span>
+              </p>
+              <p className="job-info-row">
+                <span>Email:</span> <span>{job.contactPerson.email}</span>
+              </p>
+              <p className="job-info-row">
+                <span>Notes:</span> <span>{job.contactPerson.notes}</span>
+              </p>
             </div>
-            
+
             <button
               className="contact-update-button"
               onClick={() => handleContactUpdate(job.contactPerson._id)}

@@ -9,7 +9,6 @@ import ErrorPage from "./pages/ErrorPage";
 import AboutPage from "./pages/AboutPage.jsx";
 import CompanyPage from "./pages/CompanyPage.jsx";
 import ContactPage from "./pages/ContactPage.jsx";
-import CommonQuestions from "./pages/CommonQuestions.jsx";
 import QuestionUpdate from "./components/QuestionUpdate/index.jsx";
 import FAQ from "./pages/FAQ.jsx";
 import AddQuestion from "./pages/AddQuestion.jsx";
@@ -39,10 +38,7 @@ const router = createBrowserRouter([
         path: "/CompanyPage",
         element: <CompanyPage />,
       },
-      {
-        path: "/CommonQuestions",
-        element: <CommonQuestions />,
-      },
+
       { path: "/FAQ", element: <FAQ /> },
       { path: "/AddQuestion", element: <AddQuestion /> },
       { path: "/JobTracker", element: <JobTracker /> },
@@ -51,14 +47,9 @@ const router = createBrowserRouter([
         element: <Job />,
       },
 
-    
       {
         path: "/signup",
         element: <Signup />,
-      },
-      {
-        path: "/updatequestion/:id",
-        element: <QuestionUpdate />,
       },
       {
         path: "/updatequestion/:id",

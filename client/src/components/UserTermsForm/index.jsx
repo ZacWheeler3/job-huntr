@@ -181,7 +181,6 @@ const UserTermsForm = () => {
               />
             </div>
 
-
             <div className="form-group">
               <button className="btn btn-primary" type="submit">
                 Add Terms

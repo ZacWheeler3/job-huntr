@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import Auth from "../../utils/auth";
-import Logo from "/jobhuntrlogo.png?url"
+import Logo from "/jobhuntrlogo.png?url";
 
 const Header = () => {
   const logout = (event) => {

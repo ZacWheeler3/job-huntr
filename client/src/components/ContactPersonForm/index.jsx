@@ -4,20 +4,18 @@ import { useMutation } from "@apollo/client";
 import { ADD_CONTACT_PERSON } from "../../utils/mutations";
 import { QUERY_JOB } from "../../utils/queries";
 
-
 import Auth from "../../utils/auth";
 
-const ContactPersonForm = ({jobId}) => {
+const ContactPersonForm = ({ jobId }) => {
   const [name, setContactPersonName] = useState("");
   const [role, setContactPersonRole] = useState("");
   const [phone, setContactPersonPhone] = useState("");
   const [email, setContactPersonEmail] = useState("");
   const [notes, setContactPersonNotes] = useState("");
 
-  const [addContactPerson, { error }] = useMutation(ADD_CONTACT_PERSON, {refetchQueries: [
-    QUERY_JOB,
-    'job'
-  ]});
+  const [addContactPerson, { error }] = useMutation(ADD_CONTACT_PERSON, {
+    refetchQueries: [QUERY_JOB, "job"],
+  });
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
@@ -46,7 +44,9 @@ const ContactPersonForm = ({jobId}) => {
   return (
     <div className="add-contact-container">
       <h2>Add a Contact Person</h2>
-      <h5><span>To update an existing contact fill out the form below</span></h5>
+      <h5>
+        <span>To update an existing contact fill out the form below</span>
+      </h5>
       {Auth.loggedIn() ? (
         <>
           <form className="form-background" onSubmit={handleFormSubmit}>
