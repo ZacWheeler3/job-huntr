@@ -3,14 +3,16 @@ import { useState } from "react";
 import { useMutation, useQuery } from "@apollo/client";
 import { useNavigate } from "react-router-dom";
 import { ADD_QUESTION } from "../utils/mutations";
-import {QUERY_QUESTION} from "../utils/queries"
+import { QUERY_QUESTION } from "../utils/queries";
 import Auth from "../utils/auth";
 
 const AddQuestion = () => {
   const [question, setQuestion] = useState("");
   const [response, setResponse] = useState("");
   const [addedQuestions, setAddedQuestions] = useState([]);
-  const [addQuestion, { error }] = useMutation(ADD_QUESTION);
+  const [addQuestion, { error }] = useMutation(ADD_QUESTION, {
+    refetchQueries: [QUERY_QUESTION, "questions"],
+  });
   const navigate = useNavigate();
   const handleFormSubmit = async (event) => {
     event.preventDefault();
@@ -25,7 +27,7 @@ const AddQuestion = () => {
 
       setQuestion("");
       setResponse("");
-      navigate('/FAQ');
+      navigate("/FAQ");
     } catch (err) {
       console.error(err);
     }
@@ -33,7 +35,7 @@ const AddQuestion = () => {
   return (
     <div className="page-container">
       <h3 className="page-header">Add A Question</h3>
-      <form onSubmit={handleFormSubmit} >
+      <form onSubmit={handleFormSubmit}>
         <div className="input-fields">
           <span className="form-header">Question:</span>
           <input
@@ -55,7 +57,9 @@ const AddQuestion = () => {
             onChange={(e) => setResponse(e.target.value)}
             required
           />
-          <button className="save-question" to="/FAQ">Save</button>
+          <button className="save-question" to="/FAQ">
+            Save
+          </button>
         </div>
         {error && (
           <div className="bg-danger text-white p-3">{error.message}</div>

@@ -16,17 +16,6 @@ const jobSchema = new Schema(
       type: Number,
     },
 
-    // contactPeople: ["contactSchema"],
-
-    //   communicationLogs: [
-    // communicationLogsSchema
-    // // incoming vs. outgoing
-    // // time and date stamp
-    // // form of communication: eg email vs. phone vs. in person
-    // // note:
-    // // next step
-    //   ]
-
     offerMade: {
       type: Boolean,
     },

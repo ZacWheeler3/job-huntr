@@ -43,10 +43,12 @@ const resolvers = {
     },
     questions: async (_parent, args, context) => {
       if (context.user) {
-        const {savedQuestions} = await User.findOne({_id:context.user._id}).populate("savedQuestions");
-        return savedQuestions
+        const { savedQuestions } = await User.findOne({
+          _id: context.user._id,
+        }).populate("savedQuestions");
+        return savedQuestions;
       }
-      throw AuthenticationError
+      throw AuthenticationError;
     },
     question: async (_parent, { _id }) => {
       return CommonQuestions.findOne({ _id });
@@ -242,7 +244,7 @@ const resolvers = {
         question,
         response,
       });
-      
+
       await User.findOneAndUpdate(
         { _id: context.user._id },
         { $addToSet: { savedQuestions: newQuestion._id } },
@@ -292,7 +294,6 @@ const resolvers = {
 
       await User.findOneAndUpdate(
         { _id: context.user._id },
-        // THIS might be an issue, might need to destructure ETI
         { employmentTerms: EmploymentTermsInput },
         { new: true, runValidators: true }
       );

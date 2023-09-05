@@ -7,14 +7,14 @@ export default function ErrorPage() {
 
   return (
     <div id="error-page">
-      <img src={mario} alt="Description of the image" style={{
-        width: "auto",
-        height: "100vh"
-      }
-}/>
-     
-        {/* <i>{error.statusText || error.message}</i> */}
-      
+      <img
+        src={mario}
+        alt="Description of the image"
+        style={{
+          width: "auto",
+          height: "100vh",
+        }}
+      />
     </div>
   );
 }

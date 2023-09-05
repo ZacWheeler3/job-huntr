@@ -5,17 +5,16 @@ import { UPDATE_JOB } from "../../utils/mutations";
 import { QUERY_ME } from "../../utils/queries";
 
 import Auth from "../../utils/auth";
-//Need to pass jobId in as a prop
-const UpdateJobForm = ({jobId}) => {
+
+const UpdateJobForm = ({ jobId }) => {
   const [company, setCompany] = useState("");
   const [role, setRole] = useState("");
   const [advertisedSalary, setAdvertisedSalary] = useState("");
   const [offerMade, setOfferMade] = useState(false);
 
-  const [updateJob, { error }] = useMutation(UPDATE_JOB, {refetchQueries: [
-    QUERY_ME,
-    'me'
-  ]});
+  const [updateJob, { error }] = useMutation(UPDATE_JOB, {
+    refetchQueries: [QUERY_ME, "me"],
+  });
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
@@ -41,10 +40,9 @@ const UpdateJobForm = ({jobId}) => {
 
   return (
     <div>
-     
       {Auth.loggedIn() ? (
         <>
-          <form  className="form-background" onSubmit={handleFormSubmit}>
+          <form className="form-background" onSubmit={handleFormSubmit}>
             <div className="form-group">
               <input
                 type="text"
