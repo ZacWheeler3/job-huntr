@@ -56,7 +56,6 @@ export const QUERY_QUESTION_BY_ID = gql`
       _id
       question
       response
-      
     }
   }
 `;
@@ -75,7 +74,7 @@ export const QUERY_ME = gql`
         offerMade
         createdAt
       }
-      savedQuestions{
+      savedQuestions {
         question
         response
       }

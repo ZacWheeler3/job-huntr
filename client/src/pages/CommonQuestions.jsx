@@ -11,10 +11,9 @@ const CommonQuestions = () => {
   const [response, setResponse] = useState("");
   const [addedQuestions, setAddedQuestions] = useState([]);
   const { loading, data } = useQuery(QUERY_QUESTION);
-  const [addQuestion, { error }] = useMutation(ADD_QUESTION, {refetchQueries: [
-    QUERY_QUESTION,
-    'questions'
-  ]});
+  const [addQuestion, { error }] = useMutation(ADD_QUESTION, {
+    refetchQueries: [QUERY_QUESTION, "questions"],
+  });
 
   if (loading) return <p>Loading...</p>;
 
@@ -84,18 +83,18 @@ const CommonQuestions = () => {
         </p>
       )}
 
-      <ul >
+      <ul>
         {questions.map((item, index) => (
           <li key={index}>
             Question: {item.question}, Response: {item.response}
             <Link
-        to={{
-          pathname: `/updatequestion/${item._id}`,
-          state: { id: item._id }
-        }}
-      >
-        Update Button
-      </Link>
+              to={{
+                pathname: `/updatequestion/${item._id}`,
+                state: { id: item._id },
+              }}
+            >
+              Update Button
+            </Link>
           </li>
         ))}
       </ul>

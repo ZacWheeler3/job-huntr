@@ -7,17 +7,16 @@ import { LuUserPlus as UserIcon } from "react-icons/lu";
 
 import Auth from "../../utils/auth";
 
-const UpdateContactPersonForm = ({_id}) => {
+const UpdateContactPersonForm = ({ _id }) => {
   const [name, setContactPersonName] = useState("");
   const [role, setContactPersonRole] = useState("");
   const [phone, setContactPersonPhone] = useState("");
   const [email, setContactPersonEmail] = useState("");
   const [notes, setContactPersonNotes] = useState("");
 
-  const [updateContactPerson, { error }] = useMutation(UPDATE_CONTACT_PERSON, {refetchQueries: [
-    QUERY_JOB,
-    'job'
-  ]});
+  const [updateContactPerson, { error }] = useMutation(UPDATE_CONTACT_PERSON, {
+    refetchQueries: [QUERY_JOB, "job"],
+  });
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
@@ -45,13 +44,12 @@ const UpdateContactPersonForm = ({_id}) => {
 
   return (
     <div className="contact-form-container">
-     <div className="magnify-icon">
-          <h2>Update This Contact Person </h2>
-          &nbsp; <UserIcon />
-        </div>
+      <div className="magnify-icon">
+        <h2>Update This Contact Person </h2>
+        &nbsp; <UserIcon />
+      </div>
       {Auth.loggedIn() ? (
         <>
-        
           <form className="form-background" onSubmit={handleFormSubmit}>
             <div className="form-group">
               <input

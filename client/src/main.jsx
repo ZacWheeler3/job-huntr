@@ -51,7 +51,6 @@ const router = createBrowserRouter([
         element: <Job />,
       },
 
-    
       {
         path: "/signup",
         element: <Signup />,

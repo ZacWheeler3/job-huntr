@@ -52,16 +52,6 @@ const ComLog = ({ comLogs = [], jobId }) => {
 
   return (
     <>
-      {/* <div className="form-group">
-        <button
-          className="add-comm-button"
-          type="submit"
-          onClick={addLogButtonHandler}
-        >
-          Add Communication
-        </button>
-      </div> */}
-
       <div>
         <div className="magnify-icon">
           <h2>Add a Communication </h2>
@@ -89,7 +79,8 @@ const ComLog = ({ comLogs = [], jobId }) => {
             </select>
           </div>
           <div className="form-group">
-            <input className="comm-log-content-section"
+            <input
+              className="comm-log-content-section"
               type="text"
               name="content"
               placeholder="content"
@@ -99,7 +90,8 @@ const ComLog = ({ comLogs = [], jobId }) => {
             />
           </div>{" "}
           <div className="form-group">
-            <select className="single-job-dropdown"
+            <select
+              className="single-job-dropdown"
               name="direction"
               placeholder="Direction"
               value={direction}
@@ -128,7 +120,6 @@ const ComLog = ({ comLogs = [], jobId }) => {
           </div>
         ) : (
           comLogs.map((comLog, index) => {
-            console.log(comLog);
             return (
               <div className="com-logs" key={index}>
                 <div className="com-text">

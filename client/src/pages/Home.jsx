@@ -5,7 +5,9 @@ import JobForm from "../components/JobForm";
 const Home = () => {
   return (
     <main>
-<h2>Welcome to <span>Job Huntr</span></h2>
+      <h2>
+        Welcome to <span>Job Huntr</span>
+      </h2>
     </main>
   );
 };

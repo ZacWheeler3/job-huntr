@@ -4,7 +4,6 @@ import { useMutation } from "@apollo/client";
 import { ADD_JOB } from "../../utils/mutations";
 import { QUERY_ME } from "../../utils/queries";
 
-
 import Auth from "../../utils/auth";
 
 const JobForm = () => {
@@ -13,11 +12,9 @@ const JobForm = () => {
   const [advertisedSalary, setAdvertisedSalary] = useState("");
   const [offerMade, setOfferMade] = useState(false);
 
-  const [addJob, { error }] = useMutation(ADD_JOB, {refetchQueries: [
-    QUERY_ME,
-    'me'
-
-  ]});
+  const [addJob, { error }] = useMutation(ADD_JOB, {
+    refetchQueries: [QUERY_ME, "me"],
+  });
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
@@ -42,7 +39,6 @@ const JobForm = () => {
 
   return (
     <div>
-      
       {Auth.loggedIn() ? (
         <>
           <form onSubmit={handleFormSubmit}>

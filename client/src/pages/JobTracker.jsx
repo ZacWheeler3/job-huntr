@@ -14,15 +14,13 @@ const JobTracker = () => {
   const [addButton, setAddButton] = useState(false);
   const [selectedJobId, setSelectedJobId] = useState(null);
   const [updatedJobId, setUpdatedJobId] = useState(null);
-  const [deleteJob] = useMutation(DELETE_JOB, {refetchQueries: [
-    QUERY_ME,
-    'me'
-  ]});
+  const [deleteJob] = useMutation(DELETE_JOB, {
+    refetchQueries: [QUERY_ME, "me"],
+  });
 
-
-  const navigate= useNavigate();
+  const navigate = useNavigate();
   const handleJobClick = (jobId) => {
-    navigate(jobId)
+    navigate(jobId);
   };
 
   const handleJobUpdate = (jobId) => {
@@ -55,9 +53,7 @@ const JobTracker = () => {
 
   return (
     <div className="page-container">
-      <h3 className="page-header">
-        Job Tracker
-      </h3>
+      <h3 className="page-header">Job Tracker</h3>
       <table className="jobs">
         <tr>
           <th>Company</th>
@@ -73,7 +69,11 @@ const JobTracker = () => {
               <td>{job.role}</td>
               <td>{formatTimestamp(job.createdAt)}</td>
               <td>
-                <input className="custom-checkbox" type="checkbox" id="checkbox" />
+                <input
+                  className="custom-checkbox"
+                  type="checkbox"
+                  id="checkbox"
+                />
               </td>
               <td>
                 <button
@@ -106,11 +106,10 @@ const JobTracker = () => {
         Add A Job
       </button>
       <div className="add-job-body">
-      
-      {addButton && <JobForm />}
-      {selectedJobId && <Job jobId={selectedJobId} />}
-      
-      {updatedJobId && <UpdateJobForm jobId={updatedJobId} />}
+        {addButton && <JobForm />}
+        {selectedJobId && <Job jobId={selectedJobId} />}
+
+        {updatedJobId && <UpdateJobForm jobId={updatedJobId} />}
       </div>
     </div>
   );
