@@ -14,7 +14,7 @@ const Header = () => {
           <Link className="text-light" to="/JobTracker">
             <img src={Logo} alt="Job Huntr" />
           </Link>
-          <p>Job search made easy!</p>
+          <p>Job Search Made Easy!</p>
         </div>
         <div className="navbar-button">
           {Auth.loggedIn() ? (
